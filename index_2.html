@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarah — Content Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F8F7F4;
+      --bg-card:   #EFECE5;
+      --dark:      #1C1B19;
+      --mid:       #5A5650;
+      --accent:    #C0562A;
+      --rule:      #D4CFCA;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 32px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #F8F7F4 !important; color: #1C1B19 !important; }
+      nav { background: #F8F7F4 !important; }
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--mid);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--dark);
+      color: var(--bg);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--accent); }
+
+    /* ── THROUGHLINE ── */
+    .throughline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 6px;
+      padding: 20px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .throughline span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      white-space: nowrap;
+    }
+
+    .throughline .arrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* ── RULE ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── CREDENTIALS BAR ── */
+    .credentials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .credential {
+      padding: 40px 0 40px;
+      border-right: 1px solid var(--rule);
+      padding-right: 48px;
+      padding-left: 0;
+    }
+
+    .credential:first-child { padding-left: 0; }
+    .credential:last-child { border-right: none; padding-right: 0; padding-left: 48px; }
+    .credential:nth-child(2) { padding-left: 48px; }
+
+    .credential-number {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .credential-label {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--mid);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-pull {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--dark);
+      position: sticky;
+      top: 100px;
+    }
+
+    .about-pull em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-body p {
+      color: var(--mid);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* ── WORK ── */
+    .work-section { background: var(--bg-card); }
+
+    .work-section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .work-card {
+      background: var(--bg);
+      padding: 40px;
+      transition: background 0.2s;
+    }
+
+    .work-card:hover { background: #E8E4DC; }
+
+    .work-card--featured {
+      grid-column: 1 / -1;
+      border-left: 3px solid var(--accent);
+    }
+
+    .work-card-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .work-card-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .work-card-desc {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .work-card-footer {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: 0.5;
+    }
+
+    /* ── CONTACT ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .contact-headline {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--dark);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s;
+    }
+
+    .contact-link:first-child { border-top: 1px solid var(--rule); }
+    .contact-link:hover { color: var(--accent); }
+
+    .contact-link-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .contact-link-value {
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 20px 24px; }
+      .nav-links { gap: 20px; }
+
+      .hero { padding: 64px 24px 56px; }
+
+      .credentials {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+
+      .credential {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 28px 0 !important;
+      }
+
+      .credential:last-child { border-bottom: none; }
+
+      section { padding: 64px 24px; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .about-pull { position: static; font-size: 1.35rem; }
+
+      .work-section-inner { padding: 64px 24px; }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      footer { padding: 28px 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-name" href="#">Sarah Haas</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Content Design &amp; UX Strategy</p>
+    <h1 class="hero-headline">My background is in journalism.<br>My discipline is <em>content design.</em><br>I was doing the work before it had a name.</h1>
+    <p class="hero-sub">For over twenty years I've been doing the same thing in different rooms — finding the signal, making it clear, and getting the right people to the other side of complexity.</p>
+    <a class="hero-cta" href="#work">See the work</a>
+  </div>
+
+  <!-- THROUGHLINE STRIP -->
+  <div class="throughline">
+    <span>Reporting</span>
+    <span class="arrow">→</span>
+    <span>Digital storytelling</span>
+    <span class="arrow">→</span>
+    <span>Mobile UX</span>
+    <span class="arrow">→</span>
+    <span>Content strategy</span>
+    <span class="arrow">→</span>
+    <span>Content design</span>
+    <span class="arrow">→</span>
+    <span>AI systems</span>
+  </div>
+
+  <hr />
+
+  <!-- CREDENTIALS -->
+  <div class="credentials">
+    <div class="credential">
+      <div class="credential-number">90%</div>
+      <div class="credential-label">Reduction in production time from AI direct-to-code string pilot at Meta</div>
+    </div>
+    <div class="credential">
+      <div class="credential-number">1B+</div>
+      <div class="credential-label">Annual page views on editorial content produced at MSN</div>
+    </div>
+    <div class="credential">
+      <div class="credential-number">$10M</div>
+      <div class="credential-label">Support cost reduction through UX content redesign at AT&amp;T</div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div class="about-pull">
+        I'm not just a content designer who learned to write buttons. I think in <em>systems.</em>
+      </div>
+      <div class="about-body">
+        <p>For over twenty years I've been doing the same thing in different rooms — finding the signal, making it clear, and getting the right people to the other side of complexity. Newsrooms. Mobile apps. Complex product systems. AI.</p>
+        <p>I'm not just a content designer who learned to write buttons. I think in systems, ask better questions, and care as much about the team making the product as the person using it.</p>
+        <p>I work at the intersection of content, systems thinking, and product strategy. I care about the flows, the friction, the moment someone almost gives up — and what it takes to get them through. That instinct came from journalism. It never left.</p>
+        <p>Language is a design tool. I know how to use it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <div class="work-section" id="work">
+    <div class="work-section-inner">
+      <p class="section-label">Selected Work</p>
+      <div class="work-grid">
+
+        <div class="work-card work-card--featured">
+          <p class="work-card-tag">Meta · Senior Content Designer · 2022–2026</p>
+          <h3 class="work-card-title">AI-Powered UX & In-App Browser Experiences</h3>
+          <p class="work-card-desc">Led content design for privacy-sensitive, revenue-critical product experiences across Facebook, Instagram, and Ads Manager — including In-App Browser, Autofill, Link History, and emerging post-click flows. Designed an AI direct-to-code string pilot with engineering that reduced production time by 90% with near-zero errors. Drove Autofill onboarding redesign with ~50% content reduction while maintaining compliance and results.</p>
+          <p class="work-card-footer">90% production time reduction · WCAG &amp; EAA accessibility strategy · Privacy-conscious UX at scale</p>
+        </div>
+
+        <div class="work-card">
+          <p class="work-card-tag">Meta · Content Strategist · 2019–2022</p>
+          <h3 class="work-card-title">Advertiser Education & Business Help Center</h3>
+          <p class="work-card-desc">Owned a 500+ article education ecosystem across 10 ads product areas. Rebuilt Targeting's content set, optimizing articles averaging 1.4M page views at 90% weighted helpfulness. Drove in-product linking strategy for a critical signal-loss launch that improved advertiser readiness and performance.</p>
+          <p class="work-card-footer">1.4M avg page views · 90% helpfulness · 500+ article suite</p>
+        </div>
+
+        <div class="work-card">
+          <p class="work-card-tag">AT&amp;T · Content Strategy · 2008–2019</p>
+          <h3 class="work-card-title">Device Help — Mobile Self-Service App</h3>
+          <p class="work-card-desc">Led UX copy and content strategy for a net-new preloaded mobile app — built 0→1 — helping millions of AT&T customers self-resolve device issues without calling support. Contributed to a 4+ App Store rating, reduced support cases by 14%, and cut support spend by $10M. Shipped 30+ error message variations and 50+ interactive tutorial flows across 70+ devices.</p>
+          <p class="work-card-footer">30M users · $10M support savings · 14% case reduction</p>
+        </div>
+
+        <div class="work-card">
+          <p class="work-card-tag">MSN · Digital Producer · 2006–2008</p>
+          <h3 class="work-card-title">Editorial & Original Programming at Scale</h3>
+          <p class="work-card-desc">Produced original editorial content and digital experiences across MSN News, Entertainment, and Music. Curated a weekly newsletter reaching 23M+ consumers generating 1B+ annual page views. Launched MSN's debut original video series, driving a 300% increase in video completion rates.</p>
+          <p class="work-card-footer">23M newsletter subscribers · 1B+ annual page views</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <div class="contact-layout">
+      <div class="contact-headline">
+        Let's talk about what you're building — and <em>who needs to understand it.</em>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:haas.sarah.e@gmail.com">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">haas.sarah.e@gmail.com</span>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/sarahehaas" target="_blank">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">linkedin.com/in/sarahehaas</span>
+        </a>
+        <a class="contact-link" href="#">
+          <span class="contact-link-label">Resume</span>
+          <span class="contact-link-value">Download PDF</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <footer>
+    <div class="footer-inner">
+      <p>Sarah Haas · Senior Content Designer &amp; UX Strategist</p>
+      <p>Open to senior IC, leadership, and AI content roles</p>
+    </div>
+  </footer>
+
+</body>
+</html>
