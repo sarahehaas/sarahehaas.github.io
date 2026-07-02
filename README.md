@@ -19,3 +19,4 @@ Static HTML/CSS/JS site built for GitHub Pages or any static host.
 - Global styles: `assets/styles.css`
 - Small archive filter interaction: `assets/script.js`
 - Headshot: `assets/sarah-haas-headshot.jpeg`
+Deploy refresh.
