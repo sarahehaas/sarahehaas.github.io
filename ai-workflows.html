@@ -1,15 +1,7 @@
-(function(){
-  const buttons = document.querySelectorAll('[data-filter]');
-  const items = document.querySelectorAll('[data-category]');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-      buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
-      button.setAttribute('aria-pressed', 'true');
-      items.forEach(item => {
-        const match = filter === 'all' || item.dataset.category.includes(filter);
-        item.style.display = match ? '' : 'none';
-      });
-    });
-  });
-})();
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI Workflows — Sarah Haas</title><link rel="stylesheet" href="styles.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html">Sarah Haas</a><nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html" aria-current="page">Portfolio</a><a href="index.html#bring">What I Bring</a><a href="about.html">About</a><a class="contact-link" href="contact.html">Contact</a></nav></div></header>
+<main id="main"><section class="page-hero"><p class="eyebrow">Meta · AI Workflow Design · Content Systems</p><h1>From content to code: designing an AI-assisted workflow for production-ready UX strings.</h1><p class="lede">I partnered with engineering to design and pilot an AI-assisted workflow that allowed content designers to add net-new UX strings directly into code — while preserving engineering review and human quality control at every step.</p><div class="case-meta"><span class="tag">85% time reduction</span><span class="tag">50→10 hrs</span><span class="tag">Near-zero errors</span></div></section>
+<section class="case-layout"><div class="stat-grid"><div class="stat"><strong>85%</strong><span>Reduction in combined content design and engineering time</span></div><div class="stat"><strong>50→10h</strong><span>Handoff-to-code completion, normalized per string</span></div><div class="stat"><strong>0</strong><span>Post-land triage, hash mismatches, or correction diffs</span></div></div>
+<div class="case-section"><div><p class="eyebrow">Challenge</p><p class="note">What the user needed to know vs. what the business needed them to do</p><h2>Content designers needed a faster way to ship strings without losing quality or review.</h2><p>The existing workflow created heavy handoff costs between content design and engineering. The business needed speed and scale. The product still needed quality, traceability, accessibility, and human judgment.</p></div><div class="placeholder-shot">workflow diagram / deck image</div></div>
+<div class="case-section"><div><p class="eyebrow">Answer</p><h2>Design a human-in-the-loop AI workflow.</h2><p>I authored the foundational prompt, shaped the workflow, and helped launch an internal skill that made the process accessible across the team. The workflow used AI for speed while preserving review, validation, and engineering oversight.</p></div><div><p class="eyebrow">Impact</p><p>Reduced combined content design and engineering time, improved production efficiency, and created a repeatable model for AI-assisted content workflows.</p><p><a class="mini-link" href="work.html">Back to portfolio →</a></p></div></div></section></main><footer class="footer"><span>© 2026 Sarah Haas</span><strong>Designing for understanding.</strong></footer></body></html>
