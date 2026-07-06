@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Autofill case study — Sarah Haas</title>
-  <meta name="description" content="A content design case study about redesigning Meta Pay Autofill save and use flows for clarity, trust, and scalable compliance.">
+  <title>Designing trust into Autofill — Sarah Haas</title>
+  <meta name="description" content="A content design case study about designing trust into Meta Pay Autofill through a scalable disclosure framework for a regulated payment experience.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,216 +27,274 @@
   <main id="main" class="case-study">
     <header class="case-hero">
       <p class="case-label">Case Study · Meta Pay Autofill · Content Design</p>
-      <h1>Less friction, more trust</h1>
-      <p class="case-dek">Redesigned the save and use payment experiences to be security-forward and user-first — cutting disclosure copy nearly in half, streamlining compliance review, and building a reusable framework for future experiments.</p>
+      <h1>Designing trust into Autofill</h1>
+      <p class="case-kicker">A scalable content framework for a regulated payment experience.</p>
+      <p class="case-dek">Autofill’s save prompts were written for legal compliance. The opportunity was to rewrite them for users — making sensitive payment moments clearer, more security-forward, and easier to scale across variants.</p>
     </header>
 
+    <section class="snapshot-strip" aria-label="Case study snapshot">
+      <div class="snapshot-grid">
+        <article><p>Role</p><strong>Lead content designer</strong></article>
+        <article><p>Scope</p><strong>Save and use flows for Meta Pay Autofill in the in-app browser</strong></article>
+        <article><p>Challenge</p><strong>Users did not understand what was saved, who had access, or why they should trust Meta with payment data.</strong></article>
+        <article><p>Contribution</p><strong>Created a reusable disclosure framework, rewrote save/use flow content, aligned legal/product/design, and consolidated review across variants.</strong></article>
+        <article><p>Impact</p><strong>46% fewer disclosure words. 58% shorter consent disclosure. Approved baseline for future experiments. No early negative regression.</strong></article>
+      </div>
+    </section>
+
     <section class="case-section">
-      <p class="case-label">Research Foundation</p>
-      <h2>UXR showed that convenience alone wasn't compelling — users needed security reassurance and clarity on who they were trusting.</h2>
+      <p class="case-label">The product surface</p>
+      <h2>Autofill saves and reuses payment and contact information across merchant websites in Meta’s in-app browser.</h2>
       <div class="case-grid two">
-        <div class="case-card">
-          <p class="case-label">What UXR told us</p>
-          <ul class="dash-list">
-            <li>Users viewed Meta as social media, not payments — a higher trust bar than Google Pay or Shop Pay.</li>
-            <li>Smaller copy changes alone would not move the needle; structural and visual changes needed to work alongside content.</li>
-            <li>Added complexity hurt conversion; the direction was toward simpler, single-action experiences.</li>
-            <li>Users wanted prominent, specific security assurances.</li>
-            <li>Many users were unsure whether the prompt came from Meta, the advertiser, or their phone.</li>
-          </ul>
-        </div>
+        <p class="case-copy">The surface spans four core flows: contact save, contact use, payment save, and payment use. It also varies across platforms, geographies, credential types, and legal/privacy requirements.</p>
+        <p class="case-copy">What made it hard was not just the number of variants. It was the moment itself: users were mid-checkout, focused on completing a purchase, and being asked to trust Meta with sensitive data for a benefit they could not use until a future visit.</p>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <p class="case-label">Why this surface was different</p>
+      <h2>Autofill needed trust before it could create convenience.</h2>
+      <div class="case-grid three">
+        <article class="case-card">
+          <span class="card-number">01</span>
+          <h3>You’re selling the future</h3>
+          <p>The user did not seek this out. Content had to make a case for a future benefit at the exact moment they were trying to finish something else.</p>
+        </article>
+        <article class="case-card">
+          <span class="card-number">02</span>
+          <h3>Trust was the blocker</h3>
+          <p>UXR showed 67% of adoption resistance was trust-driven — not utility or friction. Every word either built or eroded trust.</p>
+        </article>
+        <article class="case-card">
+          <span class="card-number">03</span>
+          <h3>It was regulated</h3>
+          <p>Payment, contact, and address data carry PII, GDPR, and policy obligations. Content errors were not just craft misses; they were compliance risks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <p class="case-label">The problem</p>
+      <h2>The existing language was accurate, but not designed to build trust.</h2>
+      <div class="case-grid two">
+        <p class="case-copy">Legal and privacy review decisions were spread across more than nine internal documents with no centralized source of truth. The reasoning behind each approved decision was not documented in one place — only the outcomes.</p>
+        <p class="case-copy">That made meaningful change difficult. You could not propose something clearer without first understanding why the original language had been required. Meanwhile, save prompts led with compliance language, and visible security reassurance was missing entirely.</p>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <p class="case-label">Research insight</p>
+      <h2>Convenience was not enough. Users needed to know who they were trusting, what would be saved, and how they could stay in control.</h2>
+      <div class="case-grid two">
         <div class="stack">
-          <div class="case-card">
-            <p class="case-label">How this shaped the approach</p>
-            <p><strong>Security-forward over convenience-forward</strong> — lead with encryption and control, not speed.</p>
-            <ul class="dash-list compact">
-              <li>Shorter, simpler, scannable — reduced disclosure text 46%.</li>
-              <li>User agency over passive disclosure — “you manage,” not “can be managed.”</li>
-              <li>Grounded every content choice in what users said they needed.</li>
-            </ul>
-          </div>
-          <div class="case-card">
-            <p class="case-label">Preferred terminology · N=198</p>
-            <ul class="term-list">
-              <li><strong>“CVV”</strong> over “security code” <span>clearest label</span></li>
-              <li><strong>“Confirm”</strong> over other CTAs <span>108/198 preferred</span></li>
-              <li><strong>“Autofill”</strong> over other feature names <span>129/198 preferred</span></li>
-              <li><strong>“Encrypted and secure”</strong> over other trust messages <span>95/198 preferred</span></li>
-            </ul>
-          </div>
+          <article class="case-card"><h3>Users did not see Meta as a payments brand</h3><p>That raised the trust bar compared with dedicated payment products.</p></article>
+          <article class="case-card"><h3>Users wanted specific security reassurance</h3><p>Not just shorter copy. They needed to know their information was protected.</p></article>
+          <article class="case-card"><h3>Added complexity hurt conversion</h3><p>The experience needed to get simpler, not more explanatory.</p></article>
         </div>
+        <article class="case-card">
+          <p class="case-label">Preferred terminology · N=198</p>
+          <ul class="term-list">
+            <li><strong>“CVV”</strong> over “security code” <span>clearest label</span></li>
+            <li><strong>“Confirm”</strong> over other CTAs <span>108/198 preferred</span></li>
+            <li><strong>“Autofill”</strong> over other feature names <span>129/198 preferred</span></li>
+            <li><strong>“Encrypted and secure”</strong> over other trust messages <span>95/198 preferred</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section muted-block">
+      <p class="case-label">The content strategy</p>
+      <h2>Four decisions shaped the system.</h2>
+      <div class="case-grid four">
+        <article class="case-card"><span class="card-number">01</span><h3>Lead with security, not speed</h3><p>Trust was the blocker. Security messaging came first.</p></article>
+        <article class="case-card"><span class="card-number">02</span><h3>Give users agency</h3><p>“You manage,” not “can be managed.” Control framing over compliance framing.</p></article>
+        <article class="case-card"><span class="card-number">03</span><h3>Fewer words, clearer layers</h3><p>Reduce cognitive load without losing legal coverage.</p></article>
+        <article class="case-card"><span class="card-number">04</span><h3>Build for reuse</h3><p>One approved baseline instead of one-off reviews for every experiment.</p></article>
       </div>
     </section>
 
     <div class="part-heading">
       <div>
-        <span>Part 1</span>
-        <h2>Save flow</h2>
-        <p>The save prompt emphasized compliance over the user — dense, passive, and missing the security reassurance users actually needed.</p>
+        <span>Content move 1</span>
+        <h2>A scalable disclosure framework</h2>
+        <p>I audited existing guidance and built a single disclosure architecture covering vault/non-vault, US/ROW, and EU/GDPR variants — so future experiments could start from an approved baseline instead of starting over.</p>
       </div>
     </div>
 
     <section class="case-section">
-      <p class="case-label">What I Did</p>
+      <p class="case-label">What I did</p>
       <div class="action-list">
         <article>
           <span>01</span>
-          <h3>Audited product guidance</h3>
-          <p>Reviewed 10 PXFN document resources and 18+ differentiating product experiences to deeply understand the reasoning behind each compliance decision — not just what was approved, but why.</p>
+          <h3>Audited the regulatory reasoning</h3>
+          <p>Reviewed 10+ PXFN resources and 18+ differentiating product experiences to understand not just what had been approved, but why.</p>
         </article>
         <article>
           <span>02</span>
-          <h3>Proposed content changes grounded in research</h3>
-          <p>Shifted from compliance-first to user-first framing throughout. Built proposals around what UXR told us users actually needed to feel secure and confident.</p>
+          <h3>Shifted the language strategy</h3>
+          <p>Proposed content changes that moved from compliance-first to user-first while preserving legal and privacy coverage.</p>
         </article>
         <article>
           <span>03</span>
-          <h3>Built a single reusable disclosure architecture</h3>
-          <p>One framework covering all variants: vault/non-vault, US/ROW/EU/GDPR, across Android and iOS. Around 57 strings tracked across the surface in 6 variant combinations.</p>
+          <h3>Created one reusable architecture</h3>
+          <p>Built a framework that could scale across platforms, geographies, and credential states — reducing review overhead for subsequent work.</p>
         </article>
       </div>
     </section>
 
+    <div class="part-heading muted-section">
+      <div>
+        <span>Content move 2</span>
+        <h2>Save flow</h2>
+        <p>The save prompt needed to build trust in the moment: clearer value, visible security, shorter disclosures, and stronger user agency.</p>
+      </div>
+    </div>
+
     <section class="case-section">
-      <p class="case-label">Key Changes</p>
-      <p class="section-note">Four of the highest-impact content updates across the save experience.</p>
+      <p class="case-label">What changed</p>
       <div class="before-after-stack">
         <article class="before-after-card">
           <div class="change-title">Headline</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote>“Save card for next time?”</blockquote><p>Neutral question — no value prop.</p></div>
+            <div><span class="pill before">Before</span><blockquote>“Save card for next time?”</blockquote><p>Neutral question; no clear value prop.</p></div>
             <div><span class="pill after">After</span><blockquote>“Save card for faster checkout?”</blockquote><p>Transactional → value-driven.</p></div>
           </div>
         </article>
         <article class="before-after-card">
           <div class="change-title">Security messaging</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote class="muted-quote">Not present in original</blockquote><p>No trust signal at the moment of save.</p></div>
-            <div><span class="pill after">After</span><blockquote>“Your info will be encrypted and securely saved.”</blockquote><p>Added to directly address users’ top concern.</p></div>
+            <div><span class="pill before">Before</span><blockquote class="muted-quote">Not present</blockquote><p>No trust signal at the moment of save.</p></div>
+            <div><span class="pill after">After</span><blockquote>“Your info will be encrypted and securely saved.”</blockquote><p>Directly addressed users’ top concern.</p></div>
           </div>
         </article>
         <article class="before-after-card">
           <div class="change-title">Footer disclosure</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote>“By tapping Save, this information, including your CVV, will be saved and synced with Meta Pay, where it can be managed. Meta's payment Terms and Policies apply.”</blockquote><p>63 words — passive voice, heavy legal jargon.</p></div>
-            <div><span class="pill after">After</span><blockquote>“Tapping Save saves your info (except CVV) in Accounts Center, where you manage it. Meta's payment Terms and Policies apply.”</blockquote><p>26 words — active voice, direct and clear. 58% reduction.</p></div>
+            <div><span class="pill before">Before</span><blockquote>“By tapping Save, this information, including your CVV, will be saved and synced with Meta Pay, where it can be managed. Meta's payment Terms and Policies apply.”</blockquote><p>63 words — passive voice, heavy legal framing.</p></div>
+            <div><span class="pill after">After</span><blockquote>“Tapping Save saves your info (except CVV) in Accounts Center, where you manage it. Meta's payment Terms and Policies apply.”</blockquote><p>26 words — active voice, direct. 58% reduction.</p></div>
           </div>
         </article>
-        <article class="before-after-card">
-          <div class="change-title">Primary CTA</div>
-          <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote>“Save”</blockquote><p>Functional, but did not add to trust.</p></div>
-            <div><span class="pill after">After</span><blockquote>“Save securely”</blockquote><p>Adds trust reinforcement at the moment of action.</p></div>
-          </div>
-        </article>
-      </div>
-
-      <p class="case-callout">The existing language had three problems: passive where users needed agency, compliance-forward where users needed reassurance, and twice as long as it needed to be. The direction: active voice, lead with encryption and control, give users the action — not just the disclosure.</p>
-
-      <div class="breakdown-table">
-        <div class="row header"><span>Element</span><span>Before</span><span>After</span><span>The Thinking</span></div>
-        <div class="row"><span>Headline</span><span>“Save card for next time?”</span><span>“Save card for faster checkout?”</span><span>Transactional → value-driven. Users are mid-checkout — give them a reason.</span></div>
-        <div class="row"><span>Security messaging</span><span>Not present</span><span class="accent-text">“Your info will be encrypted and securely saved.”</span><span>Trust signal was absent entirely. UXR confirmed this was the highest-performing message.</span></div>
-        <div class="row"><span>Dropdown label</span><span>“How your info is used and managed”</span><span>“How to manage your info &amp; how it's used”</span><span>“Can be managed” → “you manage.” Agency, not just disclosure.</span></div>
-        <div class="row word"><span>Manage section</span><span>17 words</span><span>7 words</span><span>Repetitive phrasing removed. Same information, clearer hierarchy.</span></div>
-        <div class="row word"><span>Autofill settings</span><span>33 words</span><span>21 words</span><span>One run-on sentence → two clear sentences.</span></div>
-        <div class="row word"><span>Recommendations</span><span>28 words</span><span>19 words</span><span>Conditional phrasing → declarative.</span></div>
-        <div class="row"><span>CTA</span><span>“Save”</span><span>“Save securely”</span><span>Reinforce trust at the exact moment users commit.</span></div>
-        <div class="row word"><span>Footer disclosure</span><span>63 words</span><span>26 words</span><span>Passive-voice legal block → active, direct, same legal coverage.</span></div>
       </div>
     </section>
 
     <section class="case-section">
-      <p class="case-label">Before &amp; After</p>
-      <p class="section-note">Left: original save prompt. Right: Variant 1 new card visual and Variant 2 security messaging.</p>
+      <p class="case-label">Save flow before / after</p>
+      <p class="section-note">These exports are pulled from the working deck so the case study can start using real product visuals while we keep refining the final Figma assets.</p>
       <figure class="screenshot-frame">
-        <img src="image-4.png" alt="Side-by-side comparison of the original Meta Pay save card prompt and the redesigned variants">
+        <img src="save-flow-before-after.png" alt="Save flow comparison showing the original save prompt and two redesigned variants">
       </figure>
+      <div class="mini-media-grid">
+        <figure><img src="save-control-flow.gif" alt="Original save flow animation"><figcaption>Before</figcaption></figure>
+        <figure><img src="save-card-visual-flow.gif" alt="Save flow variant with card visual animation"><figcaption>After: card visual</figcaption></figure>
+        <figure><img src="save-security-flow-a.gif" alt="Save flow variant with security messaging animation"><figcaption>After: security-forward</figcaption></figure>
+      </div>
     </section>
 
     <section class="case-section">
       <p class="case-label">Impact</p>
       <div class="metric-grid">
-        <article><strong>46%</strong><h3>fewer words across full disclosure</h3><p>~140 → ~75 words, same compliance coverage</p></article>
-        <article><strong>58%</strong><h3>reduction in consent disclosure</h3><p>63 → 26 words in the footer alone</p></article>
-        <article><strong>~½</strong><h3>each Layer 2 section cut</h3><p>Manage, Settings, Recommendations — all roughly halved</p></article>
+        <article><strong>46%</strong><h3>fewer words</h3><p>~140 → ~75 words across the full disclosure</p></article>
+        <article><strong>58%</strong><h3>shorter consent text</h3><p>63 → 26 words in the footer alone</p></article>
+        <article><strong>~½</strong><h3>each nested section</h3><p>Manage, Settings, and Recommendations were all roughly halved</p></article>
       </div>
-      <div class="case-card outcome-card">
-        <p class="case-label">Additional outcomes</p>
-        <ul class="dot-list">
-          <li>Final PXFN approval secured 3/25/26.</li>
-          <li>One reusable framework — future experiments start from an approved baseline.</li>
-          <li>Significantly reduced the review cycle for subsequent work.</li>
-        </ul>
+    </section>
+
+    <section class="case-section">
+      <p class="case-label">Detailed breakdown</p>
+      <p class="case-callout">The existing language had three problems: passive where users needed agency, compliance-forward where users needed reassurance, and twice as long as it needed to be.</p>
+      <div class="breakdown-table">
+        <div class="row header"><span>Element</span><span>Before</span><span>After</span><span>The Thinking</span></div>
+        <div class="row"><span>Headline</span><span>“Save card for next time?”</span><span>“Save card for faster checkout?”</span><span>Transactional → value-driven. Users are mid-checkout; give them a reason.</span></div>
+        <div class="row"><span>Security messaging</span><span>Not present</span><span class="accent-text">“Your info will be encrypted and securely saved.”</span><span>Trust signal was absent entirely. UXR confirmed this was the highest-performing trust message.</span></div>
+        <div class="row"><span>Dropdown label</span><span>“How your info is used and managed”</span><span>“How to manage your info &amp; how it's used”</span><span>“Can be managed” → “you manage.” Agency, not just disclosure.</span></div>
+        <div class="row word"><span>Manage section</span><span>17 words</span><span>7 words</span><span>Repetitive phrasing removed. Same information, clearer hierarchy.</span></div>
+        <div class="row word"><span>Autofill settings</span><span>33 words</span><span>21 words</span><span>One run-on sentence became two clear sentences.</span></div>
+        <div class="row word"><span>Recommendations</span><span>28 words</span><span>19 words</span><span>Conditional phrasing became more direct and declarative.</span></div>
+        <div class="row word"><span>Footer disclosure</span><span>63 words</span><span>26 words</span><span>Passive legal block became active, direct, and legally aligned.</span></div>
       </div>
     </section>
 
     <div class="part-heading muted-section">
       <div>
-        <span>Part 2</span>
+        <span>Content move 3</span>
         <h2>Use flow</h2>
-        <p>The CVV confirmation step was confusing and visually obscured the payment form — users didn't know what was being asked or why.</p>
+        <p>The use flow had a different problem: users were not sure what they were confirming or why. The revised flow made the CVV step more explicit and the saved-card action easier to understand.</p>
       </div>
     </div>
 
     <section class="case-section">
-      <p class="case-label">What I Did</p>
-      <div class="action-list">
-        <article>
-          <span>01</span>
-          <h3>Consolidated 4 arms into 1 review cycle</h3>
-          <p>Instead of per-experiment reviews, ran a single portfolio review — one set of reviewers, one decision log — covering all 4 Use flow experiment arms at once.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Established pre-experiment approved language</h3>
-          <p>Secured approved language before any arm went live, eliminating the back-and-forth that typically delays launches.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <p class="case-label">Key Changes</p>
-      <p class="section-note">Three targeted updates to clarify the CVV confirmation step.</p>
+      <p class="case-label">What changed</p>
       <div class="before-after-stack">
         <article class="before-after-card">
           <div class="change-title">Headline</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote>“Confirm card to use autofill?”</blockquote><p>Neutral question, did not tell users what to do.</p></div>
+            <div><span class="pill before">Before</span><blockquote>“Confirm card to use autofill?”</blockquote><p>Neutral question; did not tell users what they were confirming.</p></div>
             <div><span class="pill after">After</span><blockquote>“Enter CVV to use saved card”</blockquote><p>Clear instruction, optimized from UXR.</p></div>
           </div>
         </article>
         <article class="before-after-card">
           <div class="change-title">CVV field</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote class="muted-quote">Empty field, no placeholder</blockquote><p>No visual cue for expected input length.</p></div>
-            <div><span class="pill after">After</span><blockquote>“Enter CVV” with dynamic dots by card type</blockquote><p>Placeholder informs the user before keyboard appears.</p></div>
+            <div><span class="pill before">Before</span><blockquote class="muted-quote">Empty field</blockquote><p>No placeholder or visual cue for expected input.</p></div>
+            <div><span class="pill after">After</span><blockquote>“Enter CVV” with dynamic dots</blockquote><p>Informs the user before the keyboard appears.</p></div>
           </div>
         </article>
         <article class="before-after-card">
           <div class="change-title">Call to action</div>
           <div class="ba-columns">
-            <div><span class="pill before">Before</span><blockquote>“Confirm”</blockquote><p>Vague — does not describe the action.</p></div>
-            <div><span class="pill after">After</span><blockquote>“Use saved card”</blockquote><p>Cleaner, action-oriented, aligned with UXR preferred language.</p></div>
+            <div><span class="pill before">Before</span><blockquote>“Confirm”</blockquote><p>Vague; did not describe the action.</p></div>
+            <div><span class="pill after">After</span><blockquote>“Use saved card” / “Use card”</blockquote><p>Cleaner, action-oriented, and aligned with the task.</p></div>
           </div>
         </article>
       </div>
     </section>
 
     <section class="case-section">
-      <p class="case-label">Before &amp; After</p>
-      <p class="section-note">Left: control. Center: content + design change. Right: additional variants.</p>
-      <figure class="screenshot-frame">
-        <img src="image-8.png" alt="Side-by-side comparison of the original CVV confirmation step and redesigned use flow variants">
-      </figure>
+      <p class="case-label">Use flow before / after</p>
+      <p class="section-note">The after state is a two-step flow: the user recognizes the saved card, enters CVV, then uses the card.</p>
+      <div class="use-flow-compare">
+        <figure>
+          <p class="case-label">Before</p>
+          <img src="use-before-confirm-card.png" alt="Original use flow showing Confirm card to use autofill with an empty CVV field">
+        </figure>
+        <figure>
+          <p class="case-label">After: instruction</p>
+          <img src="use-after-enter-cvv.png" alt="Updated use flow showing Enter CVV to use saved card with dynamic CVV dots">
+        </figure>
+        <figure>
+          <p class="case-label">After: two-step flow</p>
+          <img src="use-after-flow.gif" alt="Animated redesigned use flow showing Use saved card and CVV entry">
+        </figure>
+      </div>
     </section>
 
     <section class="case-section">
-      <p class="case-label">Outcome</p>
+      <p class="case-label">Use flow outcome</p>
       <div class="metric-grid two">
-        <article><strong>1</strong><h3>review cycle</h3><p>Covered all 4 experiment arms — instead of 4 separate reviews</p></article>
-        <article><strong>7 days</strong><h3>from alignment to submission</h3><p>Verbal alignment 4/14, submitted 4/21, launch target 4/27</p></article>
+        <article><strong>1</strong><h3>review cycle</h3><p>Covered all 4 experiment arms instead of 4 separate reviews</p></article>
+        <article><strong>7 days</strong><h3>alignment to submission</h3><p>Verbal alignment 4/14, submitted 4/21, launch target 4/27</p></article>
       </div>
+    </section>
+
+    <section class="case-section">
+      <p class="case-label">A stronger baseline for future experiments</p>
+      <h2>This was not a one-off rewrite.</h2>
+      <div class="case-grid two">
+        <p class="case-copy">The work created a reusable disclosure framework across vault/non-vault, US/ROW/EU/GDPR, Android/iOS, and future Autofill variants. It reduced review friction and gave the team an approved baseline to build from.</p>
+        <p class="case-copy">Early results showed the cleaner language performed at parity with the previous version without introducing drop-off. That matters: the compliance debt was cleared, the experience got simpler, and performance held.</p>
+      </div>
+      <div class="metric-grid">
+        <article><strong>1</strong><h3>source of truth</h3><p>Consolidated scattered legal and privacy rationale into one approved framework</p></article>
+        <article><strong>46%</strong><h3>fewer words</h3><p>Same compliance coverage with significantly less cognitive load</p></article>
+        <article><strong>0</strong><h3>early regression</h3><p>Cleaner language performed at parity — a stronger baseline, not a finish line</p></article>
+      </div>
+    </section>
+
+    <section class="case-section muted-block">
+      <p class="case-label">What this shows about how I work</p>
+      <p class="reflection-copy">I’m strongest in ambiguous, high-stakes surfaces where content has to do more than explain. In this work, content had to build trust, satisfy legal requirements, support experimentation, and scale across product variants without creating new risk.</p>
+      <p class="case-copy">The no-regression result confirmed what UXR had already signaled: even well-written content cannot fully overcome a structural trust gap. The next lever is bolder — visual hierarchy, fewer decision points, and a UX that integrates instead of interrupts.</p>
     </section>
 
     <footer class="case-footer">
@@ -247,7 +305,7 @@
         <article><span>2</span><h3>Build for reuse</h3><p>Create frameworks and baselines, not one-off copy fixes.</p></article>
         <article><span>3</span><h3>Ground changes in research</h3><p>Use UXR to validate content decisions before shipping.</p></article>
       </div>
-      <blockquote>“Every future autofill experiment starts from a stronger foundation because we optimized the baseline.”</blockquote>
+      <blockquote>“Every future Autofill experiment started from a stronger foundation because we optimized the baseline.”</blockquote>
       <div class="case-footer-meta"><span>Meta Pay · Autofill Optimization · 2025–2026</span><span>Content Design</span></div>
     </footer>
   </main>
