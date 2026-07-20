@@ -1,11 +1,15 @@
-const PASSWORD = 'portfolio'; // Change this before publishing.
-const KEY = 'sarahPortfolioUnlocked';
-function unlockPortfolio(password){
-  if(password === PASSWORD){sessionStorage.setItem(KEY,'true');document.querySelector('.modal-backdrop')?.classList.remove('open');document.querySelector('.protected-content')?.classList.remove('is-locked');return true;}return false;
-}
-document.addEventListener('DOMContentLoaded',()=>{
-  const protectedContent=document.querySelector('.protected-content');
-  const modal=document.querySelector('.modal-backdrop');
-  if(protectedContent && modal && sessionStorage.getItem(KEY)!=='true'){protectedContent.classList.add('is-locked');modal.classList.add('open');}
-  document.querySelector('#portfolio-password-form')?.addEventListener('submit',e=>{e.preventDefault();const input=document.querySelector('#portfolio-password');const error=document.querySelector('.modal-error');if(!unlockPortfolio(input.value)){error.textContent='That password didn’t work. Please try again.';input.focus();}});
-});
+(function(){
+  const buttons=document.querySelectorAll('[data-filter]');
+  const items=document.querySelectorAll('[data-category]');
+  buttons.forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;buttons.forEach(b=>b.setAttribute('aria-pressed','false'));button.setAttribute('aria-pressed','true');items.forEach(item=>{item.style.display=filter==='all'||item.dataset.category.includes(filter)?'':'none';});}));
+
+  const PASSWORD='portfolio'; // Change before publishing. This is lightweight client-side gating only.
+  const overlay=document.querySelector('[data-password-overlay]');
+  if(!overlay) return;
+  const unlocked=sessionStorage.getItem('sarahPortfolioUnlocked')==='true';
+  if(unlocked){overlay.hidden=true;document.body.classList.remove('portfolio-locked');return;}
+  overlay.hidden=false;document.body.classList.add('portfolio-locked');
+  const input=overlay.querySelector('input[name="password"]');
+  setTimeout(()=>input&&input.focus(),50);
+  overlay.querySelector('[data-password-form]').addEventListener('submit',event=>{event.preventDefault();const error=overlay.querySelector('[data-password-error]');if(input.value===PASSWORD){sessionStorage.setItem('sarahPortfolioUnlocked','true');overlay.hidden=true;document.body.classList.remove('portfolio-locked');}else{error.textContent='That password did not work. Please try again or contact Sarah.';input.select();}});
+})();
