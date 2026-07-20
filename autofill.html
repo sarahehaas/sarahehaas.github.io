@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Turning trust insights into clearer Autofill experiences — Sarah Haas</title>
-  <meta name="description" content="A content design case study about content optimization and a scalable framework for a regulated global mobile browser experience across Meta apps.">
+  <title>Designing trust into Autofill — Sarah Haas</title>
+  <meta name="description" content="A content design case study about translating trust research into clearer Autofill experiences and a reusable disclosure framework.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,59 +30,87 @@
         <div class="case-tags">
           <span>Trust &amp; Privacy UX</span>
           <span>Content Optimization</span>
-          <span>Regulated Product</span>
-          <span>Global Mobile Browser</span>
           <span>Experimentation</span>
+          <span>Content Systems</span>
         </div>
-        <h1>Turning trust insights into clearer, higher-performing Autofill experiences</h1>
-        <p class="simple-subtitle">Content design and experimentation shaped by a product audit that identified trust as Autofill’s most significant adoption barrier.</p>
-        <p class="simple-intro">This work grew out of a broader product audit that identified security and privacy concerns as the leading barrier to Autofill adoption. I translated that strategic finding into clearer disclosure content, more transparent save and use flows, and a reusable framework for future experiments across Meta’s in-app browser.</p><p class="case-bridge"><a href="autofill-audit.html">Read the Autofill strategy audit that led to this work →</a></p>
-        <p class="impact-line">↗ Reduced consent language by 58%, increased purchase completion by 1.6%, and created an approved framework for future Autofill experiments without hurting adoption.</p>
+        <h1>Designing trust into Autofill</h1>
+        <p class="simple-subtitle">Translating a product-strategy finding into clearer save and use experiences—and a stronger baseline for every experiment that followed.</p>
+
+        <div class="case-snapshot-grid">
+          <div>
+            <span>Business goal</span>
+            <p>Grow adoption of Autofill across mobile checkout flows without increasing trust, compliance, or revenue risk.</p>
+          </div>
+          <div>
+            <span>My contribution</span>
+            <p>Simplified save and use experiences, strengthened trust signals, preserved legal coverage, and created reusable disclosure guidance.</p>
+          </div>
+          <div>
+            <span>Results</span>
+            <p>46% fewer disclosure words, 58% shorter consent text, 0% regression in the save experiment, and a 1.6% purchase-completion lift in a use-flow experiment.</p>
+          </div>
+        </div>
+
+        <p class="case-bridge">This work grew out of a broader product audit that identified security and privacy concerns as Autofill’s leading adoption barrier. <a href="autofill-audit.html">Read the strategy audit that led to this work →</a></p>
       </header>
 
       <figure class="simple-hero-visual">
         <img src="save-flow-before-after.png" alt="Save flow before and after comparison">
-        <figcaption>Save flow: original prompt → redesigned variants with clearer value, visual card treatment, and security-forward messaging.</figcaption>
+        <figcaption>Save flow: original prompt → redesigned variants with clearer value, stronger visual hierarchy, and security-forward messaging.</figcaption>
       </figure>
 
       <section class="simple-section">
-        <h2>The problem</h2>
-        <p>Autofill was asking users to trust Meta with sensitive payment data at a high-friction moment: checkout. The existing language was legally accurate, but it read like a compliance notice and did not clearly explain what was saved, who had access, or how users stayed in control.</p>
-        <p>The work was also hard to change. Legal and privacy guidance existed, but the rationale behind approved language was scattered across multiple documents and prior reviews. There was no shared source of truth that explained what had been approved, why it mattered, and how it should apply to future variants.</p>
-      </section>
-
-      <section class="simple-section">
-        <h2>My role</h2>
-        <p>I led content design for Autofill in H1 2026, partnering with product, design, UXR, legal/privacy, and engineering across save and use flows. The work included content strategy, research input, disclosure optimization, experiment variants, app-specific strings, approval workflows, and implementation details.</p>
-        <p>I also partnered with UXR to shape and interpret the research behind the messaging work. I contributed copy variants for study stimuli, used prior research to identify trust and comprehension gaps, and translated findings into content principles for the save and use flows.</p>
-      </section>
-
-      <section class="simple-section">
-        <h2>Approach</h2>
+        <h2>The challenge</h2>
+        <p>Autofill already delivered clear value by making future checkout faster. But to grow adoption, the opt-in moment needed to work harder: people were being asked to save payment information mid-purchase, with dense legal language and limited trust context.</p>
+        <p>The audit and supporting research made the problem clearer. Convenience was not enough. People needed to understand who they were trusting, what would be saved, how it would be protected, and how they could stay in control.</p>
         <ul class="simple-list">
-          <li>Reconstructed legal and privacy rationale from scattered guidance so reviewers, design, product, and content could work from the same frame of reference.</li>
-          <li>Shifted the content strategy from compliance-first to security-forward and user-centered.</li>
-          <li>Optimized copy across three save-flow experiment directions: value messaging, content/design optimization with a card visual, and security-forward messaging.</li>
-          <li>Created content across Facebook and Instagram versions, iOS and Android formatting rules, and regional privacy requirements.</li>
-          <li>Built reusable guidance for future app, market, eligibility, and experiment variants.</li>
+          <li>Meta was not naturally perceived as a payments brand, which raised the trust bar.</li>
+          <li>Users wanted specific security reassurance—not just shorter copy.</li>
+          <li>Added visual or interaction complexity could hurt conversion, so the experience needed to become simpler, not more explanatory.</li>
+          <li>Legal and privacy rationale was scattered across prior reviews, making every new experiment harder to approve and scale.</li>
         </ul>
       </section>
 
       <section class="simple-section">
-        <h2>Why this was more than a rewrite</h2>
-        <p>Each content decision had to work across multiple apps, product states, regions, platforms, and experiment variants. A string that referenced “Facebook” in one experience needed an Instagram-specific counterpart in another. Save and use flows also had different legal, privacy, and formatting requirements depending on whether CVV could be saved, whether the user was eligible, and which market rules applied.</p>
-        <p>In plain language, the framework had to support flows where Meta could save CVV and flows where CVV could not be saved or the user was not eligible; U.S., rest-of-world, and stricter European data-privacy requirements; Facebook and Instagram app language; iOS and Android formatting rules; and multiple experiment variants across value messaging, visual/card treatment, and security-forward content.</p>
-        <p>That made content quality inseparable from content operations: tracking strings, variant logic, approvals, and implementation details mattered as much as the words themselves.</p>
+        <h2>My role</h2>
+        <p>I led content design for Autofill save and use flows, partnering with product design, UXR, product, engineering, legal, and privacy. I translated research into content strategy, redesigned the strings and disclosure hierarchy, created experiment variants, and built a reusable source of truth that could support future work across apps, platforms, markets, and eligibility states.</p>
       </section>
 
       <section class="simple-section">
-        <h2>Content optimization: making the moment clearer</h2>
-        <p>The existing language had three problems: passive where users needed agency, compliance-forward where users needed reassurance, and twice as long as it needed to be. The direction was active voice, encryption and control, and a clearer action — not just a disclosure.</p>
+        <h2>Approach</h2>
+        <div class="principle-grid">
+          <article>
+            <span>01</span>
+            <h3>Understand the why before changing a word</h3>
+            <p>I reconstructed the legal, privacy, and product rationale behind the existing experience instead of treating approved language as an untouchable artifact.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Ground decisions in research</h3>
+            <p>UXR findings shaped the hierarchy: lead with specific security reassurance, make the value exchange visible, and avoid adding complexity.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Give people agency</h3>
+            <p>I replaced passive disclosure framing with direct language about what people were doing, what Meta would save, and where they could manage it.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Build for reuse and legal review</h3>
+            <p>I created an approved baseline that could flex across product variants without forcing every team to reconstruct the reasoning from scratch.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="simple-section">
+        <p class="section-kicker">Impact 1 · Content optimization</p>
+        <h2>Simplifying the decision moment</h2>
+        <p>The work shifted the experience from compliance-first language to clearer, trust-forward product content. It reduced cognitive load without removing legal coverage or adding unsupported promises.</p>
 
         <div class="cdt">
           <div class="cdt-intro">
-            <h3>Content decisions</h3>
-            <p>The changes below show how the save flow moved from compliance-heavy language to clearer, trust-building product language while preserving legal coverage.</p>
+            <h3>Selected content decisions</h3>
+            <p>Each change addressed a specific problem surfaced by research or product behavior.</p>
           </div>
           <table>
             <thead>
@@ -90,132 +118,120 @@
                 <th class="c-el h-el">Element</th>
                 <th class="c-before h-before">Before</th>
                 <th class="c-after h-after">After</th>
-                <th class="c-think h-think">The thinking</th>
+                <th class="c-think h-think">Why it changed</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="c-el">Headline</td>
+                <td class="c-el">Save headline</td>
                 <td class="c-before">“Save card for next time?”</td>
                 <td class="c-after">“Save card for faster checkout?”</td>
-                <td class="c-think">Transactional <span class="ar">→</span> value-driven. Users are mid-checkout — give them a reason.</td>
+                <td class="c-think">Added a clear, immediate reason to opt in without overpromising.</td>
               </tr>
               <tr>
-                <td class="c-el">Security messaging</td>
+                <td class="c-el">Security message</td>
                 <td class="c-before">Not present</td>
                 <td class="c-after">“Your info will be encrypted and securely saved.”</td>
-                <td class="c-think">Trust signal was absent entirely. UXR confirmed this was the highest-performing message.</td>
+                <td class="c-think">Placed specific reassurance at the moment users were deciding whether to trust Meta.</td>
               </tr>
               <tr>
-                <td class="c-el">Dropdown label</td>
-                <td class="c-before">“How your info is used and managed”</td>
-                <td class="c-after">“How to manage your info &amp; how it’s used”</td>
-                <td class="c-think">“Can be managed” <span class="ar">→</span> “you manage.” Agency, not just disclosure.</td>
+                <td class="c-el">Consent footer</td>
+                <td class="c-before">63-word passive legal block</td>
+                <td class="c-after">26-word active disclosure</td>
+                <td class="c-think">Preserved legal coverage while making the action, storage, and control model easier to understand.</td>
               </tr>
               <tr>
-                <td class="c-el">Manage section</td>
-                <td class="c-before">17 words</td>
-                <td class="c-after">7 words</td>
-                <td class="c-think">Repetitive phrasing removed. Same information, clearer hierarchy.</td>
+                <td class="c-el">Use-flow headline</td>
+                <td class="c-before">“Confirm card to use autofill?”</td>
+                <td class="c-after">“Enter CVV to use saved card”</td>
+                <td class="c-think">Replaced a vague confirmation request with the exact next step.</td>
               </tr>
               <tr>
-                <td class="c-el">Autofill settings</td>
-                <td class="c-before">33 words</td>
-                <td class="c-after">21 words</td>
-                <td class="c-think">One run-on sentence <span class="ar">→</span> two clear sentences.</td>
-              </tr>
-              <tr>
-                <td class="c-el">Recommendations</td>
-                <td class="c-before">28 words</td>
-                <td class="c-after">19 words</td>
-                <td class="c-think">Conditional phrasing (“we may use…”) <span class="ar">→</span> declarative.</td>
-              </tr>
-              <tr>
-                <td class="c-el">CTA</td>
-                <td class="c-before">“Save”</td>
-                <td class="c-after">“Save securely”</td>
-                <td class="c-think">Reinforce trust at the exact moment users commit.</td>
-              </tr>
-              <tr>
-                <td class="c-el">Footer disclosure</td>
-                <td class="c-before">63 words</td>
-                <td class="c-after">26 words</td>
-                <td class="c-think">More than 50% shorter: passive legal block <span class="ar">→</span> active, direct, same legal coverage.</td>
+                <td class="c-el">Primary action</td>
+                <td class="c-before">“Confirm”</td>
+                <td class="c-after">“Use saved card”</td>
+                <td class="c-think">Named the action people were taking instead of asking them to confirm an unclear state.</td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <div class="simple-metrics">
+          <article>
+            <strong>46%</strong>
+            <span>fewer disclosure words across the full save flow</span>
+          </article>
+          <article>
+            <strong>58%</strong>
+            <span>shorter consent footer with the same legal coverage</span>
+          </article>
+          <article>
+            <strong>0%</strong>
+            <span>regression in the save experiment, establishing a cleaner baseline</span>
+          </article>
+        </div>
       </section>
 
       <section class="simple-section">
-        <h2>Scalable framework: making the system reusable</h2>
-        <p>The framework was not just about making one prompt shorter. It created a shared source of truth for future work: what had been approved, why it mattered, and how the same logic should apply across apps, markets, eligibility states, and experiment variants.</p>
-        <ul class="simple-list">
-          <li>Flows where Meta could save CVV, plus flows where CVV could not be saved or the user was not eligible.</li>
-          <li>U.S., rest-of-world, and stricter European data-privacy requirements.</li>
-          <li>Facebook and Instagram versions of the same experience.</li>
-          <li>iOS and Android formatting differences.</li>
-          <li>Three save-flow experiment directions: value, card/design optimization, and security-forward messaging.</li>
-        </ul>
-      </section>
-
-      <section class="simple-section">
-        <h2>Use flow: clarifying the CVV step</h2>
-        <p>The use flow had a different problem: users were not sure what they were confirming or why. The revised content made the CVV step more explicit and the saved-card action easier to understand.</p>
-        <ul class="simple-list">
-          <li>Changed “Confirm card to use autofill?” to “Enter CVV to use saved card.”</li>
-          <li>Added clearer CVV guidance and dynamic input cues.</li>
-          <li>Changed “Confirm” to “Use saved card” / “Use card.”</li>
-          <li>Consolidated four experiment arms into one review cycle.</li>
-        </ul>
-
+        <h2>Clarifying the use flow</h2>
+        <p>The use flow had a different problem: people were asked to “confirm” a saved card while looking at an empty CVV field. The revised experience made the next step explicit, added better input cues, and named the action clearly.</p>
         <div class="simple-media-pair">
           <figure>
             <img src="use-before-confirm-card.png" alt="Original use flow showing Confirm card to use autofill with an empty CVV field">
             <figcaption>Before: vague confirmation language and an empty CVV field.</figcaption>
           </figure>
           <figure>
-            <img src="use-after-flow.gif" alt="Animated redesigned use flow showing Use saved card and CVV entry">
-            <figcaption>After: a two-step flow that makes saved-card selection and CVV entry clearer.</figcaption>
+            <img src="use-after-flow.gif" alt="Animated redesigned use flow showing saved-card selection and CVV entry">
+            <figcaption>After: a clearer sequence for selecting the saved card and entering CVV.</figcaption>
           </figure>
+        </div>
+        <div class="simple-metrics">
+          <article>
+            <strong>1.6%</strong>
+            <span>increase in purchase completion in the use-flow experiment</span>
+          </article>
+          <article>
+            <strong>4</strong>
+            <span>experiment arms covered in one consolidated review cycle</span>
+          </article>
         </div>
       </section>
 
       <section class="simple-section">
-        <h2>Impact</h2>
-        <div class="simple-metrics">
-          <article>
-            <strong>46%</strong>
-            <span>fewer words across the full disclosure</span>
-          </article>
-          <article>
-            <strong>58%</strong>
-            <span>reduction in consent disclosure, from 63 words to 26</span>
-          </article>
-          <article>
-            <strong>1.6%</strong>
-            <span>increase in purchase completion without hurting adoption</span>
-          </article>
-        </div>
+        <p class="section-kicker">Impact 2 · Reusable source of truth</p>
+        <h2>A stronger baseline for every future experiment</h2>
+        <p>This was not a one-off rewrite. I consolidated scattered legal, privacy, product, and content guidance into a shared framework that explained what had been approved, why it mattered, and how the same principles should apply across future variants.</p>
         <ul class="simple-list">
-          <li>Each nested disclosure section was cut roughly in half.</li>
-          <li>Future experiments could start from an approved, user-centered baseline.</li>
-          <li>The optimized experience increased purchase completion by 1.6% without hurting adoption.</li>
+          <li>Facebook and Instagram language across the in-app browser.</li>
+          <li>iOS and Android formatting and implementation differences.</li>
+          <li>U.S., rest-of-world, and stricter European privacy requirements.</li>
+          <li>Flows where CVV could be saved and flows where it could not.</li>
+          <li>Different eligibility states and experiment directions.</li>
         </ul>
-        <p>That last point matters: the work cleared compliance debt, reduced cognitive load, and gave the team a stronger baseline without sacrificing performance.</p>
+        <p>Product, design, legal, privacy, and content could align once instead of re-litigating the same decisions for every launch. Future experiments started from an approved, optimized baseline rather than a blank page.</p>
       </section>
 
-      <section class="simple-section simple-close">
-        <h2>What this demonstrates</h2>
-        <p>This work demonstrates senior content design across content optimization, trust and privacy UX, legal and regulatory influence, UXR synthesis, payments language, app-specific string systems, experimentation, and scalable content operations.</p>
+      <section class="simple-section reflection-section">
+        <p class="section-kicker">Reflection</p>
+        <h2>Content can build trust. It can’t manufacture it.</h2>
+        <p>Strong content reduces confusion, supports trust, and makes the value exchange legible. But even the strongest strings cannot fully close a structural trust gap on their own. Product impact also depends on the quality, timing, and visibility of the underlying experience.</p>
+        <p>My job was to make sure the words did their part: satisfy legal requirements, give people clearer control, support experimentation, and scale across product variants without creating new risk.</p>
       </section>
+
+      <nav class="case-pagination" aria-label="Case study navigation">
+        <a href="autofill-audit.html">← Autofill strategy audit</a>
+        <a href="accessibility.html">Next: Accessibility readiness →</a>
+      </nav>
     </article>
   </main>
 
-  <footer class="footer">
-    <span>© 2026 Sarah Haas</span>
-    <strong>Designing for understanding.</strong>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Sarah Haas</p>
+      <a href="contact.html">Get in touch</a>
+    </div>
   </footer>
+
   <script src="script.js"></script>
-<div class="password-overlay" data-password-overlay hidden><div class="password-card" role="dialog" aria-modal="true"><p class="eyebrow">Protected portfolio</p><h2>Enter the portfolio password</h2><form data-password-form><label>Password<input name="password" type="password" required></label><p class="password-error" data-password-error aria-live="polite"></p><div class="button-row"><button class="btn primary" type="submit">View case study</button><a class="btn" href="contact.html">Contact me</a></div></form></div></div></body>
+</body>
 </html>
