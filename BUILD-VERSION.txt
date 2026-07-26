@@ -1,0 +1,3 @@
+Sarah Haas portfolio validated build: 2026-07-26-r3
+Placeholder password: portfolio
+Protection: in-page overlay; no redirect/query loop.

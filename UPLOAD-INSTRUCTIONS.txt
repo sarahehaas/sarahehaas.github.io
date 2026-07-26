@@ -1,0 +1,12 @@
+UPLOAD THIS BUILD TO GITHUB
+
+1. Unzip Sarah_Haas_Portfolio_VALIDATED_FULL_REBUILD.zip on your computer.
+2. Open the unzipped folder.
+3. In GitHub, open the root of sarahehaas.github.io.
+4. Upload ALL contents from the unzipped folder (not the ZIP itself).
+5. Choose Replace for matching files and commit the upload.
+6. Wait 1–3 minutes for GitHub Pages to deploy.
+7. Test in a new private/incognito tab.
+8. Portfolio placeholder password: portfolio
+
+You do not need any earlier repair ZIPs.
