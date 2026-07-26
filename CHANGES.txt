@@ -1,0 +1,142 @@
+Sarah Haas portfolio — representative implementation pass
+Prepared: 2026-07-26
+Branch this reflects: claude/sarahehaas-github-io-connection-s14zfb
+
+SCOPE
+-----
+Per approved plan, this pass touches only: the shared CSS design system,
+shared password behavior, global navigation/footer, and the Autofill
+Strategic Audit case study (as the representative page). All other pages
+are content-unchanged; a few of them get one small markup fix described
+below because it's shared chrome, not page content.
+
+WHAT CHANGED
+
+1. styles.css — full rewrite
+   - Removed the "EDITORIAL MONOCHROME REFRESH" block that had been
+     silently overriding the site to a white/gray palette and forcing
+     filter:grayscale(1) on every case-study image. That block contained
+     a second, conflicting :root declaration that was overriding the
+     original warm color tokens.
+   - Restored the warm cream background / near-black ink / deep-teal
+     accent system as canonical, per your direction: teal used only for
+     buttons, active nav/link states, thin rules, and stat emphasis.
+   - Kept rectangular borders and no drop shadows throughout (no rounded
+     cards).
+   - Consolidated the stylesheet: removed roughly 1,500 lines of dead CSS
+     left over from at least three earlier redesign passes (a pre-"cs-*"
+     case-study system, a "Simplified Autofill case study" system, and
+     assorted unused card/grid/timeline components). Every remaining
+     selector was confirmed to be referenced by at least one current HTML
+     file before being kept.
+   - Added missing base rules for a few classes that were already in use
+     in HTML but had no real CSS behind them (.page-hero, .lede,
+     .case-layout, .stat/.stat-grid, .placeholder-shot) so Contact and the
+     two orphaned placeholder pages don't regress.
+
+2. script.js — password gate rewritten
+   - Shared unlock moved from sessionStorage to a single localStorage
+     value with an 8-hour expiration, so one password entry stays valid
+     across Portfolio and all five case studies for 8 hours, including
+     across new tabs/browser restarts within that window.
+   - Removed the dead createOverlay() fallback function and the unused
+     portfolio-filter button wiring (data-filter/data-category), neither
+     of which is referenced by any current page.
+   - No redirects, no query parameters, at any point in the flow.
+
+3. Bug found and fixed: script tag ordering
+   - Every protected page loads <script src="script.js"> BEFORE the
+     .password-overlay <div> appears in the HTML. Without deferring
+     execution, the gate script would run before the overlay exists in
+     the DOM. The old script.js masked this with its createOverlay()
+     fallback (building a duplicate overlay on the fly); removing that
+     dead code exposed the bug. Fixed by adding the `defer` attribute to
+     the script tag on every page that loads script.js, so it always runs
+     after the full document (including the overlay) has parsed.
+   - Files touched for this alone (one-line attribute change, no content
+     changes): about.html, accessibility.html, advertiser-education.html,
+     ai-workflows.html, autofill-audit.html, autofill.html, contact.html,
+     device-help.html, hxp.html, index.html, work.html.
+
+4. Cleanup (approved in prior review round)
+   - Deleted: Sarah_Haas_Portfolio_PASSWORD_LOOP_FIX.zip,
+     UPLOAD-INSTRUCTIONS.txt, BUILD-VERSION.txt.
+   - Deleted 16 root-level images that were byte-for-byte duplicates of
+     files already under assets/case-studies/ (verified via SHA-256
+     before deletion).
+   - Deleted image-4.png and image-8.png: generic "replace with real
+     Figma export" wireframe placeholders, unreferenced by any page and
+     already superseded by the real annotated assets in
+     assets/case-studies/.
+   - README.md rewritten to describe the current static-site project and
+     give local-preview instructions, replacing the old manual
+     zip-upload instructions for a workflow that's no longer in use.
+
+WHAT DID NOT CHANGE
+-------------------
+- Content and markup of about.html, contact.html, index.html (aside from
+  the defer fix), work.html (aside from the defer fix), and the other
+  four case studies (accessibility.html, ai-workflows.html, autofill.html,
+  hxp.html) — all pending a future pass per your instruction not to
+  rebuild every page yet.
+- advertiser-education.html and device-help.html remain unlinked
+  placeholders, as before.
+- portfolio.html, autofill-optimization.html, in-app-browser.html remain
+  as redirect stubs for old links.
+- The nine "not yet wired in" Autofill media assets remain unused, by
+  your decision — no new case-study content was added to justify using
+  them.
+- Capability-label wording (e.g. "I craft strategy" on the homepage vs.
+  "I shape strategy" elsewhere) is unchanged; that reconciliation is
+  scoped to a later pass that touches index.html's content.
+
+VERIFICATION PERFORMED BEFORE PACKAGING
+----------------------------------------
+1. HTML validity: every .html file run through HTML Tidy in
+   errors-only mode. Result: zero errors on all 14 files.
+   Non-blocking notes: Tidy's HTML5 profile flags aria-current and
+   aria-modal as "proprietary attributes" — both are standard, valid ARIA
+   attributes; this is a known false positive in this Tidy version, not a
+   real defect. Four "trimming empty <span>" warnings on index.html are
+   intentional decorative, aria-hidden placeholder boxes, not a bug.
+   One pre-existing, out-of-scope nit: device-help.html has two instances
+   of an unescaped "AT&T" (should be "AT&amp;T"); browsers render it fine
+   as-is, flagged here for a future content pass since device-help.html's
+   content wasn't part of this pass.
+
+2. Asset path check: every src/href in every HTML file pointing at a
+   local path was confirmed to resolve to a file that exists in this
+   ZIP. No missing images, stylesheets, or scripts.
+
+3. Fragment-link check: every same-page/cross-page #anchor link (e.g.
+   about.html#approach) was confirmed to resolve to a matching id
+   attribute on the target page. No broken anchors.
+
+4. Local link check: served the site locally and requested every
+   internal link and asset; all returned HTTP 200. The one external link
+   on the site (LinkedIn) was left unfetched by design and is listed here
+   for manual review: https://linkedin.com/in/sarahehaas
+
+5. Password-flow tests, re-run against this exact file set:
+   - Fresh visit to a protected page shows the overlay.               PASS
+   - Wrong password shows the inline error and keeps the overlay up.  PASS
+   - Correct password unlocks with no query string added to the URL.  PASS
+   - Unlock is shared: after unlocking on one case study, navigating
+     directly to a different case study or to work.html does not
+     re-prompt.                                                        PASS
+   - Manually expiring the stored unlock timestamp and reloading
+     re-shows the overlay (8-hour expiry is enforced).                 PASS
+
+HOW TO PREVIEW LOCALLY BEFORE UPLOADING
+----------------------------------------
+From the unzipped folder:
+    python3 -m http.server 8000
+Then open http://localhost:8000/ in a browser. No build step required.
+
+HOW TO PUBLISH
+--------------
+Unzip this archive and upload its full contents to the root of the
+sarahehaas.github.io repository, replacing existing files. This ZIP
+was generated from git commits 606905d and aabeea5 on branch
+claude/sarahehaas-github-io-connection-s14zfb; no git history is
+included, only the resulting file state.
