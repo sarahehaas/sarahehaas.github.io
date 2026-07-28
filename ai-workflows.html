@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Redesigning how UX content moves into code — Sarah Haas</title>
   <meta name="description" content="An AI-assisted production workflow that let Content Design author, validate, and implement UX string changes in code while Engineering retained technical review and integration ownership.">
-  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23334d50%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body class="case-body case-v2 protected-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -22,11 +26,21 @@
     </div>
   </header>
   <main id="main" class="cs-main">
+    <nav class="cs-toc" aria-label="Case study sections" data-cs-toc>
+      <p class="cs-toc-label">On this page</p>
+      <div class="cs-toc-links">
+        <a href="#ai-challenge">Challenge</a>
+        <a href="#ai-approach">Approach</a>
+        <a href="#ai-impact">Impact</a>
+        <a href="#ai-reflection">Reflection</a>
+      </div>
+    </nav>
     <header class="cs-hero">
       <div class="cs-shell">
-        <p class="cs-capability">I optimize workflows</p>
+        <p class="cs-capability">I redesign workflows</p>
         <h1>Redesigning how UX content moves into code</h1>
         <p class="cs-overview">An AI-assisted production workflow — built as a Claude Code skill — that let Content Design author, validate, and implement UX string changes directly in code while Engineering retained technical review and integration ownership.</p>
+        <div class="cs-opener"><b>Problem:</b> <span>Manual handoffs from Content Design to Engineering were producing preventable implementation errors.</span> <span class="cs-arrow" aria-hidden="true">→</span> <b>Outcome:</b> <span>Handoff-to-code time fell from 5 weeks to 3 days, with zero hash mismatches.</span></div>
       </div>
     </header>
     
@@ -121,7 +135,7 @@
     <p class="cs-section-label">Impact</p>
     <h2 id="ai-impact">Implementation moved from five weeks to three days, with errors prevented before landing.</h2>
     <p>For equal sets of 57 strings, the manual workflow produced eight correction diffs, three abandoned diffs, more than 20 Phabricator warnings, and iOS hash mismatches in 88% of strings. The AI-assisted workflow produced none of those errors.</p>
-    <p>The workflow cut handoff-to-code-complete time from five weeks to three days and moved quality checks from post-land triage to pre-land review because the person responsible for the language could verify its implementation directly. It became a reusable team capability with documented guardrails and clear human and engineering accountability.</p>
+    <p>Quality checks moved from post-land triage to pre-land review because the person responsible for the language could verify its implementation directly. The workflow became a reusable team capability with documented guardrails and clear human and engineering accountability.</p>
     <aside class="cs-honesty-note"><strong>What did not resolve immediately:</strong> Engineering reception was mixed. One partner rated the workflow 10/10 and found it easier; another rated it 7/10 and said the first pilot increased their review workload. Both rated comfort at 4/5 and agreed the approach could scale. The first run improved implementation quality and speed, but it did not remove every adoption cost.</aside>
   </div>
 </section>

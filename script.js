@@ -47,3 +47,49 @@
     input.select();
   });
 })();
+
+/* Nav scroll shadow — every page, independent of the password gate above. */
+(function () {
+  'use strict';
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
+/* Case-study sticky table of contents — active-section highlight on scroll,
+   click-to-scroll. Only runs on pages that have a [data-cs-toc] nav. */
+(function () {
+  'use strict';
+  const toc = document.querySelector('[data-cs-toc]');
+  if (!toc) return;
+
+  const links = Array.from(toc.querySelectorAll('a[href^="#"]'));
+  const sections = links
+    .map((link) => document.getElementById(link.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      event.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  function setActive() {
+    let activeId = sections[0] && sections[0].id;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top < 170) activeId = section.id;
+    }
+    links.forEach((link) => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`);
+    });
+  }
+
+  setActive();
+  window.addEventListener('scroll', setActive, { passive: true });
+})();

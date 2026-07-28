@@ -1,142 +1,147 @@
-Sarah Haas portfolio — representative implementation pass
-Prepared: 2026-07-26
+Sarah Haas portfolio — full implementation, approved editorial redesign
+Prepared: 2026-07-28
 Branch this reflects: claude/sarahehaas-github-io-connection-s14zfb
 
-SCOPE
------
-Per approved plan, this pass touches only: the shared CSS design system,
-shared password behavior, global navigation/footer, and the Autofill
-Strategic Audit case study (as the representative page). All other pages
-are content-unchanged; a few of them get one small markup fix described
-below because it's shared chrome, not page content.
+This ZIP is the complete, current file state of the site — every page,
+across all three implementation passes. It supersedes any earlier ZIP or
+CHANGES.txt from this project.
 
-WHAT CHANGED
+VISUAL SYSTEM
+-------------
+Implements the approved design-direction spec exactly: warm butter
+background (#f2ede4), Newsreader serif headlines + Public Sans body/UI
+type (loaded via Google Fonts), teal accent (#0a6b74) used for labels,
+links, active states, and stat emphasis, hairline dividers, 6-8px
+rounded corners on cards/buttons, no dark inverted bands (max two
+background colors anywhere: butter and a light teal tint).
 
-1. styles.css — full rewrite
-   - Removed the "EDITORIAL MONOCHROME REFRESH" block that had been
-     silently overriding the site to a white/gray palette and forcing
-     filter:grayscale(1) on every case-study image. That block contained
-     a second, conflicting :root declaration that was overriding the
-     original warm color tokens.
-   - Restored the warm cream background / near-black ink / deep-teal
-     accent system as canonical, per your direction: teal used only for
-     buttons, active nav/link states, thin rules, and stat emphasis.
-   - Kept rectangular borders and no drop shadows throughout (no rounded
-     cards).
-   - Consolidated the stylesheet: removed roughly 1,500 lines of dead CSS
-     left over from at least three earlier redesign passes (a pre-"cs-*"
-     case-study system, a "Simplified Autofill case study" system, and
-     assorted unused card/grid/timeline components). Every remaining
-     selector was confirmed to be referenced by at least one current HTML
-     file before being kept.
-   - Added missing base rules for a few classes that were already in use
-     in HTML but had no real CSS behind them (.page-hero, .lede,
-     .case-layout, .stat/.stat-grid, .placeholder-shot) so Contact and the
-     two orphaned placeholder pages don't regress.
+PAGE STRUCTURE
+--------------
+- Home / Portfolio: featured case studies are editorial-list rows
+  (hairline-separated, no card boxes), not the earlier bordered grid.
+- Case studies (all 5): shared template with a Problem -> Outcome
+  one-line opener under the hero, a sticky left-rail table of contents
+  (Challenge/Approach/Impact/Reflection, active-section highlight on
+  scroll, reveals at >=1180px viewport width so it never overlaps the
+  reading column), tinted stat panels, white bordered diagram/artifact
+  cards, and Role/Scope/Contribution hairline cards.
+- About: portrait + intro, 5-step "My approach" grid, "Beyond the work"
+  now uses the same bordered-card treatment as case-study involvement
+  cards.
+- Contact: rebuilt to a single bordered card — Email, LinkedIn, and a
+  Resume row. The Resume row links to resume.pdf, which does not exist
+  in this repo yet; this is intentional, per direct instruction, as a
+  placeholder for when a real resume file is supplied. It will 404 until
+  that file is added.
 
-2. script.js — password gate rewritten
-   - Shared unlock moved from sessionStorage to a single localStorage
-     value with an 8-hour expiration, so one password entry stays valid
-     across Portfolio and all five case studies for 8 hours, including
-     across new tabs/browser restarts within that window.
-   - Removed the dead createOverlay() fallback function and the unused
-     portfolio-filter button wiring (data-filter/data-category), neither
-     of which is referenced by any current page.
-   - No redirects, no query parameters, at any point in the flow.
+CANONICAL LABELS
+----------------
+The same capability label is used verbatim on the homepage, the
+Portfolio page, and each case study's own page:
+  Autofill Strategic Audit  -> I shape strategy
+  Autofill Trust            -> I design content
+  AI String Authoring       -> I redesign workflows
+  Accessibility Readiness   -> I build operating models
+  HXP                       -> I guide product evolution
+Homepage eyebrow: CONTENT DESIGN - CONTENT STRATEGY - AI SYSTEMS - PRODUCT SYSTEMS
 
-3. Bug found and fixed: script tag ordering
-   - Every protected page loads <script src="script.js"> BEFORE the
-     .password-overlay <div> appears in the HTML. Without deferring
-     execution, the gate script would run before the overlay exists in
-     the DOM. The old script.js masked this with its createOverlay()
-     fallback (building a duplicate overlay on the fly); removing that
-     dead code exposed the bug. Fixed by adding the `defer` attribute to
-     the script tag on every page that loads script.js, so it always runs
-     after the full document (including the overlay) has parsed.
-   - Files touched for this alone (one-line attribute change, no content
-     changes): about.html, accessibility.html, advertiser-education.html,
-     ai-workflows.html, autofill-audit.html, autofill.html, contact.html,
-     device-help.html, hxp.html, index.html, work.html.
+TEXT CHANGES MADE
+-----------------
+- Home pull-quote: "For people, products, teams, and businesses." ->
+  "For people. For products. For teams. For businesses. - I design for
+  understanding." (matches the approved reference exactly)
+- Contact hero reverted to "Get in touch." and the page structure
+  simplified to the single Email/LinkedIn/Resume card (an earlier pass
+  had built a fuller "Reach out" layout with a Portfolio-access row;
+  the approved reference intentionally simplifies this).
+- Portfolio hero tense: "How I turn..." -> "How I turned..."
+- One new Problem -> Outcome line added per case study, written only
+  from numbers/claims already established and approved elsewhere on
+  that same page — nothing invented.
+- One redundant paragraph per case study trimmed where it restated the
+  same headline number the new opener now states (AI String Authoring,
+  Accessibility Readiness, HXP, Autofill Trust) - the underlying facts
+  and numbers all still appear once, nothing was removed from the
+  record, only the repetition.
+- No case-study facts, metrics, ownership claims, or chronology were
+  altered or invented anywhere in this pass.
 
-4. Cleanup (approved in prior review round)
-   - Deleted: Sarah_Haas_Portfolio_PASSWORD_LOOP_FIX.zip,
-     UPLOAD-INSTRUCTIONS.txt, BUILD-VERSION.txt.
-   - Deleted 16 root-level images that were byte-for-byte duplicates of
-     files already under assets/case-studies/ (verified via SHA-256
-     before deletion).
-   - Deleted image-4.png and image-8.png: generic "replace with real
-     Figma export" wireframe placeholders, unreferenced by any page and
-     already superseded by the real annotated assets in
-     assets/case-studies/.
-   - README.md rewritten to describe the current static-site project and
-     give local-preview instructions, replacing the old manual
-     zip-upload instructions for a workflow that's no longer in use.
+PASSWORD / ROUTING (UNCHANGED BEHAVIOR)
+----------------------------------------
+- One shared localStorage unlock (sarahPortfolioUnlockedUntil), valid
+  8 hours, shared across Portfolio and all 5 case studies.
+- No redirects, no query parameters, anywhere in the flow.
+- Direct links to a protected page show the in-page overlay only when
+  no valid unlock exists; otherwise the page is immediately visible.
+- script.js's gate logic itself was not modified in this pass beyond
+  Phase 1's original localStorage/8-hour-expiry rewrite; this pass only
+  appended two new, independent, self-contained behaviors after it: a
+  nav scroll-shadow effect and the case-study TOC's scroll-spy /
+  click-to-scroll behavior. Neither touches the password logic.
 
-WHAT DID NOT CHANGE
--------------------
-- Content and markup of about.html, contact.html, index.html (aside from
-  the defer fix), work.html (aside from the defer fix), and the other
-  four case studies (accessibility.html, ai-workflows.html, autofill.html,
-  hxp.html) — all pending a future pass per your instruction not to
-  rebuild every page yet.
-- advertiser-education.html and device-help.html remain unlinked
-  placeholders, as before.
+KNOWN, INTENTIONAL EXCEPTIONS
+------------------------------
+- resume.pdf does not exist yet (see above) - the link is a deliberate
+  placeholder, not a bug.
+- Text colored #a89e8f (contact-row labels, inactive TOC items, figure
+  captions) sits below the 4.5:1 AA-normal contrast ratio against the
+  butter background (it measures ~2.3:1). This was reviewed and
+  accepted as-is: these are captions/secondary labels, not primary
+  reading text, and are either large enough for the AA-large 3:1
+  threshold or explicitly decorative/secondary. All primary body copy
+  and link text on the site clears 4.5:1 (verified - see below).
+- advertiser-education.html and device-help.html remain unfinished
+  placeholder pages, intentionally not linked from navigation, the
+  homepage, or the Portfolio grid.
 - portfolio.html, autofill-optimization.html, in-app-browser.html remain
-  as redirect stubs for old links.
-- The nine "not yet wired in" Autofill media assets remain unused, by
-  your decision — no new case-study content was added to justify using
-  them.
-- Capability-label wording (e.g. "I craft strategy" on the homepage vs.
-  "I shape strategy" elsewhere) is unchanged; that reconciliation is
-  scoped to a later pass that touches index.html's content.
+  as redirect stubs so old bookmarked links keep working.
+- device-help.html has two instances of an unescaped "AT&T" and
+  advertiser-education.html has one unescaped "&" in its H1 (should be
+  "&amp;"); both are pre-existing, cosmetic-only (browsers render them
+  correctly as-is), and out of scope since neither page's content was
+  part of this redesign pass.
 
 VERIFICATION PERFORMED BEFORE PACKAGING
 ----------------------------------------
 1. HTML validity: every .html file run through HTML Tidy in
-   errors-only mode. Result: zero errors on all 14 files.
-   Non-blocking notes: Tidy's HTML5 profile flags aria-current and
-   aria-modal as "proprietary attributes" — both are standard, valid ARIA
-   attributes; this is a known false positive in this Tidy version, not a
-   real defect. Four "trimming empty <span>" warnings on index.html are
-   intentional decorative, aria-hidden placeholder boxes, not a bug.
-   One pre-existing, out-of-scope nit: device-help.html has two instances
-   of an unescaped "AT&T" (should be "AT&amp;T"); browsers render it fine
-   as-is, flagged here for a future content pass since device-help.html's
-   content wasn't part of this pass.
-
-2. Asset path check: every src/href in every HTML file pointing at a
-   local path was confirmed to resolve to a file that exists in this
-   ZIP. No missing images, stylesheets, or scripts.
-
-3. Fragment-link check: every same-page/cross-page #anchor link (e.g.
-   about.html#approach) was confirmed to resolve to a matching id
-   attribute on the target page. No broken anchors.
-
-4. Local link check: served the site locally and requested every
-   internal link and asset; all returned HTTP 200. The one external link
-   on the site (LinkedIn) was left unfetched by design and is listed here
-   for manual review: https://linkedin.com/in/sarahehaas
-
-5. Password-flow tests, re-run against this exact file set:
-   - Fresh visit to a protected page shows the overlay.               PASS
-   - Wrong password shows the inline error and keeps the overlay up.  PASS
-   - Correct password unlocks with no query string added to the URL.  PASS
-   - Unlock is shared: after unlocking on one case study, navigating
-     directly to a different case study or to work.html does not
-     re-prompt.                                                        PASS
-   - Manually expiring the stored unlock timestamp and reloading
-     re-shows the overlay (8-hour expiry is enforced).                 PASS
+   errors-only mode. Zero errors across all 14 files.
+2. Asset/link/fragment check: every local src/href and every #anchor
+   link resolves to a real file or id in this ZIP, with the one
+   intentional exception (resume.pdf) noted above.
+3. Live local-link crawl: served the site locally and requested every
+   internal link and asset; all returned HTTP 200 except the
+   intentional resume.pdf placeholder (404, expected).
+4. Password-flow tests: fresh lock, wrong-password error, correct
+   unlock with no query string added to the URL, shared unlock
+   verified across all 8 protected pages without re-prompting, and
+   8-hour expiry confirmed by forcing the stored timestamp into the
+   past and reloading. All pass.
+5. Console errors: zero on any of the 11 rendered pages.
+6. Responsive: scripted scrollWidth vs. clientWidth check at a 390px
+   mobile viewport confirms zero horizontal scroll on any page.
+7. Keyboard/accessibility: Tab-focus produces a visible
+   2px solid #0a6b74 outline as specified; heading levels (h1->h2->h3,
+   no skipped levels) verified sequential on every page; WCAG contrast
+   ratios computed for every text/background color pair in the system
+   - all primary body text and link/accent text clears AA 4.5:1 (teal
+   on butter measures 5.35:1); the one accepted exception is noted
+   above.
+8. Dead-code sweep: removed two leftover CSS rules with no matching
+   HTML anywhere in the site (capability-card-wide, an unused .display
+   utility hook).
 
 HOW TO PREVIEW LOCALLY BEFORE UPLOADING
 ----------------------------------------
 From the unzipped folder:
     python3 -m http.server 8000
 Then open http://localhost:8000/ in a browser. No build step required.
+Portfolio password: portfolio
 
 HOW TO PUBLISH
 --------------
 Unzip this archive and upload its full contents to the root of the
-sarahehaas.github.io repository, replacing existing files. This ZIP
-was generated from git commits 606905d and aabeea5 on branch
+sarahehaas.github.io repository, replacing existing files (drag-and-drop
+into the GitHub web UI works, or upload via git). This ZIP reflects git
+commits 606905d, aabeea5, 73dbb96, 0f1820c, and 56bd241 on branch
 claude/sarahehaas-github-io-connection-s14zfb; no git history is
 included, only the resulting file state.
