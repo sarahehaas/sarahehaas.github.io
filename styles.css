@@ -89,25 +89,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
 /* ============ Home: pull-quote band ============ */
 .confusion-band{background:var(--tint-bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
-.confusion-inner{max-width:var(--max);margin:0 auto;padding:26px 32px}
+.confusion-inner{max-width:var(--max);margin:0 auto;padding:26px 32px;display:grid;grid-template-columns:1fr 1px 1fr;align-items:center}
+.confusion-left{padding-right:32px}
 .confusion-lead{margin:0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:24px;letter-spacing:-.01em;color:var(--ink)}
-.confusion-aside{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:4px}
+.confusion-aside{margin-top:4px}
 .confusion-aside span{font-size:13px;color:#5a6f6f}
-.confusion-aside strong{font-size:13px;font-weight:700;color:var(--teal);font-style:italic;font-family:var(--serif)}
+.confusion-divider{width:1px;height:100%;background:var(--hairline);margin:0 32px}
+.confusion-right{padding-left:32px;display:flex;align-items:center}
+.confusion-right strong{font-size:18px;font-weight:700;color:var(--teal);font-style:italic;font-family:var(--serif);line-height:1.3}
+@media (max-width:760px){
+  .confusion-inner{grid-template-columns:1fr}
+  .confusion-divider{display:none}
+  .confusion-left{padding-right:0}
+  .confusion-right{padding-left:0;margin-top:10px}
+}
 
 /* ============ Editorial-list rows (Home featured + Portfolio list) ============ */
 .selected-work{background:var(--bg);color:var(--ink)}
 .selected-inner{max-width:var(--max);margin:0 auto;padding:44px 32px 8px;text-align:left}
 .selected-work h2{color:var(--ink);font-size:26px;font-weight:600;margin:0 0 6px}
 .selected-lede{max-width:640px;margin:0 0 26px;color:var(--faint);font-size:13.5px}
-.selected-grid.five{display:flex;flex-direction:column}
-.selected-grid.five .selected-card{display:flex;align-items:center;gap:20px;padding:18px 4px;border-top:1px solid var(--hairline-strong)}
-.selected-grid.five .selected-card:last-child{border-bottom:1px solid var(--hairline-strong)}
+.selected-grid.editorial{display:flex;flex-direction:column}
+.selected-grid.editorial .selected-card{display:flex;align-items:center;gap:20px;padding:18px 4px;border-top:1px solid var(--hairline-strong)}
+.selected-grid.editorial .selected-card:last-child{border-bottom:1px solid var(--hairline-strong)}
 .selected-card .card-kicker{flex:0 0 150px;margin:0;color:var(--teal);font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;font-weight:700;line-height:1.4}
 .selected-card-body{flex:1}
-.selected-grid.five .card-headline{color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.25;margin:0 0 4px}
-.selected-grid.five .card-summary{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5}
-.selected-grid.five .selected-button{flex:0 0 auto;color:var(--teal);font-weight:400;font-size:18px;border:0;padding:0;background:none}
+.selected-grid.editorial .card-headline{color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.25;margin:0 0 4px}
+.selected-grid.editorial .card-summary{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5}
+.selected-grid.editorial .selected-button{flex:0 0 auto;color:var(--teal);font-weight:400;font-size:18px;border:0;padding:0;background:none}
 .center-cta{text-align:center;margin:28px 0 44px}
 .center-cta .selected-button.large{padding:10px 20px}
 
@@ -271,6 +280,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-question-map span,.cs-question-map strong{display:grid;place-items:center;min-height:60px;padding:10px;border:0;border-radius:100px;background:var(--tint-bg);color:var(--teal);text-align:center;font-size:11.5px;line-height:1.3}
 .cs-question-map strong{grid-column:2;grid-row:1/span 2;background:var(--teal);color:#fff;border-radius:var(--radius-sm)}
 .cs-honesty-note{margin-top:1.4rem;padding:12px 14px;border:1px solid #e8c9a0;background:#fbf1e0;color:#7a5a1e;font-size:13px;line-height:1.55;border-radius:var(--radius-sm)}
+
+/* Bulleted lists inside case-study prose (impact summaries, contribution lists) */
+.cs-list{margin:.9rem 0 0;padding:0 0 0 1.1rem;color:var(--body);font-size:14px;line-height:1.6}
+.cs-list li{margin-bottom:.5rem}
+.cs-list li:last-child{margin-bottom:0}
+.cs-prose-narrow .cs-list,.cs-beat-copy .cs-list{font-size:13.5px}
+
+/* Needs / jobs-to-be-done mini-grid (3+ items, label + short description) */
+.cs-need-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.cs-need-grid.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cs-need-grid article{border-top:2px solid var(--teal);padding-top:10px}
+.cs-need-grid h4{margin:0 0 4px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink)}
+.cs-need-grid p{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5}
+
+/* Need -> capability mapping rows */
+.cs-capability-map{border:1px solid var(--card-border);border-radius:var(--radius);background:#fff;margin-top:14px;overflow:hidden}
+.cs-capability-map .row{display:flex;gap:16px;padding:12px 16px;border-bottom:1px solid var(--hairline)}
+.cs-capability-map .row:last-child{border-bottom:0}
+.cs-capability-map .need{flex:0 0 150px;font-weight:700;font-size:12.5px;color:var(--teal)}
+.cs-capability-map .products{flex:1;font-size:12.5px;color:var(--body)}
+
+/* Product spotlight — an embedded case study within a case study */
+.cs-spotlight{margin-top:1.8rem;border:1px solid var(--card-border);border-radius:var(--radius);background:#fff;padding:20px}
+.cs-spotlight-label{margin:0 0 10px;color:var(--teal);font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.cs-spotlight h3{margin:0 0 10px;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.25}
+.cs-spotlight p{color:var(--body);font-size:13.5px;line-height:1.6;margin:0 0 10px}
+.cs-spotlight h4{margin:1.1rem 0 6px;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink)}
+.cs-spotlight .cs-list{margin-top:0}
+
+/* Ordered step sequence used for a text-described (non-image) featured artifact */
+.cs-step-list{margin:0;padding:0 0 0 1.2rem;color:var(--body);font-size:13.5px;line-height:1.65}
+.cs-step-list li{margin-bottom:.4rem}
 .cs-reflection h2{max-width:700px}
 .cs-reflection>div>p:not(.cs-section-label){max-width:640px;color:var(--body);font-size:13.5px;line-height:1.6}
 .cs-reflection blockquote{max-width:700px;margin:16px 0 0;padding-left:16px;border-left:2px solid var(--teal);font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.4;color:var(--ink)}
@@ -304,8 +345,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   .capability-card,.capability-label{display:block}
   .capability-card{padding:1.2rem 0}
   .capability-label{margin-bottom:.5rem}
-  .selected-grid.five .selected-card{flex-direction:column;align-items:flex-start;gap:.5rem}
-  .selected-grid.five .selected-button{align-self:flex-start}
+  .selected-grid.editorial .selected-card{flex-direction:column;align-items:flex-start;gap:.5rem}
+  .selected-grid.editorial .selected-button{align-self:flex-start}
   .selected-card .card-kicker{flex:0 0 auto}
   .cs-involvement{grid-template-columns:1fr}
   .cs-beat-paired{grid-template-columns:1fr}
@@ -314,6 +355,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   .cs-flow b{transform:rotate(90deg);align-self:center}
   .cs-question-map{grid-template-columns:1fr 1fr}
   .cs-question-map strong{grid-column:1/-1;grid-row:auto;order:-1}
+  .cs-need-grid,.cs-need-grid.two-col{grid-template-columns:1fr}
+  .cs-capability-map .row{flex-direction:column;gap:.25rem}
+  .cs-capability-map .need{flex:0 0 auto}
   .about-page-intro{grid-template-columns:1fr}
   .refined-approach{grid-template-columns:1fr}
   .beyond-grid{grid-template-columns:1fr}

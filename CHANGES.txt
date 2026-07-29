@@ -1,10 +1,11 @@
 Sarah Haas portfolio — full implementation, approved editorial redesign
-Prepared: 2026-07-28
+Prepared: 2026-07-29
 Branch this reflects: claude/sarahehaas-github-io-connection-s14zfb
 
 This ZIP is the complete, current file state of the site — every page,
-across all three implementation passes. It supersedes any earlier ZIP or
-CHANGES.txt from this project.
+across all implementation passes including the HXP rewrite and the new
+Tabs case study. It supersedes any earlier ZIP or CHANGES.txt from this
+project.
 
 VISUAL SYSTEM
 -------------
@@ -19,12 +20,27 @@ PAGE STRUCTURE
 --------------
 - Home / Portfolio: featured case studies are editorial-list rows
   (hairline-separated, no card boxes), not the earlier bordered grid.
-- Case studies (all 5): shared template with a Problem -> Outcome
+  Both pages now list all 6 case studies, ending with Tabs.
+- Home: confusion band rebuilt as a 3-column grid (lead line / divider
+  / "I design for understanding" line) per the latest approved layout.
+- Case studies (all 6): shared template with a Problem -> Outcome
   one-line opener under the hero, a sticky left-rail table of contents
   (Challenge/Approach/Impact/Reflection, active-section highlight on
   scroll, reveals at >=1180px viewport width so it never overlaps the
   reading column), tinted stat panels, white bordered diagram/artifact
   cards, and Role/Scope/Contribution hairline cards.
+- HXP was fully rewritten with a new decision-journey narrative (the
+  featured artifact is now a custom HTML/CSS diagram — no image asset
+  was supplied for it — and a "Product Spotlight" sub-section on
+  Product Recommender was added inside the Approach). Impact-snapshot
+  stats (12 / 1 / 5 / p<.001) are unchanged from the prior version. The
+  three existing HXP images are reused where their pictured content
+  still matches the new copy.
+- Tabs is a brand-new case study covering the in-app-browser continuity
+  strategy from concept through its funded, launched MVP and eventual
+  sunset. Its featured artifact is a text-described 6-step sequence (no
+  image asset was supplied), and the technical-regression/sunset beat
+  uses the same honesty-note treatment as HXP's "Where the story ends."
 - About: portrait + intro, 5-step "My approach" grid, "Beyond the work"
   now uses the same bordered-card treatment as case-study involvement
   cards.
@@ -43,7 +59,23 @@ Portfolio page, and each case study's own page:
   AI String Authoring       -> I redesign workflows
   Accessibility Readiness   -> I build operating models
   HXP                       -> I guide product evolution
+  Tabs                      -> I shape strategy
 Homepage eyebrow: CONTENT DESIGN - CONTENT STRATEGY - AI SYSTEMS - PRODUCT SYSTEMS
+
+Known, accepted duplication: Tabs and Autofill Strategic Audit share the
+same "I shape strategy" label, since that's the label supplied for both
+in their source content. Flagged for awareness; left as-is per review.
+
+NEW SHARED CSS COMPONENTS (for HXP/Tabs content)
+-------------------------------------------------
+- .cs-list — bulleted lists inside case-study prose
+- .cs-need-grid / .two-col — jobs-to-be-done mini-grids
+- .cs-capability-map — need-to-capability mapping rows
+- .cs-spotlight — an embedded "case study within a case study" block
+- .cs-step-list — an ordered step sequence for a text-described
+  (non-image) featured artifact
+- .selected-grid.five renamed to .selected-grid.editorial (same
+  styling, corrected name now that the homepage list holds 6 rows)
 
 TEXT CHANGES MADE
 -----------------
@@ -51,33 +83,32 @@ TEXT CHANGES MADE
   "For people. For products. For teams. For businesses. - I design for
   understanding." (matches the approved reference exactly)
 - Contact hero reverted to "Get in touch." and the page structure
-  simplified to the single Email/LinkedIn/Resume card (an earlier pass
-  had built a fuller "Reach out" layout with a Portfolio-access row;
-  the approved reference intentionally simplifies this).
+  simplified to the single Email/LinkedIn/Resume card.
 - Portfolio hero tense: "How I turn..." -> "How I turned..."
-- One new Problem -> Outcome line added per case study, written only
-  from numbers/claims already established and approved elsewhere on
-  that same page — nothing invented.
-- One redundant paragraph per case study trimmed where it restated the
-  same headline number the new opener now states (AI String Authoring,
-  Accessibility Readiness, HXP, Autofill Trust) - the underlying facts
-  and numbers all still appear once, nothing was removed from the
-  record, only the repetition.
+- One Problem -> Outcome line per case study, written only from
+  numbers/claims already established and approved elsewhere on that
+  same page — nothing invented.
+- HXP's full narrative, featured artifact, involvement, challenge,
+  approach, impact, and reflection copy were replaced with new content
+  supplied directly; impact-snapshot numbers were not changed.
+- Tabs case study written entirely from supplied source content; no
+  facts, metrics, ownership, or chronology were invented.
 - No case-study facts, metrics, ownership claims, or chronology were
   altered or invented anywhere in this pass.
 
 PASSWORD / ROUTING (UNCHANGED BEHAVIOR)
 ----------------------------------------
 - One shared localStorage unlock (sarahPortfolioUnlockedUntil), valid
-  8 hours, shared across Portfolio and all 5 case studies.
+  8 hours, shared across Portfolio and all 6 case studies (Tabs
+  included — verified against the same gate markup and script.js logic
+  as every other protected page).
 - No redirects, no query parameters, anywhere in the flow.
 - Direct links to a protected page show the in-page overlay only when
   no valid unlock exists; otherwise the page is immediately visible.
-- script.js's gate logic itself was not modified in this pass beyond
-  Phase 1's original localStorage/8-hour-expiry rewrite; this pass only
-  appended two new, independent, self-contained behaviors after it: a
-  nav scroll-shadow effect and the case-study TOC's scroll-spy /
-  click-to-scroll behavior. Neither touches the password logic.
+- script.js's gate logic itself was not modified in this pass; Tabs and
+  the rewritten HXP page reuse the identical password-overlay markup,
+  protected-page body class, and data-password-* hooks as every other
+  case study.
 
 KNOWN, INTENTIONAL EXCEPTIONS
 ------------------------------
@@ -87,9 +118,13 @@ KNOWN, INTENTIONAL EXCEPTIONS
   captions) sits below the 4.5:1 AA-normal contrast ratio against the
   butter background (it measures ~2.3:1). This was reviewed and
   accepted as-is: these are captions/secondary labels, not primary
-  reading text, and are either large enough for the AA-large 3:1
-  threshold or explicitly decorative/secondary. All primary body copy
-  and link text on the site clears 4.5:1 (verified - see below).
+  reading text. All primary body copy and link text on the site clears
+  4.5:1.
+- Tabs and Autofill Strategic Audit share the "I shape strategy" label
+  (see above).
+- HXP's and Tabs' featured artifacts are custom-built HTML/CSS diagrams
+  and a text step-list, respectively, rather than images, since no
+  image assets were supplied for either.
 - advertiser-education.html and device-help.html remain unfinished
   placeholder pages, intentionally not linked from navigation, the
   homepage, or the Portfolio grid.
@@ -104,31 +139,29 @@ KNOWN, INTENTIONAL EXCEPTIONS
 VERIFICATION PERFORMED BEFORE PACKAGING
 ----------------------------------------
 1. HTML validity: every .html file run through HTML Tidy in
-   errors-only mode. Zero errors across all 14 files.
+   errors-only mode. Zero errors; only pre-existing benign warnings
+   (Google Fonts URL entities, aria-current/aria-modal) across all
+   files, matching every previously validated page.
 2. Asset/link/fragment check: every local src/href and every #anchor
    link resolves to a real file or id in this ZIP, with the one
    intentional exception (resume.pdf) noted above.
 3. Live local-link crawl: served the site locally and requested every
    internal link and asset; all returned HTTP 200 except the
    intentional resume.pdf placeholder (404, expected).
-4. Password-flow tests: fresh lock, wrong-password error, correct
-   unlock with no query string added to the URL, shared unlock
-   verified across all 8 protected pages without re-prompting, and
-   8-hour expiry confirmed by forcing the stored timestamp into the
-   past and reloading. All pass.
-5. Console errors: zero on any of the 11 rendered pages.
-6. Responsive: scripted scrollWidth vs. clientWidth check at a 390px
-   mobile viewport confirms zero horizontal scroll on any page.
-7. Keyboard/accessibility: Tab-focus produces a visible
-   2px solid #0a6b74 outline as specified; heading levels (h1->h2->h3,
-   no skipped levels) verified sequential on every page; WCAG contrast
-   ratios computed for every text/background color pair in the system
-   - all primary body text and link/accent text clears AA 4.5:1 (teal
-   on butter measures 5.35:1); the one accepted exception is noted
-   above.
-8. Dead-code sweep: removed two leftover CSS rules with no matching
-   HTML anywhere in the site (capability-card-wide, an unused .display
-   utility hook).
+4. Password-flow tests: fresh lock on all 6 case studies plus
+   Portfolio, wrong-password error, correct unlock with no query
+   string added to the URL, shared unlock verified across all 7
+   protected pages without re-prompting.
+5. Console errors: none attributable to the site itself (Google Fonts
+   requests are blocked by this environment's own network policy
+   during automated testing — unrelated to site code).
+6. Responsive: scripted scrollWidth vs. clientWidth check confirms zero
+   horizontal scroll on Home, Portfolio, HXP, and Tabs.
+7. Navigation chain: verified the Previous/Next case-study links form
+   one continuous, correctly ordered chain across all 6 pages, ending
+   at Tabs.
+8. Screenshots of the rewritten HXP, new Tabs, and updated Home/
+   Portfolio pages reviewed and approved before packaging.
 
 HOW TO PREVIEW LOCALLY BEFORE UPLOADING
 ----------------------------------------
@@ -141,7 +174,5 @@ HOW TO PUBLISH
 --------------
 Unzip this archive and upload its full contents to the root of the
 sarahehaas.github.io repository, replacing existing files (drag-and-drop
-into the GitHub web UI works, or upload via git). This ZIP reflects git
-commits 606905d, aabeea5, 73dbb96, 0f1820c, and 56bd241 on branch
-claude/sarahehaas-github-io-connection-s14zfb; no git history is
+into the GitHub web UI works, or upload via git). No git history is
 included, only the resulting file state.
