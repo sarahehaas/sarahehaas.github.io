@@ -251,6 +251,59 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-figure-compact{align-self:start;max-width:420px}
 .cs-figure-wide{margin-top:1.4rem}
 
+/* Case-study image lightbox — click/tap a trigger to enlarge. */
+body.lightbox-open{overflow:hidden}
+.cs-lightbox-overlay{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(24,24,24,.82)}
+.cs-lightbox-overlay[hidden]{display:none}
+.cs-lightbox-dialog{position:relative;max-width:min(92vw,1100px);max-height:92vh}
+.cs-lightbox-dialog img{display:block;max-width:100%;max-height:92vh;width:auto;height:auto;border-radius:var(--radius-sm);object-fit:contain}
+.cs-lightbox-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border:0;border-radius:50%;background:#fff;color:var(--ink);font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.cs-lightbox-close:hover{background:var(--tint-bg)}
+.cs-lightbox-close:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* Bordered image "frame" — hugs the image only, so the caption can sit
+   outside/below it instead of inside a padded figure footer. Used as a
+   plain div for static figures and as a <button> for lightbox triggers. */
+.cs-figure-frame{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:16px;overflow:hidden}
+.cs-figure-frame img{width:100%;height:auto;display:block;object-fit:contain}
+button.cs-figure-frame{display:block;width:100%;margin:0;font:inherit;text-align:left;cursor:zoom-in}
+button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.cs-figure-caption{margin:8px 1px 0;color:var(--faint-2);font-size:12px;line-height:1.5}
+
+/* Inline text-link variant of a lightbox trigger, for use inside a caption. */
+.cs-lightbox-link{background:none;border:0;padding:0;margin:0;color:var(--teal);font:inherit;font-size:inherit;cursor:pointer;text-decoration:none}
+.cs-lightbox-link:hover{color:var(--teal-hover);text-decoration:underline}
+.cs-lightbox-link:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* Clipped preview of a tall artifact — shows only the top portion, with a
+   fade hinting there is more to see in the lightbox. */
+.cs-preview-crop{position:relative;display:block;max-height:280px;overflow:hidden;border-radius:var(--radius-sm)}
+.cs-preview-crop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
+.cs-preview-crop img{width:100%;height:auto;display:block}
+
+/* Problem/Outcome cards (this page only — the shared .cs-opener stays
+   untouched for every other case study). */
+.cs-opener-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.cs-opener-card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:22px 24px}
+.cs-opener-card .cs-mini-label{margin-bottom:8px}
+.cs-opener-card p:last-child{margin:0;color:var(--body);font-size:13.5px;line-height:1.6}
+
+/* Steps 01-02 beside a clipped preview (desktop), stacked steps-then-preview
+   (mobile) — narrowly scoped to this page's Approach section. */
+.cs-flip-grid{display:grid;grid-template-columns:0.42fr 0.58fr;gap:28px;align-items:start;margin-top:26px}
+.cs-flip-preview{order:-1}
+.cs-flip-steps .cs-beat:last-child{margin-bottom:0;padding-bottom:0}
+
+/* "Why the diff mattered" copy beside the review-diff artifact (desktop),
+   stacked copy-then-image (mobile). */
+.cs-diff-grid{display:grid;grid-template-columns:0.35fr 0.65fr;gap:28px;align-items:start;margin-top:26px}
+
+/* Compact pilot-evidence cards inside the unified Impact section. */
+.cs-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.cs-proof-card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:18px}
+.cs-proof-card strong{display:block;font-family:var(--serif);color:var(--teal);font-size:21px;font-weight:600;line-height:1.2;letter-spacing:-.01em}
+.cs-proof-card span{display:block;margin-top:5px;color:var(--tint-muted);font-size:12px;line-height:1.4}
+
 .cs-metrics{display:flex;margin-top:10px;background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:14px 16px}
 .cs-metrics article{flex:1;padding:0 14px;border-right:1px solid var(--tint-border)}
 .cs-metrics article:first-child{padding-left:0}
@@ -315,6 +368,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-reflection h2{max-width:700px}
 .cs-reflection>div>p:not(.cs-section-label){max-width:640px;color:var(--body);font-size:13.5px;line-height:1.6}
 .cs-reflection blockquote{max-width:700px;margin:16px 0 0;padding-left:16px;border-left:2px solid var(--teal);font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.4;color:var(--ink)}
+.cs-reflection blockquote p{margin:0}
+.cs-reflection blockquote cite{display:block;margin-top:8px;font-style:normal;font-family:var(--sans);font-size:12px;color:var(--faint)}
 .cs-case-nav{width:min(var(--max-case),calc(100% - 64px));margin:0 auto;padding:16px 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--hairline);font-size:12.5px;font-weight:600}
 .cs-case-nav a{color:var(--teal)}
 
@@ -351,6 +406,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   .cs-involvement{grid-template-columns:1fr}
   .cs-beat-paired{grid-template-columns:1fr}
   .cs-figure-compact{max-width:none}
+  .cs-opener-cards{grid-template-columns:1fr}
+  .cs-flip-grid{grid-template-columns:1fr}
+  .cs-flip-preview{order:0}
+  .cs-diff-grid{grid-template-columns:1fr}
+  .cs-proof-grid{grid-template-columns:1fr}
   .cs-flow{flex-direction:column;align-items:stretch}
   .cs-flow b{transform:rotate(90deg);align-self:center}
   .cs-question-map{grid-template-columns:1fr 1fr}
@@ -373,6 +433,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   .cs-shell,.cs-hero .cs-shell,.cs-case-nav{width:min(100% - 40px,var(--max-case))}
   .cs-case-nav{flex-direction:column;gap:.5rem}
   .stat-grid{grid-template-columns:1fr}
+  .cs-lightbox-overlay{padding:16px}
+  .cs-lightbox-close{top:-10px;right:-10px}
 }
 
 /* ============ Print ============ */

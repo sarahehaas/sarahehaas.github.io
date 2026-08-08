@@ -93,3 +93,44 @@
   setActive();
   window.addEventListener('scroll', setActive, { passive: true });
 })();
+
+/* Case-study image lightbox — click a [data-lightbox] trigger to enlarge.
+   Only runs on pages that have both trigger elements and the overlay. */
+(function () {
+  'use strict';
+  const triggers = Array.from(document.querySelectorAll('[data-lightbox]'));
+  const overlay = document.querySelector('[data-lightbox-overlay]');
+  if (!triggers.length || !overlay) return;
+
+  const image = overlay.querySelector('[data-lightbox-image]');
+  const closeBtn = overlay.querySelector('[data-lightbox-close]');
+  let lastTrigger = null;
+
+  function open(trigger) {
+    lastTrigger = trigger;
+    image.src = trigger.getAttribute('data-lightbox-src');
+    image.alt = trigger.getAttribute('data-lightbox-alt') || '';
+    overlay.hidden = false;
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus();
+  }
+
+  function close() {
+    overlay.hidden = true;
+    document.body.classList.remove('lightbox-open');
+    image.src = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => open(trigger));
+  });
+
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !overlay.hidden) close();
+  });
+})();

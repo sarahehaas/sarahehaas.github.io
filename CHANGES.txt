@@ -1,11 +1,56 @@
 Sarah Haas portfolio — full implementation, approved editorial redesign
-Prepared: 2026-07-29
+Prepared: 2026-08-08
 Branch this reflects: claude/sarahehaas-github-io-connection-s14zfb
 
 This ZIP is the complete, current file state of the site — every page,
-across all implementation passes including the HXP rewrite and the new
-Tabs case study. It supersedes any earlier ZIP or CHANGES.txt from this
-project.
+across all implementation passes including the HXP rewrite, the new
+Tabs case study, and the String Authoring case-study revision. It
+supersedes any earlier ZIP or CHANGES.txt from this project.
+
+STRING AUTHORING REVISION (this ZIP)
+-------------------------------------
+ai-workflows.html was rewritten per an approved handoff package and a
+follow-up revision pass:
+- New hero/challenge/approach copy; Problem/Outcome now render as two
+  equal-height cards instead of a single text line.
+- Featured artifact image replaced with the final approved workflow
+  diagram (string-author-workflow-final.png); no lightbox on this one.
+- Approach flips to a two-column layout on desktop — Steps 01-02 beside
+  a cropped preview of the String Author artifact
+  (string-author-full-crisp.png) — and stacks steps-then-preview on
+  mobile. The same full image is used for both the cropped inline
+  preview and the lightbox (click the image or the "View full
+  workflow ↗" text link in its caption).
+- "Why the diff mattered" is a copy/image split (35/65 on desktop,
+  stacked on mobile) using the final approved review-diff comparison
+  (string-author-review-diff-approved.png), with the same
+  image-or-caption-link lightbox pattern ("View full comparison ↗").
+- The old four-stat Impact Snapshot and the standalone Proof-of-concept
+  strip were removed. Impact is now one unified section: the approved
+  Impact copy plus three compact proof cards (two numeric — 5 weeks to
+  3 days, 8 to 0 handoffs — and one qualitative: "Engineering review
+  preserved." No third number was invented.
+- The old Role/Scope/Contribution "My involvement" section and the old
+  Impact honesty-note (mixed engineering-reception ratings) were
+  removed; neither is part of the new approved narrative.
+- Fixed a pre-existing left-edge misalignment on this page's Challenge/
+  Impact headings, caused by .cs-prose's max-width re-centering the
+  whole .cs-shell it was applied to. Same bug exists on other case
+  studies (confirmed on Accessibility) but was deliberately left
+  unchanged there — out of scope for this pass.
+- New page-scoped CSS: .cs-figure-frame, .cs-preview-crop,
+  .cs-lightbox-link, .cs-opener-cards, .cs-flip-grid, .cs-diff-grid,
+  .cs-proof-grid. The lightbox itself reuses the guarded script.js
+  block and .cs-lightbox-overlay/-dialog/-close CSS added in the first
+  String Authoring pass; script.js was not modified further.
+- Three superseded first-pass String Author images were removed
+  (string-author-workflow-before-after.jpg, string-author-
+  representative-view.jpg, string-author-review-diff-representative.png)
+  after confirming no remaining references anywhere in the repo. The
+  three final assets in use are string-author-workflow-final.png,
+  string-author-full-crisp.png, and string-author-review-diff-
+  approved.png.
+No other page or shared component was changed in this pass.
 
 VISUAL SYSTEM
 -------------
