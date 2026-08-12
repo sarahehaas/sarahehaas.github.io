@@ -117,6 +117,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .selected-grid.editorial .card-headline{color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.25;margin:0 0 4px}
 .selected-grid.editorial .card-summary{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5}
 .selected-grid.editorial .selected-button{flex:0 0 auto;color:var(--teal);font-weight:400;font-size:18px;border:0;padding:0;background:none}
+.card-thumb{flex:0 0 130px;width:130px;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--card-border);border-radius:var(--radius-sm);display:block}
 .center-cta{text-align:center;margin:28px 0 44px}
 .center-cta .selected-button.large{padding:10px 20px}
 
@@ -291,12 +292,13 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
 .cs-preview-crop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
 .cs-preview-crop img{width:100%;height:auto;display:block}
 
-/* Problem/Outcome cards (this page only — the shared .cs-opener stays
-   untouched for every other case study). */
-.cs-opener-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-.cs-opener-card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:22px 24px}
-.cs-opener-card .cs-mini-label{margin-bottom:8px}
-.cs-opener-card p:last-child{margin:0;color:var(--body);font-size:13.5px;line-height:1.6}
+/* Problem/Outcome — restrained two-column summary, no heavy card boxes.
+   Shared across all six case studies. */
+.cs-opener-cards{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;padding-top:18px;border-top:1px solid var(--hairline-strong)}
+.cs-opener-card{padding:0}
+.cs-opener-card+.cs-opener-card{border-left:1px solid var(--hairline-strong);padding-left:32px}
+.cs-opener-card .cs-mini-label{margin-bottom:6px}
+.cs-opener-card p:last-child{margin:0;color:var(--ink);font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.35;letter-spacing:-.005em}
 
 /* Steps 01-02 beside a clipped preview (desktop), stacked steps-then-preview
    (mobile) — narrowly scoped to this page's Approach section. */
@@ -420,10 +422,12 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
   .selected-grid.editorial .selected-card{flex-direction:column;align-items:flex-start;gap:.5rem}
   .selected-grid.editorial .selected-button{align-self:flex-start}
   .selected-card .card-kicker{flex:0 0 auto}
+  .card-thumb{width:100%;max-width:320px}
   .cs-involvement{grid-template-columns:1fr}
   .cs-beat-paired{grid-template-columns:1fr}
   .cs-figure-compact{max-width:none}
-  .cs-opener-cards{grid-template-columns:1fr}
+  .cs-opener-cards{grid-template-columns:1fr;gap:16px}
+  .cs-opener-card+.cs-opener-card{border-left:0;padding-left:0;border-top:1px solid var(--hairline-strong);padding-top:16px}
   .cs-flip-grid{grid-template-columns:1fr}
   .cs-flip-grid.balanced{grid-template-columns:1fr}
   .cs-flip-preview{order:0}

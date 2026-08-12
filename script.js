@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  const PASSWORD = 'portfolio'; // Placeholder only. Client-side deterrence, not server security.
+  const PASSWORD = 'GoodUX'; // Placeholder only. Client-side deterrence, not server security.
   const STORAGE_KEY = 'sarahPortfolioUnlockedUntil';
   const UNLOCK_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
 

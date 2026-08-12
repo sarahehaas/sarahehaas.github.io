@@ -1,13 +1,126 @@
 Sarah Haas portfolio — full implementation, approved editorial redesign
-Prepared: 2026-08-08
+Prepared: 2026-08-09
 Branch this reflects: claude/sarahehaas-github-io-connection-s14zfb
 
-This ZIP is the complete, current file state of the site — every page,
-across all implementation passes including the HXP rewrite, the new
-Tabs case study, and the String Authoring case-study revision. It
-supersedes any earlier ZIP or CHANGES.txt from this project.
+This reflects the complete, current file state of the site — every
+page, across all implementation passes including the HXP rewrite, the
+new Tabs case study, the String Authoring case-study revision, the
+Tabs case-study revision (final crisp assets + sizing pass), and the
+simplified six-case-study system rewrite (this pass). It supersedes
+any earlier ZIP or CHANGES.txt from this project.
 
-STRING AUTHORING REVISION (this ZIP)
+SIMPLIFIED CASE-STUDY SYSTEM (this pass)
+------------------------------------------
+Portfolio password changed to GoodUX (was "portfolio"); verified the
+old password now fails and the new one unlocks, with the shared
+localStorage-based unlock behavior otherwise untouched.
+
+All six case studies (autofill-audit.html, autofill.html,
+ai-workflows.html, accessibility.html, hxp.html, tabs.html) were
+rewritten to one shared architecture: Hero -> Problem/Outcome ->
+Challenge -> What I did (+ primary visual) -> Resolution -> Impact ->
+Reflection -> Nav. The old per-page "My involvement" section and
+4-stat "Impact Snapshot" blocks are gone, folded into the hero
+overview and a single unified Impact section respectively.
+
+Problem/Outcome changed sitewide from bordered white cards to a
+restrained two-column summary (small label + one short statement,
+hairline divider, no background fill) — .cs-opener-cards/.cs-opener-card
+in styles.css were redefined in place (previously only used by two
+pages; now the shared system for all six).
+
+Impact sections now use the large-number/hairline-divider .cs-metrics
+treatment instead of individual bordered proof cards, to keep pages
+feeling like one system rather than six separately art-directed
+pages.
+
+Accessibility's health-snapshot and vendor-testing-path visuals are
+now built natively from the real numbers/labels (.cs-metrics and
+.cs-flow) rather than using the existing accessibility-health-
+snapshot.png / accessibility-vendor-testing-path.png image files —
+see KNOWN GAPS below for why.
+
+Autofill content-optimization page rewritten with new supplied copy
+and metrics (+1.6% purchase completion, +1.1% Save Accepts, 46%/58%
+disclosure reduction), with a prominent honesty-note stating plainly
+that the underlying experiment was neutral overall and the treatment
+was not launched as a result — the numeric figures are presented only
+as secondary product signals, not as evidence the experiment
+succeeded.
+
+KNOWN GAPS (flagged, not fabricated)
+--------------------------------------
+- Autofill Content Optimization: the real "Control / Variant A /
+  Variant B" Save-flow screens described in the brief are not present
+  in the repo. assets/case-studies/autofill-save-before-after-
+  annotated.png is only a placeholder card reading "REAL ASSET
+  AVAILABLE - save-flow-before-after.png", not the actual UI. Used the
+  real before/after/why content-decision-record table instead; the
+  Variant screens still need to be supplied.
+- Accessibility: assets/case-studies/accessibility-health-snapshot.png
+  is a crop of an internal "WIP deck" slide, not sanitized presentation
+  material, so it was not published. Rebuilt the health snapshot
+  natively from the same real numbers (2.7 / 3.45 / 5) instead.
+
+ORPHANED ASSETS (left in place, not deleted)
+-----------------------------------------------
+The following are no longer referenced by any page after this pass,
+per instruction not to delete source assets unnecessarily:
+accessibility-health-snapshot.png, accessibility-remediation-tracker.png,
+accessibility-vendor-testing-path.png, ai-controlled-comparison.png,
+ai-ownership-model.png, ai-workflow-before-after.png,
+autofill-disclosure-architecture.png, autofill-save-before-after-
+annotated.png, hxp-permission-evolution.png, hxp-product-evolution-
+map.png, hxp-research-summary.png, intentional-friction-framework.png,
+save-use-terminology.png.
+
+TABS REVISION (this ZIP)
+--------------------------
+tabs.html was rewritten with approved final copy and the six approved
+"crisp" image assets, replacing the earlier text-only build:
+- New hero copy; Problem/Outcome now render as two equal-height cards
+  (reusing the same .cs-opener-cards component built for String
+  Authoring, not a new pattern).
+- Featured experience: tabs-nux-preview-crisp.png at ~78% of the
+  content width, flush left — sized to read as the featured artifact,
+  not a thumbnail. Opens tabs-end-to-end-full-crisp.png in the
+  lightbox from either the image or the inline "View full end-to-end
+  flow ↗" caption link.
+- Approach cut from the prior 8 beats down to 3, per approved copy:
+  Step 01 (continuity problem) with the strategy-model artifact
+  (tabs-strategy-preview-crisp.png, ~62% width, offset right, stacked
+  below its copy) opening tabs-strategy-full-crisp.png; Step 02
+  (product model) with the exploration artifact
+  (tabs-exploration-preview-crisp.png, ~45% of its column, image left
+  / copy right) opening tabs-exploration-full-crisp.png; Step 03
+  (investment story) with no visual, by design.
+- Impact unified into one section (approved copy + three proof cards:
+  46% above target, 1 funded commitment, Android MVP launched) instead
+  of the old separate Impact Snapshot block.
+- Reflection uses the approved copy with no closing quote (none was
+  supplied this round).
+- Removed per direct instruction, not restored: the old 8-beat
+  Approach, the My Involvement section, the old 4-stat Impact
+  Snapshot, the technical-regression/sunset honesty-note, and the old
+  Reflection quote.
+- Each "View full... ↗" caption control is a real inline <a> inside
+  the caption paragraph (not a button), per instruction. This required
+  one small shared-file change: script.js's lightbox click handler now
+  calls preventDefault() so the anchor opens the lightbox instead of
+  navigating to the raw image file. This is a no-op for String
+  Authoring's existing <button> triggers — verified those still work
+  unchanged after this change.
+- Fixed a real bug found while sizing the previews: bare <figure>
+  elements inherit the browser's default 1em/40px margin, which was
+  silently shrinking the intended percentage widths. Fixed only on the
+  new Tabs-scoped classes (.cs-featured-visual, and
+  .cs-flip-grid.balanced .cs-flip-preview); the shared .cs-flip-preview
+  class itself was left untouched, so String Authoring's approved
+  rendering is pixel-for-pixel unchanged — verified directly.
+No other page or shared component changed in this pass beyond the
+one-line script.js fix above.
+
+STRING AUTHORING REVISION
 -------------------------------------
 ai-workflows.html was rewritten per an approved handoff package and a
 follow-up revision pass:
@@ -213,7 +326,7 @@ HOW TO PREVIEW LOCALLY BEFORE UPLOADING
 From the unzipped folder:
     python3 -m http.server 8000
 Then open http://localhost:8000/ in a browser. No build step required.
-Portfolio password: portfolio
+Portfolio password: GoodUX
 
 HOW TO PUBLISH
 --------------

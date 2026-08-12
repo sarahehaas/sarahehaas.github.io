@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating an AI-first model for content designers to implement in code — Sarah Haas</title>
-  <meta name="description" content="An AI-first operating model that let content designers implement approved content directly in code, with Engineering review and production safeguards built into the workflow — moving a pilot from five weeks to three days.">
+  <title>Redesigning how UX content moves into code — Sarah Haas</title>
+  <meta name="description" content="An AI-assisted workflow that let Content Design implement approved strings directly in code while Engineering retained technical review and production safeguards — moving a pilot from five weeks to three days.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23334d50%27/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
       <p class="cs-toc-label">On this page</p>
       <div class="cs-toc-links">
         <a href="#ai-challenge">Challenge</a>
-        <a href="#ai-approach">Approach</a>
+        <a href="#ai-approach">What I did</a>
         <a href="#ai-impact">Impact</a>
         <a href="#ai-reflection">Reflection</a>
       </div>
@@ -38,124 +38,84 @@
     <header class="cs-hero">
       <div class="cs-shell">
         <p class="cs-capability">I redesign workflows</p>
-        <h1 style="max-width:none">Creating an AI-first model for content designers to implement in code</h1>
-        <p class="cs-overview">Traditional content implementation depended on a chain of handoffs between Content Design and Engineering. Those handoffs consumed time, introduced avoidable errors, and pulled both disciplines into work that didn’t always make the best use of their expertise. I designed a new AI-first operating model from scratch: content designers could implement approved content directly in code, with Engineering review and production safeguards built into the workflow.</p>
+        <h1 style="max-width:none">Redesigning how UX content moves into code</h1>
+        <p class="cs-overview">Approved UX content traditionally moved through a series of handoffs before reaching production. That process was slow, error-prone, and often forced engineers to recreate work Content Design had already finished. I designed and piloted an AI-assisted workflow that let Content Design implement approved strings directly in code while Engineering retained technical review and production safeguards.</p>
         <div class="cs-opener-cards">
           <div class="cs-opener-card">
             <p class="cs-mini-label">Problem</p>
-            <p>Approved content moved through multiple people and systems before reaching production, creating opportunities for errors, rework, and delay at every handoff.</p>
+            <p>The handoff itself was creating unnecessary errors and delay.</p>
           </div>
           <div class="cs-opener-card">
             <p class="cs-mini-label">Outcome</p>
-            <p>In a pilot, implementation moved from five weeks to three days and eliminated eight handoffs, while Engineering retained review and production safeguards.</p>
+            <p>Content Design could take more direct ownership of content implementation while Engineering retained technical review, code quality, and production safeguards.</p>
           </div>
         </div>
       </div>
     </header>
 
-<section class="cs-section cs-featured" aria-labelledby="ai-featured-title">
-  <div class="cs-shell">
-    <p class="cs-section-label">Featured artifact</p>
-    <h2 id="ai-featured-title">The workflow, before and after</h2>
-    <figure>
-      <div class="cs-figure-frame">
-        <img src="assets/case-studies/string-author-workflow-final.png" alt="A before-and-after workflow diagram. The manual workflow moves from Content Design finalizing content, to handing off to Engineering, to Engineering manually entering it into code, with a callout marking where errors happen. The optimized workflow moves from Content Design finalizing content, to adding it to code, to Engineering review, to Content Design shipping the diff.">
-      </div>
-      <figcaption class="cs-figure-caption">Representative view of the manual handoff model and the AI-first workflow I designed to move approved content into code with Engineering review.</figcaption>
-    </figure>
-  </div>
-</section>
 <section class="cs-section" aria-labelledby="ai-challenge">
   <div class="cs-shell">
     <p class="cs-section-label">The challenge</p>
-    <h2 id="ai-challenge">The handoff, not the people, was creating preventable errors.</h2>
+    <h2 id="ai-challenge">Every transfer between source copy, Content Design, Engineering, and the codebase created another opportunity for transcription mistakes, content drift, and rework.</h2>
     <div class="cs-prose">
-      <p>Approved content moved through multiple people and systems before reaching production. Each handoff created opportunities for context loss, transcription mistakes, rework, and delay.</p>
-      <p>The opportunity was to rethink the division of labor: <strong>what could Content Design own directly? What still required Engineering expertise? And where could AI remove unnecessary translation work between the two?</strong></p>
+      <p>The opportunity was to remove unnecessary handoffs without removing the checks that kept the work safe.</p>
     </div>
   </div>
 </section>
 <section class="cs-section cs-approach" aria-labelledby="ai-approach">
   <div class="cs-shell">
-    <p class="cs-section-label">The approach</p>
-    <h2 id="ai-approach" style="max-width:none">I created a new model for getting content into code.</h2>
+    <p class="cs-section-label">What I did</p>
+    <h2 id="ai-approach" style="max-width:none">I redesigned ownership around expertise.</h2>
 
-    <div class="cs-flip-grid">
-      <div class="cs-flip-steps">
-        <article class="cs-beat">
-          <div class="cs-beat-copy cs-prose-narrow">
-            <p class="cs-beat-number">01</p>
-            <h3>I moved content implementation closer to the source.</h3>
-            <p>With Engineering’s support, I tested a model where content designers could implement approved content directly in code using AI-assisted tools, rather than handing strings off for someone else to interpret and enter.</p>
-            <p>That gave Content Design more autonomy while reducing low-value implementation work for Engineering.</p>
-          </div>
-        </article>
-
-        <article class="cs-beat">
-          <div class="cs-beat-copy cs-prose-narrow">
-            <p class="cs-beat-number">02</p>
-            <h3>I redesigned ownership around expertise.</h3>
-            <p><strong>The goal wasn’t to blur roles. It was to make each role more effective.</strong></p>
-            <p>Content Design retained ownership of language and intent. AI supported implementation. Engineering retained technical review, code quality, and production safeguards.</p>
-          </div>
-        </article>
-      </div>
-
-      <figure class="cs-flip-preview">
-        <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">
-          <span class="cs-preview-crop"><img src="assets/case-studies/string-author-full-crisp.png" alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off."></span>
-        </button>
-        <figcaption class="cs-figure-caption">Representative view of the String Author experience, showing how Content Design could use AI to effectively prepare, validate, and implement approved strings while preserving Engineering review and safeguards. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">View full workflow ↗</button></figcaption>
-      </figure>
+    <div class="cs-beat-copy cs-prose-narrow">
+      <p>Content Design owned the language and intent. AI supported implementation. Engineering retained technical review, code quality, and production integration.</p>
+      <p>I moved content implementation closer to the source, built source-of-truth controls and validation into the workflow, and created a focused review process so both disciplines could inspect only the relevant content changes instead of sorting through unrelated code.</p>
+      <p><strong>The goal wasn’t to blur roles. It was to make each role more effective.</strong></p>
     </div>
 
-    <article class="cs-beat" style="margin-top:2.4rem">
-      <div class="cs-beat-copy cs-prose-narrow">
-        <p class="cs-beat-number">03</p>
-        <h3>I built safeguards into the workflow.</h3>
-        <p>I created the workflow, source-of-truth controls, validation steps, and review path needed to make direct implementation safe and repeatable.</p>
-        <p>That reduced opportunities for content drift while preserving the checks required before production.</p>
+    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+      <div class="cs-figure-frame">
+        <img src="assets/case-studies/string-author-workflow-final.png" alt="A before-and-after workflow diagram. The manual workflow moves from Content Design finalizing content, to handing off to Engineering, to Engineering manually entering it into code, with a callout marking where errors happen. The optimized workflow moves from Content Design finalizing content, to adding it to code, to Engineering review, to Content Design shipping the diff.">
       </div>
-    </article>
+      <figcaption class="cs-figure-caption">Representative view of the manual handoff model and the AI-first workflow I designed to move approved content into code with Engineering review.</figcaption>
+    </figure>
 
-    <div class="cs-diff-grid">
-      <div class="cs-beat-copy cs-prose-narrow">
-        <p class="cs-mini-label">Why the diff mattered</p>
-        <h3>Reviewing the content became much simpler — and safer.</h3>
-        <p>Before, a content change could be buried inside a dense code diff that Content Design and Engineering had to sift through together. The new workflow isolated the content change in its own diff, making it easier to understand, review, and approve.</p>
-        <p>That also reduced implementation risk: mistakes could be caught before the change reached the main codebase. If something was wrong, the specific diff could be abandoned instead of unwinding a published change.</p>
-      </div>
+    <figure class="cs-step-visual-right">
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">
+        <span class="cs-preview-crop"><img src="assets/case-studies/string-author-full-crisp.png" alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off."></span>
+      </button>
+      <figcaption class="cs-figure-caption">Representative view of the String Author experience, showing how Content Design could use AI to effectively prepare, validate, and implement approved strings while preserving Engineering review and safeguards. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">View full workflow ↗</button></figcaption>
+    </figure>
 
-      <figure>
-        <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
-          <img src="assets/case-studies/string-author-review-diff-approved.png" alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
-        </button>
-        <figcaption class="cs-figure-caption">Representative view of the review experience: dense implementation changes versus a focused content-only diff that made approval faster and reduced the chance of mistakes. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">View full comparison ↗</button></figcaption>
-      </figure>
+    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
+        <img src="assets/case-studies/string-author-review-diff-approved.png" alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
+      </button>
+      <figcaption class="cs-figure-caption">Representative view of the review experience: dense implementation changes versus a focused content-only diff that made approval faster and reduced the chance of mistakes. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">View full comparison ↗</button></figcaption>
+    </figure>
+  </div>
+</section>
+<section class="cs-section" aria-labelledby="ai-resolution">
+  <div class="cs-shell">
+    <p class="cs-section-label">Resolution</p>
+    <h2 id="ai-resolution">The workflow made implementation faster without removing human review.</h2>
+    <div class="cs-prose">
+      <p>A real product pilot showed that Content Design could take greater implementation ownership while preserving Engineering oversight and production safeguards.</p>
     </div>
   </div>
 </section>
 <section class="cs-section cs-impact" aria-labelledby="ai-impact">
   <div class="cs-shell">
     <p class="cs-section-label">Impact</p>
-    <h2 id="ai-impact">The model improved efficiency without trading away control.</h2>
-    <div class="cs-prose">
-      <p>The pilot showed that content designers could take direct ownership of content implementation while preserving Engineering review and production safeguards.</p>
-      <p>It reduced elapsed time, handoffs, and manual implementation work while keeping domain ownership clear on both sides.</p>
-      <p>More importantly, it demonstrated a repeatable way to use AI to remove workflow friction <strong>without handing product judgment over to AI.</strong></p>
-    </div>
-    <div class="cs-proof-grid">
-      <div class="cs-proof-card"><strong>5 weeks → 3 days</strong><span>Pilot turnaround</span></div>
-      <div class="cs-proof-card"><strong>8 → 0</strong><span>Handoffs</span></div>
-      <div class="cs-proof-card"><strong>Engineering review preserved</strong><span>Production safeguards remained in place</span></div>
-    </div>
+    <h2 id="ai-impact" class="visually-hidden">AI string authoring impact</h2>
+    <div class="cs-metrics"><article><strong>5 weeks → 3 days</strong><span>pilot turnaround</span></article><article><strong>8 → 0</strong><span>handoffs</span></article><article><strong>Preserved</strong><span>Engineering review, as a production safeguard</span></article></div>
   </div>
 </section>
 <section class="cs-section cs-reflection" aria-labelledby="ai-reflection">
   <div class="cs-shell">
     <p class="cs-section-label">Reflection</p>
     <h2 id="ai-reflection" style="max-width:none">The durable innovation wasn’t the prompt. It was a better division of labor.</h2>
-    <p>AI made a different operating model possible: Content Design could stay closer to implementation, Engineering could focus on work that required engineering expertise, and both disciplines could spend less time correcting avoidable handoff errors.</p>
+    <p>AI made the workflow useful because it let Content Design stay closer to implementation and Engineering focus on the work that required engineering expertise.</p>
     <p class="cs-mini-label" style="margin-top:18px">Engineering partner feedback</p>
     <blockquote>
       <p>“We saw a pretty big change in both our string accuracy and turnaround time, and I massively appreciate your leadership and impact in this space. Highly recommend others follow this same process and tooling.”</p>
@@ -163,7 +123,7 @@
     </blockquote>
   </div>
 </section>
-    <nav class="cs-case-nav" aria-label="Case study navigation"><a href="autofill.html"><span aria-hidden="true">←</span> Previous: Autofill content design</a><a href="work.html">All case studies</a><a href="accessibility.html">Next: Accessibility operating model <span aria-hidden="true">→</span></a></nav>
+    <nav class="cs-case-nav" aria-label="Case study navigation"><span></span><a href="work.html">All case studies</a><a href="autofill-audit.html">Next: Autofill strategy <span aria-hidden="true">→</span></a></nav>
   </main>
   <footer class="footer">
     <span>© 2026 Sarah Haas</span>
