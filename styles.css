@@ -726,6 +726,44 @@ body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:1px solid var(--hair
   body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:0;padding-left:0;border-top:1px solid var(--hairline);padding-top:28px}
 }
 
+/* Opening-grid typographic hierarchy: Problem/Outcome cards + Challenge/
+   What-I-did pair. Labels read as scan anchors, serif statements carry
+   more authority, body copy stays quiet. Scoped tightly to these two
+   groups (.cs-opener-card, .cs-pair-col) so Resolution/Impact/Reflection
+   below — which reuse the same .cs-section-label/.cs-mini-label/.cs-prose
+   classes — are unaffected. No copy or grid-column changes.
+   Note: label font-weight stays 700 — the loaded Public Sans weights
+   are 400/500/600/700, so 700 is already the boldest available; the
+   legibility gain here comes from size, spacing, and gap instead. */
+body.redesign-preview .cs-opener-card .cs-mini-label,
+body.redesign-preview .cs-pair-col .cs-section-label{
+  font-size:12.5px;
+  letter-spacing:.09em;
+  margin-bottom:12px;
+}
+body.redesign-preview .cs-opener-card p:last-child{
+  font-size:18px;
+  line-height:1.3;
+}
+body.redesign-preview .cs-pair-col h2{
+  margin-top:14px;
+  font-size:26px;
+  line-height:1.3;
+}
+body.redesign-preview .cs-pair-col .cs-prose p,
+body.redesign-preview .cs-pair-col .cs-beat-copy p{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--muted);
+}
+/* "What I did" closing line: set apart as the takeaway, not another
+   paragraph in the list. Text/bold markup unchanged. */
+body.redesign-preview .cs-approach .cs-beat-copy p:last-child{
+  margin-top:16px;
+  font-size:14.5px;
+  color:var(--ink);
+}
+
 /* Workflow diagram — full shell width, standalone. Round 3: the three
    artifacts now share a consistent hairline rhythm (a top rule + fixed
    padding before each, after the first) instead of relying on margin
