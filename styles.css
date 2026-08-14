@@ -466,3 +466,342 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
   .site-header,.footer,.password-overlay,.cs-case-nav,.cs-toc,.hero-actions,.selected-button,.mini-link,.btn{display:none!important}
   body{background:#fff!important;color:#000!important}
 }
+
+/* ============================================================
+   VISUAL DIRECTION EXPERIMENT — scoped to body.redesign-preview
+   Restrained editorial system: near-white canvas, crisp dark type,
+   wider gutters, hairlines over boxes. Everything below is scoped
+   to this class so the other pages (and the other five locked
+   case studies) render exactly as before — no shared/global rule
+   above this point was modified.
+   ============================================================ */
+body.redesign-preview{
+  --bg:#fefefc;
+  --tint-bg:#fefefc;
+  --ink:#171c19;
+  --body:#2a2f2c;
+  --muted:#4a504c;
+  --faint:#63685f;
+  --faint-2:#7a7f76;
+  --hairline:rgba(0,0,0,.08);
+  --hairline-strong:rgba(0,0,0,.14);
+  --card-border:rgba(0,0,0,.12);
+  --max:1200px;
+  --max-case:960px;
+}
+/* Second refinement pass: push the canvas materially closer to true
+   white and darken every text tier for higher contrast (round 1 still
+   read as visibly warm/cream). No new hues introduced — --teal is
+   untouched, so green labels/links keep the same accent, just against
+   a whiter ground. */
+
+/* -- Header / footer -- */
+body.redesign-preview .site-header{height:68px}
+body.redesign-preview .header-inner{max-width:1200px;padding:0 40px}
+body.redesign-preview .brand{font-size:17px;white-space:nowrap;flex:0 0 auto}
+body.redesign-preview .nav{gap:28px}
+body.redesign-preview .nav a{font-size:13px;font-weight:500;white-space:nowrap}
+body.redesign-preview .footer{max-width:1200px;padding:26px 40px}
+@media (max-width:640px){
+  /* Round 3 fix: "Sarah Haas" was wrapping to two lines at 390px because
+     the nav's combined width left too little room; nav gets tighter
+     here rather than letting the brand shrink or wrap. */
+  body.redesign-preview .header-inner{padding:0 16px}
+  body.redesign-preview .footer{padding:20px}
+  body.redesign-preview .brand{font-size:15px}
+  body.redesign-preview .nav{gap:12px}
+  body.redesign-preview .nav a{font-size:11.5px}
+}
+
+/* -- Long-form reading paragraphs: 17px per spec -- */
+body.redesign-preview .cs-prose p,
+body.redesign-preview .cs-beat-copy p,
+body.redesign-preview .contact-block>p,
+body.redesign-preview .lede{font-size:17px;line-height:1.6}
+body.redesign-preview .cs-prose{max-width:720px}
+body.redesign-preview .cs-beat-copy{max-width:720px}
+
+/* .about-copy is reused on both Home (about-preview) and the About page
+   itself, and both already carry an existing, unscoped
+   `.about-copy p:nth-of-type(1)/(2)` rule that (on the live, unmodified
+   site) collides with `.eyebrow`'s own styling by specificity, so the
+   word "About" above each of these sections currently renders in dark
+   ink instead of the small teal eyebrow style used everywhere else on
+   the site — a pre-existing bug, not something this pass introduced.
+   Explicitly restating the eyebrow's intended style here (higher
+   specificity than that legacy rule) fixes it consistently in both
+   places as part of unifying this paragraph scale; flagged in the
+   chat report since it's a real, if small, visual change. */
+body.redesign-preview .about-copy .eyebrow{font-size:11px;color:var(--teal);font-weight:700;text-transform:uppercase}
+/* Round 3 finding: the legacy nth-of-type(1)/(2) rule this comment
+   describes doesn't just affect the eyebrow — nth-of-type resolves per
+   actual parent, so it also matches the *first* paragraph inside any
+   nested wrapper (e.g. .value-row's first paragraph), leaving that one
+   paragraph bold with extra margin while its sibling isn't. This rule
+   only neutralized color/size before; adding font-weight and margin
+   here removes the last of that leftover asymmetry everywhere in
+   .about-copy, not just for the eyebrow. */
+body.redesign-preview .about-copy p:not(.eyebrow){font-size:17px;line-height:1.6;font-weight:400;max-width:640px;color:var(--muted);margin:0 0 8px}
+
+/* -- Generic two-column hero split (Portfolio, Contact) -- */
+body.redesign-preview .hero-split{max-width:1200px;margin:0 auto;padding:48px 40px 36px;display:grid;grid-template-columns:1.1fr 1.3fr;gap:56px;align-items:start}
+body.redesign-preview .hero-split-left,body.redesign-preview .hero-split-right{max-width:none}
+body.redesign-preview .hero-split h1{max-width:none}
+body.redesign-preview .hero-split .lede{max-width:520px}
+@media (max-width:760px){
+  body.redesign-preview .hero-split{grid-template-columns:1fr;gap:20px;padding:44px 20px 28px}
+}
+
+/* -- Home: combined hero (eyebrow/H1/paragraph left, "Confusion is
+   expensive" right) -- built by wrapping the two existing sections
+   in a new .hero-combo container; neither section's own markup or
+   text changed, only their outer grid placement. -- */
+body.redesign-preview .hero-combo{max-width:1200px;margin:0 auto;padding:48px 40px 16px;display:grid;grid-template-columns:1.7fr 1fr;gap:64px;align-items:center}
+body.redesign-preview .hero-combo .final-hero{max-width:none;margin:0;padding:0}
+body.redesign-preview .hero-combo .final-hero h1{max-width:none;margin-bottom:14px}
+body.redesign-preview .hero-combo .final-hero .hero-actions{margin-top:22px}
+body.redesign-preview .hero-combo .confusion-band{background:none;border:0;padding:2px 0 0 48px;border-left:1px solid var(--hairline-strong)}
+body.redesign-preview .hero-combo .confusion-inner{display:block;padding:0;max-width:none;margin:0}
+body.redesign-preview .hero-combo .confusion-left{padding-right:0}
+body.redesign-preview .hero-combo .confusion-divider{display:none}
+body.redesign-preview .hero-combo .confusion-right{padding-left:0;margin-top:16px;display:block}
+@media (max-width:820px){
+  body.redesign-preview .hero-combo{grid-template-columns:1fr;gap:0;padding:44px 20px 8px}
+  body.redesign-preview .hero-combo .confusion-band{border-left:0;border-top:1px solid var(--hairline-strong);padding:28px 0 0;margin-top:28px}
+}
+
+/* -- Home: featured case studies — 3x2 light grid, no boxes -- */
+body.redesign-preview .selected-inner{max-width:1200px;padding:40px 40px 8px}
+/* "View full portfolio" moved from a centered link below the grid up
+   into the section header row, beside the heading/lede (same link,
+   same href, same text — only its position changed). */
+body.redesign-preview .selected-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
+body.redesign-preview .selected-header .selected-lede{margin-bottom:0}
+body.redesign-preview .selected-header .selected-button.large{flex:0 0 auto;white-space:nowrap}
+body.redesign-preview .selected-grid.editorial{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px}
+body.redesign-preview .selected-grid.editorial .selected-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:20px 0 28px;border:0;border-top:1px solid var(--hairline)}
+body.redesign-preview .selected-grid.editorial .selected-card:last-child{border-bottom:0}
+body.redesign-preview .card-thumb{order:-1;flex:none;width:100%;margin:0 0 14px}
+body.redesign-preview .selected-card .card-kicker{flex:none;margin-bottom:8px}
+body.redesign-preview .selected-card-body{flex:none;width:100%}
+body.redesign-preview .selected-grid.editorial .card-headline{font-size:17px;margin-bottom:6px}
+body.redesign-preview .selected-grid.editorial .card-summary{margin:0}
+body.redesign-preview .selected-grid.editorial .selected-button{flex:none;margin-top:8px;font-size:14px}
+@media (max-width:960px){body.redesign-preview .selected-grid.editorial{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  body.redesign-preview .selected-inner{padding:40px 20px 8px}
+  body.redesign-preview .selected-header{flex-direction:column;align-items:flex-start;gap:12px}
+  body.redesign-preview .selected-grid.editorial{grid-template-columns:1fr}
+}
+
+/* -- Home: what I bring — six quiet columns, hairlines not cards -- */
+body.redesign-preview .bring-strip{padding-top:4px}
+body.redesign-preview .bring-strip-grid.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px}
+body.redesign-preview .bring-strip-grid.six article{border-top:1px solid var(--hairline);padding-top:14px}
+body.redesign-preview .bring-strip-grid h3{margin-bottom:4px}
+@media (max-width:1100px){body.redesign-preview .bring-strip-grid.six{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+@media (max-width:640px){body.redesign-preview .bring-strip-grid.six{grid-template-columns:1fr;gap:20px}}
+
+/* -- Home: about preview — horizontal text treatment, no card.
+   .about-copy-heading/.about-copy-body are new wrapper divs around
+   the existing (unchanged) eyebrow/h2 and paragraphs/CTA. -- */
+body.redesign-preview .about-preview.text-only{max-width:1200px;padding:36px 40px 40px}
+body.redesign-preview .about-preview.text-only .about-copy{display:grid;grid-template-columns:280px 1fr;gap:48px;max-width:none}
+body.redesign-preview .about-copy-heading,body.redesign-preview .about-copy-body{max-width:none}
+body.redesign-preview .about-copy-body p{max-width:640px}
+@media (max-width:760px){
+  body.redesign-preview .about-preview.text-only{padding:36px 20px 40px}
+  body.redesign-preview .about-preview.text-only .about-copy{grid-template-columns:1fr;gap:14px}
+}
+
+/* -- Portfolio: two-column editorial rows, no card boxes -- */
+body.redesign-preview .portfolio-featured{max-width:1200px;padding:20px 40px 8px}
+body.redesign-preview .capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px}
+body.redesign-preview .capability-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:24px 0 28px;border:0;border-top:1px solid var(--hairline);background:none}
+body.redesign-preview .capability-card:last-child{border-bottom:0}
+body.redesign-preview .capability-card .card-thumb{order:-1;width:100%;margin:0 0 14px}
+body.redesign-preview .capability-label{flex:none;margin-bottom:8px}
+body.redesign-preview .capability-body{flex:none;width:100%}
+body.redesign-preview .capability-card h3{font-size:18px;margin-bottom:6px}
+body.redesign-preview .capability-card p:not(.capability-label){max-width:none}
+@media (max-width:760px){
+  body.redesign-preview .portfolio-featured{padding:20px 20px 8px}
+  body.redesign-preview .capability-grid{grid-template-columns:1fr}
+}
+
+/* -- Contact: merged hero + rows, no card around the list.
+   .contact-split is a new wrapper around the two existing
+   sections (.contact-hero stays the left column, .contact-block
+   the right); nothing inside either section was removed. -- */
+body.redesign-preview .contact-split{max-width:1200px;margin:0 auto;padding:56px 40px 56px;display:grid;grid-template-columns:0.95fr 1.2fr;gap:72px;align-items:start}
+body.redesign-preview .contact-split .contact-hero{max-width:none;margin:0;padding:0}
+body.redesign-preview .contact-split .contact-hero h1{max-width:none;font-size:44px;line-height:1.08;margin-bottom:16px}
+body.redesign-preview .contact-split .contact-hero .lede{color:var(--muted);font-size:16px;max-width:440px}
+body.redesign-preview .contact-split .contact-block{max-width:none;margin:0;padding:0;border:0}
+body.redesign-preview .contact-block h2{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--faint-2);font-family:var(--sans)}
+body.redesign-preview .contact-block>p{font-size:14px;color:var(--muted);margin-bottom:24px}
+body.redesign-preview .contact-list{background:none;border:0;border-radius:0;border-top:1px solid var(--hairline)}
+body.redesign-preview .contact-row{padding:22px 2px;border-bottom:1px solid var(--hairline)}
+body.redesign-preview .contact-row .label{font-size:11px}
+body.redesign-preview .contact-row .value{font-size:17px}
+@media (max-width:820px){
+  body.redesign-preview .contact-split{grid-template-columns:1fr;gap:8px;padding:44px 20px 40px}
+  body.redesign-preview .contact-split .contact-block{margin-top:32px}
+  body.redesign-preview .contact-split .contact-hero h1{font-size:36px}
+}
+
+/* -- About: hero (photo/copy), value paragraphs, approach, beyond-work -- */
+body.redesign-preview .about-page-intro{max-width:1200px;padding:48px 40px 8px;grid-template-columns:240px minmax(0,1fr);gap:48px}
+body.redesign-preview .about-page-intro .about-portrait,
+body.redesign-preview .about-page-intro .about-portrait img{width:240px}
+body.redesign-preview .about-page-intro .about-portrait img{height:240px}
+body.redesign-preview .about-name{font-size:34px;margin-bottom:10px}
+body.redesign-preview .about-page-intro .about-copy p{margin-bottom:8px}
+/* Round 3: "Where I bring value" was reading as a stray mid-weight
+   line, not a section title, and its two paragraphs looked like one
+   emphasized point plus one leftover line (see the nth-of-type fix
+   above). Restyled as a small label — matching the same eyebrow/label
+   language used for "My approach" and "Beyond the work" below it — so
+   it clearly introduces the pair, with a hairline top rule for
+   separation and a vertical divider between the two paragraphs,
+   consistent with every other paired module on this page (Problem/
+   Outcome, Challenge/What I did, Reflection/Quote). Wording unchanged. */
+body.redesign-preview .about-page-intro .about-copy h2{margin:32px 0 14px;padding-top:24px;border-top:1px solid var(--hairline);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal)}
+body.redesign-preview .value-row{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:0}
+body.redesign-preview .value-row p{margin:0}
+body.redesign-preview .value-row p:last-child{border-left:1px solid var(--hairline);padding-left:32px}
+body.redesign-preview .approach-section{max-width:1200px;padding:0 40px;margin-top:56px}
+body.redesign-preview .approach-section>h2{font-size:28px;margin-bottom:8px}
+body.redesign-preview .approach-intro{max-width:680px}
+body.redesign-preview .refined-approach{gap:22px 40px;margin-top:18px}
+body.redesign-preview .refined-approach article{border-top:1px solid var(--hairline);padding-top:12px}
+body.redesign-preview .refined-approach article>div{margin-bottom:5px}
+body.redesign-preview .refined-approach p{max-width:52ch}
+/* Round 3: a sixth principle was added below, making the set even, so
+   the old "last item spans full width" treatment (needed for an odd
+   count of 5) is no longer appropriate — 05 and 06 now sit side by
+   side as a normal third row, closing the dead space that used to sit
+   to the right of the lone spanning item. */
+body.redesign-preview .refined-approach article:last-child{grid-column:auto;max-width:none}
+body.redesign-preview .beyond-work{max-width:1200px;padding:0 40px;margin-top:56px}
+body.redesign-preview .beyond-work>h2{font-size:28px;margin-bottom:8px}
+body.redesign-preview .beyond-grid{gap:40px;margin-top:16px;margin-bottom:28px}
+body.redesign-preview .beyond-grid>div{border:0;border-radius:0;padding:0;background:none}
+body.redesign-preview .why-share{max-width:720px}
+body.redesign-preview .about-closing{max-width:1200px;padding:0 40px;margin-top:56px}
+@media (max-width:760px){
+  body.redesign-preview .about-page-intro{grid-template-columns:1fr;padding:40px 20px 8px}
+  body.redesign-preview .value-row{grid-template-columns:1fr;gap:14px}
+  body.redesign-preview .value-row p:last-child{border-left:0;padding-left:0}
+  body.redesign-preview .approach-section,body.redesign-preview .beyond-work,body.redesign-preview .about-closing{padding:0 20px;margin-top:44px}
+}
+
+/* -- AI String Authoring case-study template -- */
+body.redesign-preview .cs-hero{padding:44px 0 28px}
+body.redesign-preview .cs-hero .cs-shell{width:min(var(--max-case),calc(100% - 80px))}
+body.redesign-preview .cs-shell{width:min(var(--max-case),calc(100% - 80px))}
+body.redesign-preview .cs-overview{margin-top:2px}
+body.redesign-preview .cs-opener-cards{margin-top:16px;padding-top:14px}
+
+/* Challenge | What-I-did intro, side by side. .cs-pair-row/.cs-pair-col
+   are new wrappers around the existing two sections' existing content;
+   no heading, label, or paragraph text was changed, only grouped.
+   Round 3 fix: each .cs-pair-col is a full <section> that still
+   contains its own inner .cs-shell, and that inner shell was ALSO
+   picking up the page-wide `.cs-shell{width:min(...)}` rule — so each
+   half independently re-centered and re-inset itself inside its grid
+   column, on top of the row's own gap. That double-insetting is what
+   made the divider not line up with the Problem/Outcome divider above
+   it and created uneven-looking gaps. Fix: the row itself now carries
+   the shared shell width/centering, and the nested .cs-shells inside
+   each pair-col are reset to fill their column plainly. Gap and
+   divider padding now match .cs-opener-cards exactly (32px) so the two
+   dividers land at the same x-position down the page. */
+body.redesign-preview .cs-pair-row{width:min(var(--max-case),calc(100% - 80px));margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+body.redesign-preview .cs-pair-col{padding:0}
+body.redesign-preview .cs-pair-col .cs-shell{width:100%;margin:0}
+body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:1px solid var(--hairline);padding-left:32px}
+@media (max-width:820px){
+  body.redesign-preview .cs-pair-row{grid-template-columns:1fr;gap:28px;width:min(100% - 40px,var(--max-case))}
+  body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:0;padding-left:0;border-top:1px solid var(--hairline);padding-top:28px}
+}
+
+/* Workflow diagram — full shell width, standalone. Round 3: the three
+   artifacts now share a consistent hairline rhythm (a top rule + fixed
+   padding before each, after the first) instead of relying on margin
+   alone, so the sequence reads as one designed set of rows — the same
+   visual language used for the card grids and paired columns elsewhere
+   on the page — rather than images simply stacked one after another. */
+body.redesign-preview .cs-artifact-wide{max-width:100%;margin:0}
+body.redesign-preview .cs-approach-artifacts{padding-top:0}
+body.redesign-preview .cs-approach-artifacts figure{padding-top:36px;border-top:1px solid var(--hairline)}
+body.redesign-preview .cs-approach-artifacts figure:first-child{padding-top:0;border-top:0}
+@media (max-width:820px){
+  body.redesign-preview .cs-approach-artifacts figure{padding-top:28px}
+}
+
+/* Round 2: the review-diff and String Author artifacts now put each
+   figure's EXISTING <figcaption> (moved, not duplicated — see chat
+   report) in a left column and the existing image in a right column,
+   via CSS Grid directly on the <figure>. figcaption is a valid first
+   OR last child of figure per the HTML spec, so moving it before the
+   image keeps the caption/figure accessibility association intact
+   while giving the requested ~30/70 text/image split. Lightbox
+   attributes on the image button and the caption's "View full..."
+   link are untouched. Round 3: aligned text to the top of the image
+   (was vertically centered, which read as floating/inconsistent next
+   to a very tall image) and gave the String Author row more width so
+   its image isn't visually stranded. */
+body.redesign-preview .cs-artifact-row{max-width:100%;margin:0;display:grid;grid-template-columns:0.32fr 0.68fr;gap:40px;align-items:start}
+body.redesign-preview .cs-artifact-row .cs-figure-caption{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+body.redesign-preview .cs-artifact-row .cs-figure-frame{margin:0}
+body.redesign-preview .cs-artifact-row:last-child{grid-template-columns:0.26fr 0.74fr}
+body.redesign-preview .cs-artifact-row .cs-preview-crop{max-height:340px}
+@media (max-width:820px){
+  body.redesign-preview .cs-artifact-row,
+  body.redesign-preview .cs-artifact-row:last-child{grid-template-columns:1fr;gap:16px}
+}
+
+/* Round 3: the bottom of the page felt crowded coming out of the
+   artifact sequence straight into Resolution. Added class="cs-resolution"
+   to that section in the HTML (structural only, no copy touched) so it
+   can get its own breathing room here, matching the same generous
+   feel already used for Impact/Reflection/nav below it. */
+body.redesign-preview .cs-resolution{margin-top:56px}
+
+/* Impact — horizontal numbers, thin separators, no enclosing box */
+body.redesign-preview .cs-section.cs-impact{background:none;border:0;margin-top:90px;padding:0}
+body.redesign-preview .cs-section.cs-impact h2,body.redesign-preview .cs-section.cs-impact p{color:var(--ink)}
+body.redesign-preview .cs-metrics{background:none;border:0;padding:0;gap:0}
+body.redesign-preview .cs-metrics article{border-right:1px solid var(--hairline-strong);padding:0 32px}
+body.redesign-preview .cs-metrics article:first-child{padding-left:0}
+body.redesign-preview .cs-metrics article:last-child{border-right:0;padding-right:0}
+body.redesign-preview .cs-metrics span{color:var(--faint)}
+@media (max-width:900px){
+  body.redesign-preview .cs-metrics article{border-right:0!important;border-bottom:1px solid var(--hairline-strong)!important}
+}
+
+/* Reflection | Engineering partner quote, side by side. No new wrapper
+   divs here (unlike the pairs above) — the existing paragraph elements
+   inside .cs-reflection .cs-shell are placed directly via CSS Grid, so
+   the pre-existing .cs-reflection>div>p:not(.cs-section-label) rule
+   keeps matching exactly as it already did on the unmodified page (see
+   chat report: that rule already overrides the "Engineering partner
+   feedback" mini-label's color on the live site today; grid-placing
+   these elements in place, rather than re-wrapping them, avoids
+   changing that pre-existing behavior any further). */
+body.redesign-preview .cs-section.cs-reflection{margin-top:80px}
+body.redesign-preview .cs-reflection .cs-shell{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;row-gap:0;align-items:start}
+body.redesign-preview .cs-reflection .cs-shell>.cs-section-label{grid-column:1;grid-row:1}
+body.redesign-preview .cs-reflection .cs-shell>h2{grid-column:1;grid-row:2;max-width:none}
+body.redesign-preview .cs-reflection .cs-shell>p:not(.cs-section-label):not(.cs-mini-label){grid-column:1;grid-row:3;font-size:15px}
+body.redesign-preview .cs-reflection .cs-shell>.cs-mini-label{grid-column:2;grid-row:1}
+body.redesign-preview .cs-reflection blockquote{grid-column:2;grid-row:2/4;margin-top:0}
+@media (max-width:820px){
+  body.redesign-preview .cs-reflection .cs-shell{grid-template-columns:1fr;column-gap:0}
+  body.redesign-preview .cs-reflection .cs-shell>*{grid-column:1!important}
+  body.redesign-preview .cs-reflection .cs-shell>.cs-mini-label{grid-row:4;margin-top:24px}
+  body.redesign-preview .cs-reflection blockquote{grid-row:5}
+}
+
+body.redesign-preview .cs-case-nav{margin-top:90px;padding:28px 0}

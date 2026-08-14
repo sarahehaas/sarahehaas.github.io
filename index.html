@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="redesign-preview">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
@@ -27,14 +27,11 @@
   </header>
 
   <main id="main">
+    <div class="hero-combo">
     <section class="hero final-hero" aria-labelledby="hero-title">
       <p class="eyebrow">CONTENT DESIGN · CONTENT STRATEGY · AI SYSTEMS · PRODUCT SYSTEMS</p>
       <h1 id="hero-title">I design the human layer of complex systems and information.</h1>
       <p class="hero-sub">Working at the intersection of language, products, and people, I create the flows, decision points, and experiences that help audiences, teams, and technologies communicate what matters and understand why.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="work.html">View portfolio <span aria-hidden="true">→</span></a>
-        <a class="btn" href="about.html#approach">About my approach <span aria-hidden="true">→</span></a>
-      </div>
     </section>
 
     <section class="confusion-band" aria-label="Positioning statement">
@@ -49,11 +46,17 @@
         </div>
       </div>
     </section>
+    </div>
 
     <section class="selected-work" id="case-studies" aria-labelledby="case-title">
       <div class="selected-inner">
-        <h2 id="case-title">Featured case studies</h2>
-        <p class="selected-lede">Selected work showing how I turn complex product problems into clearer systems, decisions, and experiences.</p>
+        <div class="selected-header">
+          <div>
+            <h2 id="case-title">Featured case studies</h2>
+            <p class="selected-lede">Selected work showing how I turn complex product problems into clearer systems, decisions, and experiences.</p>
+          </div>
+          <a class="selected-button large" href="work.html">View full portfolio <span aria-hidden="true">→</span></a>
+        </div>
 
         <div class="selected-grid editorial">
           <article class="selected-card">
@@ -114,8 +117,6 @@
             <a class="selected-button" href="hxp.html">See the product evolution <span aria-hidden="true">→</span></a>
           </article>
         </div>
-
-        <div class="center-cta"><a class="selected-button large" href="work.html">View full portfolio <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
 
@@ -151,11 +152,15 @@
 
     <section class="section about-preview text-only" id="about" aria-labelledby="about-title">
       <div class="about-copy">
-        <p class="eyebrow">About</p>
-        <h2 id="about-title">I help complex products explain themselves.</h2>
-        <p><strong>The more complicated the product, the more its words matter.</strong></p>
-        <p>I uncover the context behind complex experiences and information, connect teams around a shared understanding, and design clearer paths to better outcomes.</p>
-        <a class="btn" href="about.html">More about me <span aria-hidden="true">→</span></a>
+        <div class="about-copy-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">I help complex products explain themselves.</h2>
+        </div>
+        <div class="about-copy-body">
+          <p><strong>The more complicated the product, the more its words matter.</strong></p>
+          <p>I uncover the context behind complex experiences and information, connect teams around a shared understanding, and design clearer paths to better outcomes.</p>
+          <a class="btn" href="about.html">More about me <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
   </main>

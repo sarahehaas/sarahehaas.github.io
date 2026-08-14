@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="case-body case-v2 protected-page">
+<body class="case-body case-v2 protected-page redesign-preview">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
@@ -53,7 +53,8 @@
       </div>
     </header>
 
-<section class="cs-section" aria-labelledby="ai-challenge">
+<div class="cs-pair-row">
+<section class="cs-section cs-pair-col" aria-labelledby="ai-challenge">
   <div class="cs-shell">
     <p class="cs-section-label">The challenge</p>
     <h2 id="ai-challenge">Every transfer between source copy, Content Design, Engineering, and the codebase created another opportunity for transcription mistakes, content drift, and rework.</h2>
@@ -62,7 +63,7 @@
     </div>
   </div>
 </section>
-<section class="cs-section cs-approach" aria-labelledby="ai-approach">
+<section class="cs-section cs-approach cs-pair-col" aria-labelledby="ai-approach">
   <div class="cs-shell">
     <p class="cs-section-label">What I did</p>
     <h2 id="ai-approach" style="max-width:none">I redesigned ownership around expertise.</h2>
@@ -72,30 +73,35 @@
       <p>I moved content implementation closer to the source, built source-of-truth controls and validation into the workflow, and created a focused review process so both disciplines could inspect only the relevant content changes instead of sorting through unrelated code.</p>
       <p><strong>The goal wasn’t to blur roles. It was to make each role more effective.</strong></p>
     </div>
+  </div>
+</section>
+</div>
 
-    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+<section class="cs-section cs-approach-artifacts">
+  <div class="cs-shell">
+    <figure class="cs-featured-visual cs-artifact-wide">
       <div class="cs-figure-frame">
         <img src="assets/case-studies/string-author-workflow-final.png" alt="A before-and-after workflow diagram. The manual workflow moves from Content Design finalizing content, to handing off to Engineering, to Engineering manually entering it into code, with a callout marking where errors happen. The optimized workflow moves from Content Design finalizing content, to adding it to code, to Engineering review, to Content Design shipping the diff.">
       </div>
       <figcaption class="cs-figure-caption">Representative view of the manual handoff model and the AI-first workflow I designed to move approved content into code with Engineering review.</figcaption>
     </figure>
 
-    <figure class="cs-step-visual-right">
-      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">
-        <span class="cs-preview-crop"><img src="assets/case-studies/string-author-full-crisp.png" alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off."></span>
-      </button>
-      <figcaption class="cs-figure-caption">Representative view of the String Author experience, showing how Content Design could use AI to effectively prepare, validate, and implement approved strings while preserving Engineering review and safeguards. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">View full workflow ↗</button></figcaption>
-    </figure>
-
-    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+    <figure class="cs-artifact-row">
+      <figcaption class="cs-figure-caption">Representative view of the review experience: dense implementation changes versus a focused content-only diff that made approval faster and reduced the chance of mistakes. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">View full comparison ↗</button></figcaption>
       <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
         <img src="assets/case-studies/string-author-review-diff-approved.png" alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">
       </button>
-      <figcaption class="cs-figure-caption">Representative view of the review experience: dense implementation changes versus a focused content-only diff that made approval faster and reduced the chance of mistakes. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-review-diff-approved.png" data-lightbox-alt="A before-and-after comparison of a code review. Before, a content change is buried inside a large file with about 1,842 lines changed. After, the same content change appears in a focused, eight-line diff to a single strings file, isolating only the content that changed.">View full comparison ↗</button></figcaption>
+    </figure>
+
+    <figure class="cs-artifact-row">
+      <figcaption class="cs-figure-caption">Representative view of the String Author experience, showing how Content Design could use AI to effectively prepare, validate, and implement approved strings while preserving Engineering review and safeguards. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">View full workflow ↗</button></figcaption>
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/string-author-full-crisp.png" data-lightbox-alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off.">
+        <span class="cs-preview-crop"><img src="assets/case-studies/string-author-full-crisp.png" alt="A representative chat exchange between a content designer and Claude using the String Author skill, showing the content designer sharing strings, Claude confirming and formatting them for the platform, and a review-and-ship panel where an approved diff is shipped after content designer and engineering sign-off."></span>
+      </button>
     </figure>
   </div>
 </section>
-<section class="cs-section" aria-labelledby="ai-resolution">
+<section class="cs-section cs-resolution" aria-labelledby="ai-resolution">
   <div class="cs-shell">
     <p class="cs-section-label">Resolution</p>
     <h2 id="ai-resolution">The workflow made implementation faster without removing human review.</h2>
