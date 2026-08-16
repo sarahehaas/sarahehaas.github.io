@@ -73,10 +73,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 /* ============ Password gate ============ */
 .password-overlay{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:1.2rem;background:rgba(24,24,24,.5);backdrop-filter:blur(6px)}
 .password-overlay[hidden]{display:none!important}
-.password-card{width:min(440px,100%);background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:28px}
-.password-card h2{margin:.3rem 0 .8rem;font-size:1.6rem;line-height:1.15}
+.password-card{width:min(440px,100%);background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;color:#2a2f2c}
+.password-card h2{margin:.3rem 0 .8rem;font-size:1.6rem;line-height:1.15;color:#171c19}
 .password-card label{display:block;margin:1rem 0 .4rem;font-family:var(--sans);font-weight:600;font-size:13.5px}
-.password-card input{width:100%;border:1px solid rgba(0,0,0,.16);border-radius:var(--radius-sm);padding:.75rem;font:inherit;background:#fff;color:var(--ink)}
+.password-card input{width:100%;border:1px solid rgba(0,0,0,.16);border-radius:var(--radius-sm);padding:.75rem;font:inherit;background:#fff;color:#171c19}
 .password-error{min-height:1.4rem;color:#a3392b;font-size:13px;margin:.5rem 0}
 .portfolio-locked .site-header,
 .portfolio-locked main,
@@ -726,17 +726,16 @@ body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:1px solid var(--hair
   body.redesign-preview .cs-pair-col+.cs-pair-col{border-left:0;padding-left:0;border-top:1px solid var(--hairline);padding-top:28px}
 }
 
-/* Opening-grid typographic hierarchy: Problem/Outcome cards + Challenge/
-   What-I-did pair. Labels read as scan anchors, serif statements carry
-   more authority, body copy stays quiet. Scoped tightly to these two
-   groups (.cs-opener-card, .cs-pair-col) so Resolution/Impact/Reflection
-   below — which reuse the same .cs-section-label/.cs-mini-label/.cs-prose
-   classes — are unaffected. No copy or grid-column changes.
+/* Case-study typographic hierarchy: section labels, serif headlines, and
+   body copy, applied consistently across every case-study section on any
+   redesign-preview page (not just AI String Authoring's paired opener).
+   Labels read as scan anchors, serif statements carry more authority,
+   body copy stays quiet.
    Note: label font-weight stays 700 — the loaded Public Sans weights
    are 400/500/600/700, so 700 is already the boldest available; the
    legibility gain here comes from size, spacing, and gap instead. */
-body.redesign-preview .cs-opener-card .cs-mini-label,
-body.redesign-preview .cs-pair-col .cs-section-label{
+body.redesign-preview .cs-section-label,
+body.redesign-preview .cs-mini-label{
   font-size:12.5px;
   letter-spacing:.09em;
   margin-bottom:12px;
@@ -745,20 +744,23 @@ body.redesign-preview .cs-opener-card p:last-child{
   font-size:18px;
   line-height:1.3;
 }
-body.redesign-preview .cs-pair-col h2{
+body.redesign-preview .cs-section h2{
   margin-top:14px;
   font-size:26px;
   line-height:1.3;
 }
-body.redesign-preview .cs-pair-col .cs-prose p,
-body.redesign-preview .cs-pair-col .cs-beat-copy p{
+body.redesign-preview .cs-prose p,
+body.redesign-preview .cs-beat-copy p{
   font-size:14px;
   line-height:1.6;
   color:var(--muted);
 }
-/* "What I did" closing line: set apart as the takeaway, not another
-   paragraph in the list. Text/bold markup unchanged. */
-body.redesign-preview .cs-approach .cs-beat-copy p:last-child{
+/* AI String Authoring's "What I did" closing line: set apart as the
+   takeaway, not another paragraph in the list. Text/bold markup
+   unchanged. Scoped to .cs-pair-col specifically (only that page's
+   "What I did" is wrapped in it) so it doesn't reach other case
+   studies' differently-shaped approach sections. */
+body.redesign-preview .cs-pair-col.cs-approach .cs-beat-copy p:last-child{
   margin-top:16px;
   font-size:14.5px;
   color:var(--ink);
@@ -806,6 +808,47 @@ body.redesign-preview .cs-artifact-row .cs-preview-crop{max-height:340px}
    can get its own breathing room here, matching the same generous
    feel already used for Impact/Reflection/nav below it. */
 body.redesign-preview .cs-resolution{margin-top:56px}
+
+/* Honesty-note aside (e.g. Tabs' "Where the story ends") still used the
+   pre-redesign filled amber box, which reads as a leftover component
+   next to the hairline-only system everywhere else on the page. Kept
+   its warm accent (distinct from teal, so it still reads as a caveat)
+   but as a left-rule note instead of a box+fill. */
+body.redesign-preview .cs-honesty-note{
+  margin-top:20px;
+  padding:2px 0 2px 20px;
+  border:0;
+  border-left:2px solid #c99a4b;
+  background:none;
+  border-radius:0;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.6;
+}
+body.redesign-preview .cs-honesty-note strong{color:var(--ink)}
+
+/* Accessibility: interactive screen-reader demo (Figma Make embed).
+   Desktop/tablet gets the full artifact-column width at 16:9. Mobile
+   switches to 4:3 instead of forcing the desktop aspect ratio into a
+   too-short frame — the demo's controls need to stay tappable. */
+body.redesign-preview .cs-embed-frame{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-top:12px}
+body.redesign-preview .cs-embed-frame iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:640px){
+  body.redesign-preview .cs-embed-frame{aspect-ratio:4/3}
+}
+
+/* Quiet artifact-provenance labels (e.g. "Representative reconstruction —",
+   "Public-safe reconstruction —") inside case-study figure captions.
+   Metadata, not a callout — stays muted and unbolded, same size as the
+   caption text around it. */
+body.redesign-preview .cs-figure-caption em{font-style:italic;font-weight:400;color:var(--faint)}
+
+/* The interactive Figma demo can't render in print (iframes don't print),
+   so the whole figure — including its instruction line — is hidden rather
+   than leaving an orphaned "use the buttons..." line with nothing below it. */
+@media print{
+  .cs-interactive-demo{display:none!important}
+}
 
 /* Impact — horizontal numbers, thin separators, no enclosing box */
 body.redesign-preview .cs-section.cs-impact{background:none;border:0;margin-top:90px;padding:0}

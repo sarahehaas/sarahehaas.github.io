@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="case-body case-v2 protected-page">
+<body class="case-body case-v2 protected-page redesign-preview">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
@@ -39,15 +39,15 @@
       <div class="cs-shell">
         <p class="cs-capability">I create operating models</p>
         <h1 style="max-width:none">Making a complex product ecosystem testable and fixable</h1>
-        <p class="cs-overview">Meta’s in-app browser needed to understand its accessibility health and prepare for changing regulatory expectations. But reliably testing a large browser ecosystem required much more than sending a few screens to an auditor. I helped build the structure, test environment, ownership model, and remediation process needed to turn accessibility from a broad concern into actionable product work.</p>
+        <p class="cs-overview">Accessibility findings already existed, but the browser lacked a durable way to turn them into ongoing product work. I co-drove the cross-functional program: triaging unresolved findings, mapping roughly 360 Facebook and Instagram IAB flow and platform variations, preparing reproducible test conditions for a new audit, and shaping the ownership and remediation model that helped inform the broader organizational response to accessibility readiness.</p>
         <div class="cs-opener-cards">
           <div class="cs-opener-card">
             <p class="cs-mini-label">Problem</p>
-            <p>The browser needed a reliable way to understand accessibility health, reproduce priority flows for testing, assign ownership, and turn findings into remediation.</p>
+            <p>Prior findings existed, but there was no durable product process for ownership, remediation, or reassessment.</p>
           </div>
           <div class="cs-opener-card">
             <p class="cs-mini-label">Outcome</p>
-            <p>The work created a repeatable accessibility operating model: map the product, establish a baseline, prioritize findings, assign owners, remediate, and re-audit when possible.</p>
+            <p>A repeatable operating model connected prior findings, a new baseline, clear ownership, remediation, and audit-ready setup—and helped shape a broader organizational accessibility response.</p>
           </div>
         </div>
       </div>
@@ -56,46 +56,63 @@
 <section class="cs-section" aria-labelledby="ax-challenge">
   <div class="cs-shell">
     <p class="cs-section-label">The challenge</p>
-    <h2 id="ax-challenge">Accessibility had not been formally assessed as part of the browser team’s normal product process in this project context.</h2>
+    <h2 id="ax-challenge">The findings weren’t the hardest part. Creating the conditions to act on them was.</h2>
     <div class="cs-prose">
-      <p>A minimum-viable accessibility audit established a 3.45/5 baseline — above the company average of 2.7, but below the team’s north-star target of 5.</p>
-      <p>The challenge was not just identifying issues. It was creating the operational conditions needed for outside testers and internal teams to reproduce complex flows, understand findings, assign ownership, and make remediation possible.</p>
+      <p>An earlier accessibility assessment had produced findings roughly two years before, but they had not been systematically remediated. I revisited the prior triage notes and organized issues by relevance, severity, implementation effort, and ownership so the team could focus first on foundational blockers.</p>
+      <p>At the same time, we needed a new baseline. The browser contained hundreds of conditional paths across Facebook and Instagram, iOS and Android. With a limited audit budget, we had to map the larger ecosystem, select a comparable set of priority flows, and make those experiences reproducible for outside testers.</p>
     </div>
   </div>
 </section>
 <section class="cs-section cs-approach" aria-labelledby="ax-approach">
   <div class="cs-shell">
     <p class="cs-section-label">What I did</p>
-    <h2 id="ax-approach" style="max-width:none">I helped turn a broad accessibility mandate into an operating system.</h2>
+    <h2 id="ax-approach" style="max-width:none">I turned fragmented accessibility work into a program the team could run.</h2>
 
     <div class="cs-beat-copy cs-prose-narrow">
-      <p>I mapped priority flows, account conditions, browser states, and navigation paths and helped create the vendor-ready accounts and guidance required for reliable third-party testing.</p>
-      <p>Then I co-led the cross-functional process for triaging findings, assigning ownership, coordinating fixes, and turning individual accessibility lessons into reusable product standards.</p>
+      <p>I led the scope and operating model as an accessibility SME. I aggregated prior findings, identified foundational priorities, facilitated ownership across Content Design and Engineering, and tracked targeted fixes.</p>
+      <p>To prepare the new audit, I partnered with Product Design and teammates to identify roughly 360 flow and platform variations. I created the test setup—accounts, seeded content, product states, and step-by-step paths—then validated the selected experiences we packaged with Central Accessibility for external testing.</p>
+      <p>While the audit was underway, I co-developed an EAA Design Response Team with Content Design, Product Design, and accessibility leads. I used the browser approach to help shape an org-level proposal, leadership prioritization and resourcing, and the broader “waves” model for addressing accessibility in manageable increments.</p>
     </div>
 
     <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Accessibility health snapshot</p>
-      <div class="cs-metrics" role="img" aria-label="Accessibility score of 3.45 out of 5, above the company average of 2.7, and below the north-star target of 5."><article><strong>2.7 / 5</strong><span>Company average</span></article><article><strong>3.45 / 5</strong><span>This browser’s MVA baseline</span></article><article><strong>5 / 5</strong><span>North-star target</span></article></div>
+      <p class="cs-mini-label" style="margin-bottom:8px">Flow mapping / program design</p>
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/MVA_FlowMatrix_mainOptimized3.png" data-lightbox-alt="A table mapping representative Facebook and Instagram in-app browser flows across iOS and Android, including entry point, steps to complete, required test setup, validation status, and audit priority, used to package selected flows for formal accessibility assessment.">
+        <img src="assets/case-studies/MVA_FlowMatrix_mainOptimized3.png" alt="A table mapping representative Facebook and Instagram in-app browser flows across iOS and Android, including entry point, steps to complete, required test setup, validation status, and audit priority, used to package selected flows for formal accessibility assessment.">
+      </button>
+      <figcaption class="cs-figure-caption"><em>Representative reconstruction</em> — Before formal assessment could happen, the ecosystem had to become reproducible. We mapped roughly 360 Facebook and Instagram IAB flow and platform variations, then validated the steps, setup, and conditions for the selected experiences packaged for external audit. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/MVA_FlowMatrix_mainOptimized3.png" data-lightbox-alt="A table mapping representative Facebook and Instagram in-app browser flows across iOS and Android, including entry point, steps to complete, required test setup, validation status, and audit priority, used to package selected flows for formal accessibility assessment.">View full flow mapping ↗</button></figcaption>
     </figure>
 
     <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Vendor testing path</p>
-      <div class="cs-flow cs-flow-five" role="img" aria-label="Entry point leads to account condition, browser state, target experience, interaction, and expected accessible behavior.">
-        <span>Entry point</span><b aria-hidden="true">→</b><span>Account condition</span><b aria-hidden="true">→</b><span>Browser state</span><b aria-hidden="true">→</b><span>Target experience</span><b aria-hidden="true">→</b><span>Interaction</span><b aria-hidden="true">→</b><span>Expected accessible behavior</span>
+      <p class="cs-mini-label" style="margin-bottom:8px">Accessibility performance audit</p>
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Accessibility_Performance_Audit_PUBLIC_SAFE.png" data-lightbox-alt="An accessibility performance audit dashboard showing an overall rating of marginally functional, rounded flow-quality indicators of roughly 60% marginally functional, 25% functional, and 5% non-functional shown independently rather than as a 100% stacked total, and a relative benchmark showing the product positioned above the company average of 2.7 out of 5 and below the fully viable goal of 5 out of 5, with the exact product score withheld.">
+        <img src="assets/case-studies/Accessibility_Performance_Audit_PUBLIC_SAFE.png" alt="An accessibility performance audit dashboard showing an overall rating of marginally functional, rounded flow-quality indicators of roughly 60% marginally functional, 25% functional, and 5% non-functional shown independently rather than as a 100% stacked total, and a relative benchmark showing the product positioned above the company average of 2.7 out of 5 and below the fully viable goal of 5 out of 5, with the exact product score withheld.">
+      </button>
+      <figcaption class="cs-figure-caption"><em>Public-safe reconstruction</em> — The new audit established a measurable baseline. The product performed above the company benchmark, but remained in the marginally functional range and well below the fully viable target. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Accessibility_Performance_Audit_PUBLIC_SAFE.png" data-lightbox-alt="An accessibility performance audit dashboard showing an overall rating of marginally functional, rounded flow-quality indicators of roughly 60% marginally functional, 25% functional, and 5% non-functional shown independently rather than as a 100% stacked total, and a relative benchmark showing the product positioned above the company average of 2.7 out of 5 and below the fully viable goal of 5 out of 5, with the exact product score withheld.">View full audit ↗</button></figcaption>
+    </figure>
+
+    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+      <p class="cs-mini-label" style="margin-bottom:8px">Implementation craft</p>
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Accessibility_Behind_The_Scenes.png" data-lightbox-alt="A comparison of a free shipping banner, a save-payment-card control, and an open-tabs control showing what people see next to the screen-reader labels, translator descriptions, and content IDs manually authored for each element.">
+        <img src="assets/case-studies/Accessibility_Behind_The_Scenes.png" alt="A comparison of a free shipping banner, a save-payment-card control, and an open-tabs control showing what people see next to the screen-reader labels, translator descriptions, and content IDs manually authored for each element.">
+      </button>
+      <figcaption class="cs-figure-caption"><em>Case-study illustration</em> — Accessibility also had to be operationalized at the content level. Visible strings were only part of the work: screen-reader labels, descriptions, IDs, and translation context had to be deliberately authored and reviewed for each element. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Accessibility_Behind_The_Scenes.png" data-lightbox-alt="A comparison of a free shipping banner, a save-payment-card control, and an open-tabs control showing what people see next to the screen-reader labels, translator descriptions, and content IDs manually authored for each element.">View full annotation detail ↗</button></figcaption>
+    </figure>
+
+    <figure class="cs-featured-visual cs-interactive-demo" style="margin-top:1.8rem">
+      <p class="cs-figure-caption"><em>Interactive recreation</em> — Hear the same interface with generic controls versus meaningful screen-reader labels.</p>
+      <p>Use the buttons inside the demo to hear the difference.</p>
+      <div class="cs-embed-frame">
+        <iframe src="https://melody-elf-25237633.figma.site/" title="Interactive demo comparing a control without a screen-reader label to one with a meaningful screen-reader label" loading="lazy" allow="autoplay"></iframe>
       </div>
-      <p class="cs-caption">The test path turned conditional product behavior into reproducible steps an outside vendor could audit consistently.</p>
     </figure>
   </div>
 </section>
 <section class="cs-section" aria-labelledby="ax-resolution">
   <div class="cs-shell">
     <p class="cs-section-label">Resolution</p>
-    <h2 id="ax-resolution">Accessibility became something the team could measure, assign, and act on.</h2>
+    <h2 id="ax-resolution">Accessibility became an operating model, not a one-time audit.</h2>
     <div class="cs-prose">
-      <p>The work established a baseline for product health and a repeatable process for moving from audit findings to remediation, rather than treating accessibility as a one-time review.</p>
-    </div>
-    <div class="cs-flow cs-flow-five" style="margin-top:1.2rem" role="img" aria-label="Map the product, establish a baseline, prioritize, assign owners, remediate, re-audit when possible.">
-      <span>Map the product</span><b aria-hidden="true">→</b><span>Establish a baseline</span><b aria-hidden="true">→</b><span>Prioritize</span><b aria-hidden="true">→</b><span>Assign owners</span><b aria-hidden="true">→</b><span>Remediate</span><b aria-hidden="true">→</b><span>Re-audit when possible</span>
+      <p>The work connected prior findings to ownership and remediation, established a new baseline, and created repeatable conditions for assessment. The browser approach also helped inform a broader organizational response as teams prepared for EAA readiness.</p>
     </div>
   </div>
 </section>
@@ -103,15 +120,15 @@
   <div class="cs-shell">
     <p class="cs-section-label">Impact</p>
     <h2 id="ax-impact" class="visually-hidden">Accessibility program impact</h2>
-    <div class="cs-metrics"><article><strong>10</strong><span>priority flows mapped and audited</span></article><article><strong>157%</strong><span>of the team’s accessibility-triage goal reached</span><small>Team/program metric, not solely an individual result.</small></article><article><strong>1</strong><span>structured vendor test environment built from scratch</span></article></div>
-    <p class="cs-caption">The program helped establish a durable accessibility process and contributed to leadership support for continued accessibility work.</p>
+    <div class="cs-metrics"><article><strong>~360</strong><span>flows + experience variations mapped</span><small>across Facebook and Instagram IAB on iOS and Android</small></article><article><strong>157%</strong><span>of the team’s accessibility-triage goal reached</span><small>Team/program metric, not solely an individual result.</small></article><article><strong>Audit-ready</strong><span>repeatable test setup and validated flow guidance</span></article></div>
+    <p class="cs-caption">The program helped secure leadership sponsorship, roadmap priority, and resources for accessibility work, and contributed to the broader waves model used to organize accessibility remediation across the organization. As part of the companywide EAA-readiness effort, this work contributed to mitigating billions of dollars in potential legal and regulatory risk.</p>
   </div>
 </section>
 <section class="cs-section cs-reflection" aria-labelledby="ax-reflection">
   <div class="cs-shell">
     <p class="cs-section-label">Reflection</p>
-    <h2 id="ax-reflection" style="max-width:none">Accessibility problems are often systems problems.</h2>
-    <p>Finding an inaccessible screen matters. Building the conditions that let teams consistently find, own, fix, and prevent those problems is what makes the work scale.</p>
+    <h2 id="ax-reflection" style="max-width:none">The durable work wasn’t the audit. It was making accessibility operable.</h2>
+    <p>An audit can identify problems once. A program creates the conditions to keep finding, prioritizing, owning, fixing, and reassessing them. That shift—from an assessment event to repeatable product practice—is what makes accessibility scale.</p>
   </div>
 </section>
     <nav class="cs-case-nav" aria-label="Case study navigation"><a href="tabs.html"><span aria-hidden="true">←</span> Previous: Tabs continuity strategy</a><a href="work.html">All case studies</a><a href="autofill.html">Next: Autofill content optimization <span aria-hidden="true">→</span></a></nav>
@@ -120,6 +137,12 @@
     <span>© 2026 Sarah Haas</span>
     <strong>Designing for understanding.</strong>
   </footer>
+  <div class="cs-lightbox-overlay" data-lightbox-overlay hidden>
+    <div class="cs-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Enlarged image">
+      <button type="button" class="cs-lightbox-close" data-lightbox-close aria-label="Close enlarged image">&times;</button>
+      <img data-lightbox-image alt="">
+    </div>
+  </div>
   <script defer src="script.js"></script>
   <div class="password-overlay" data-password-overlay hidden>
     <div class="password-card" role="dialog" aria-modal="true" aria-labelledby="password-title" aria-describedby="password-description">
