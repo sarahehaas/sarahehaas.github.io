@@ -125,6 +125,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .bring-strip{padding:8px 0 44px;border-top:0}
 .bring-strip h2{font-size:22px;font-weight:600;text-align:center;margin:0 0 24px}
 .bring-strip-grid.six{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 28px}
+.bring-strip-grid.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 28px}
 .bring-strip-grid article{border:0;padding:0}
 .bring-strip-grid h3{font-family:var(--sans);letter-spacing:0;font-size:13.5px;font-weight:700;line-height:1.3;margin:0 0 5px;color:var(--ink)}
 .bring-strip-grid p{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5}
@@ -225,6 +226,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-capability{margin:0;color:var(--teal);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 .cs-section-label,.cs-mini-label,.cs-beat-number{margin:0;color:var(--teal);font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
 .cs-hero h1{max-width:640px;margin:14px 0 14px;font-family:var(--serif);font-size:clamp(1.7rem,4.2vw,2.125rem);font-weight:600;line-height:1.14;letter-spacing:-.01em}
+.cs-hero h1:first-child{margin-top:0}
 .cs-overview{max-width:600px;margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
 
 /* Problem -> Outcome opener */
@@ -581,8 +583,8 @@ body.redesign-preview .selected-header .selected-button.large{flex:0 0 auto;whit
 body.redesign-preview .selected-grid.editorial{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px}
 body.redesign-preview .selected-grid.editorial .selected-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:20px 0 28px;border:0;border-top:1px solid var(--hairline)}
 body.redesign-preview .selected-grid.editorial .selected-card:last-child{border-bottom:0}
-body.redesign-preview .card-thumb{order:-1;flex:none;width:100%;margin:0 0 14px}
-body.redesign-preview .selected-card .card-kicker{flex:none;margin-bottom:8px}
+body.redesign-preview .selected-card .card-media{order:-1;display:block;flex:none;width:100%;margin:0 0 14px;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--card-border);border-radius:var(--radius-sm);background:#f6f6f4}
+body.redesign-preview .selected-card .card-thumb{width:100%;max-width:none;height:100%;aspect-ratio:auto;object-fit:contain;display:block;border:0;border-radius:0}
 body.redesign-preview .selected-card-body{flex:none;width:100%}
 body.redesign-preview .selected-grid.editorial .card-headline{font-size:17px;margin-bottom:6px}
 body.redesign-preview .selected-grid.editorial .card-summary{margin:0}
@@ -594,13 +596,18 @@ body.redesign-preview .selected-grid.editorial .selected-button{flex:none;margin
   body.redesign-preview .selected-grid.editorial{grid-template-columns:1fr}
 }
 
-/* -- Home: what I bring — six quiet columns, hairlines not cards -- */
+/* -- Home: what I bring — quiet columns, hairlines not cards -- */
 body.redesign-preview .bring-strip{padding-top:4px}
 body.redesign-preview .bring-strip-grid.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px}
 body.redesign-preview .bring-strip-grid.six article{border-top:1px solid var(--hairline);padding-top:14px}
+body.redesign-preview .bring-strip-grid.three{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+body.redesign-preview .bring-strip-grid.three article{border-top:1px solid var(--hairline);padding-top:14px}
 body.redesign-preview .bring-strip-grid h3{margin-bottom:4px}
 @media (max-width:1100px){body.redesign-preview .bring-strip-grid.six{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
-@media (max-width:640px){body.redesign-preview .bring-strip-grid.six{grid-template-columns:1fr;gap:20px}}
+@media (max-width:640px){
+  body.redesign-preview .bring-strip-grid.six{grid-template-columns:1fr;gap:20px}
+  body.redesign-preview .bring-strip-grid.three{grid-template-columns:1fr;gap:20px}
+}
 
 /* -- Home: about preview — horizontal text treatment, no card.
    .about-copy-heading/.about-copy-body are new wrapper divs around
@@ -619,10 +626,10 @@ body.redesign-preview .portfolio-featured{max-width:1200px;padding:20px 40px 8px
 body.redesign-preview .capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px}
 body.redesign-preview .capability-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:24px 0 28px;border:0;border-top:1px solid var(--hairline);background:none}
 body.redesign-preview .capability-card:last-child{border-bottom:0}
-body.redesign-preview .capability-card .card-thumb{order:-1;width:100%;margin:0 0 14px}
-body.redesign-preview .capability-label{flex:none;margin-bottom:8px}
+body.redesign-preview .capability-card .card-media{display:block;width:100%;margin:14px 0;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--card-border);border-radius:var(--radius-sm);background:#f6f6f4}
+body.redesign-preview .capability-card .card-thumb{width:100%;max-width:none;height:100%;aspect-ratio:auto;object-fit:contain;display:block;border:0;border-radius:0}
 body.redesign-preview .capability-body{flex:none;width:100%}
-body.redesign-preview .capability-card h3{font-size:18px;margin-bottom:6px}
+body.redesign-preview .capability-card h3{font-size:18px;margin:0 0 6px}
 body.redesign-preview .capability-card p:not(.capability-label){max-width:none}
 @media (max-width:760px){
   body.redesign-preview .portfolio-featured{padding:20px 20px 8px}

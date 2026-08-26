@@ -1,13 +1,23 @@
 /* Sarah Haas portfolio — shared password gate
    One localStorage unlock, shared across every protected page, expires after
-   8 hours. No redirects, no query parameters, no per-page password state. */
+   8 hours. No redirects, no query parameters, no per-page password state.
+
+   PORTFOLIO_PASSWORD_ENABLED is the single switch for the whole gate. When
+   false, every protected page is directly accessible: the overlay stays
+   hidden, the page is never blurred/locked, and the password form is never
+   initialized. Flip it back to true to restore the exact prior behavior
+   (initial autofocus, blur + pointer-events:none on the background) — no
+   other code changes required. */
 (function () {
   'use strict';
+
+  const PORTFOLIO_PASSWORD_ENABLED = false;
 
   const PASSWORD = 'GoodUX'; // Placeholder only. Client-side deterrence, not server security.
   const STORAGE_KEY = 'sarahPortfolioUnlockedUntil';
   const UNLOCK_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
 
+  if (!PORTFOLIO_PASSWORD_ENABLED) return;
   if (!document.body.classList.contains('protected-page')) return;
 
   function isUnlocked() {
