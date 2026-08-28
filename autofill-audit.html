@@ -4,15 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Turning fragmented Autofill evidence into product direction — Sarah Haas</title>
-  <meta name="description" content="An evaluation of Meta's Autofill ecosystem that turned fragmented evidence into five strategic themes, 15 recommendations, and direction that influenced approximately 85% of planned H1 priorities.">
+  <title>Building a shared strategy for a complex Autofill ecosystem — Sarah Haas</title>
+  <meta name="description" content="Five strategic opportunities and 15 recommendations gave the team a shared basis for decision-making and shaped approximately 85% of planned H1 priorities.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23334d50%27/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="case-body case-v2 protected-page redesign-preview">
+<body class="case-body case-v2 protected-page redesign-preview autofill-audit-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
@@ -29,94 +29,150 @@
     <nav class="cs-toc" aria-label="Case study sections" data-cs-toc>
       <p class="cs-toc-label">On this page</p>
       <div class="cs-toc-links">
+        <a href="#audit-results">Results</a>
         <a href="#audit-challenge">Challenge</a>
+        <a href="#audit-design-thinking">Design thinking</a>
         <a href="#audit-approach">What I did</a>
-        <a href="#audit-impact">Impact</a>
+        <a href="#audit-solution">The solution</a>
         <a href="#audit-reflection">Reflection</a>
       </div>
     </nav>
     <header class="cs-hero">
       <div class="cs-shell">
-        <h1 style="max-width:none">Turning fragmented Autofill evidence into product direction</h1>
-        <p class="cs-overview">Meta’s Autofill experience had evolved through years of research, experiments, product decisions, and incremental changes. The information existed, but the team didn’t have one clear view of the ecosystem or the biggest opportunities. I partnered with Product Design and UXR to bring that evidence together and create a shared basis for product strategy and roadmap decisions.</p>
-        <div class="cs-opener-cards">
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">Problem</p>
-            <p>The team had plenty of information, but no shared understanding of the product.</p>
+        <p class="cs-project-context">Meta · Browser / Autofill product audit</p>
+        <h1 style="max-width:none">Building a shared strategy for a complex Autofill ecosystem</h1>
+        <p class="cs-overview">As our team prepared to inherit Autofill—a global product and critical revenue driver—much of its history lived as institutional knowledge.</p>
+        <p class="cs-overview" style="margin-top:12px">I led a cross-functional audit that mapped core Autofill flows across five conversion-critical areas in Facebook and Instagram, then synthesized research, performance data, competitive analysis, and cross-platform gaps into a visual decision framework. The work identified five strategic opportunities and became the team’s source of truth for product prioritization.</p>
+
+        <div class="aud-role">
+          <p class="aud-label">Role, scope and partners</p>
+          <p>Senior Content Designer. Led the content strategy and cross-functional synthesis in partnership with Product Design and UXR, incorporating product, engineering, legal, privacy, and compliance requirements into a shared strategic baseline.</p>
+        </div>
+
+        <div class="aud-goal-outcome">
+          <div>
+            <p class="aud-label">Goal</p>
+            <p>Give Browser an evidence-based foundation for identifying and prioritizing the highest-value Autofill opportunities as the team took ownership.</p>
           </div>
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">Outcome</p>
-            <p>A common model turned fragmented evidence into five strategic themes, 15 recommendations, and direction that influenced approximately 85% of planned H1 priorities.</p>
+          <div>
+            <p class="aud-label">Outcome</p>
+            <p>Browser began ownership with a shared source of truth, five strategic opportunities, and 15 recommendations that shaped approximately 85% of its planned H1 priorities.</p>
           </div>
         </div>
       </div>
     </header>
 
-<section class="cs-section" aria-labelledby="audit-challenge">
+<section class="aud-section" id="audit-results" aria-labelledby="audit-results-heading">
   <div class="cs-shell">
-    <p class="cs-section-label">The challenge</p>
-    <h2 id="audit-challenge">Research, performance data, competitive findings, and historical decisions were spread across different teams and artifacts.</h2>
-    <div class="cs-prose">
-      <p>That made it difficult to see recurring problems across the full experience or know which opportunities were most important.</p>
+    <h2 class="aud-heading" id="audit-results-heading">Results</h2>
+    <div class="aud-metrics">
+      <article><strong>5</strong><span>Strategic opportunities connecting recurring issues across the ecosystem</span></article>
+      <article><strong>15</strong><span>Recommendations spanning content, design, product behavior, and engineering</span></article>
+      <article><strong>≈85%</strong><span>Of the planned H1 product roadmap shaped by the audit</span></article>
+    </div>
+    <p class="aud-metrics-note">Trust emerged as more than a content or messaging problem. The audit showed that confidence depended on accurate stored data, meaningful user control, clear security signals, and deliberate decisions about when to reduce friction and when to introduce it. That finding directly informed my later Autofill consent and disclosure work.</p>
+  </div>
+</section>
+
+<section class="aud-section" id="audit-challenge" aria-labelledby="audit-challenge-heading">
+  <div class="cs-shell">
+    <h2 class="aud-heading" id="audit-challenge-heading">The challenge</h2>
+    <p class="aud-setup">Autofill’s history was embedded in the product—not documented as a shared system.</p>
+    <ul class="aud-bullets">
+      <li>Years of engineering, product, research, design, content, legal, privacy, and compliance decisions had accumulated across Facebook, Instagram, and multiple user journeys.</li>
+      <li>Individual sources captured only part of the picture: technical implementation without product rationale, product decisions without design and content context, or language without a traceable record of the requirements that shaped it.</li>
+      <li>As ownership moved across teams, experiences were extended or recreated without full visibility into the decisions that came before.</li>
+      <li>Overlapping and sometimes conflicting patterns made it difficult to identify systemic problems, avoid duplicated work, or determine what the team should repair, improve, preserve, or create next.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="aud-section" id="audit-design-thinking" aria-labelledby="audit-design-thinking-heading">
+  <div class="cs-shell">
+    <h2 class="aud-heading" id="audit-design-thinking-heading">Design thinking</h2>
+    <div class="aud-prose">
+      <p>As Browser prepared to take ownership, I saw the transition as an opportunity to make the product legible before the team started changing it.</p>
+      <p>I did not want to produce another inventory of isolated issues. The team needed a model that connected user journeys, language and information structure, system behavior, research, performance data, competitive patterns, and technical and regulatory constraints.</p>
+      <p>UXR’s jobs-to-be-done research provided the user lens. I translated those findings into five shared design principles: usability, security and trust, user control, user value, and user support.</p>
+      <p>Using the same principles to evaluate our internal flows and six competing and adjacent products would make comparisons more consistent, reduce subjective debate, and expose recurring gaps across the system.</p>
+      <p>The approach also needed to balance immediate fixes with longer-term product possibilities. I therefore organized the evidence into strategic opportunities and recommendations rather than presenting a disconnected list of findings.</p>
     </div>
   </div>
 </section>
-<section class="cs-section cs-approach" aria-labelledby="audit-approach">
+
+<section class="aud-section cs-approach" id="audit-approach" aria-labelledby="audit-approach-heading">
   <div class="cs-shell">
-    <p class="cs-section-label">What I did</p>
-    <h2 id="audit-approach" style="max-width:none">I turned disconnected evidence into a product model teams could act on.</h2>
-
-    <div class="cs-beat-copy cs-prose-narrow">
-      <p>I mapped the Autofill ecosystem across core experiences, synthesized research and competitive patterns, and reframed the product around what people were actually trying to do.</p>
-    </div>
-
-    <figure class="cs-step-visual-right">
-      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-ecosystem-map.jpg" data-lightbox-alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point.">
-        <span class="cs-preview-crop"><img src="assets/case-studies/autofill-audit-ecosystem-map.jpg" alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point."></span>
-      </button>
-      <figcaption class="cs-figure-caption">The breadth of the Autofill ecosystem evaluated: new- and returning-user experiences across payment, contact, and lead-gen credentials, plus a static entry point. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-ecosystem-map.jpg" data-lightbox-alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point.">View full ecosystem map ↗</button></figcaption>
-    </figure>
-
-    <div class="cs-beat-copy cs-prose-narrow" style="margin-top:1.8rem">
-      <p>That work surfaced recurring issues around trust, control, consistency, and recovery. I translated those patterns into five strategic themes and 15 recommendations spanning content, design, product behavior, and engineering.</p>
-      <p>Research (UXR) identified the underlying jobs to be done. I interpreted those findings and organized them into the five-part framework below, then used it to evaluate the current Autofill experience and competitive products.</p>
-    </div>
-
-    <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-methodology.png" data-lightbox-alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support.">
-        <img src="assets/case-studies/autofill-audit-methodology.png" alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support.">
-      </button>
-      <figcaption class="cs-figure-caption">The evaluation framework I built from UXR's jobs-to-be-done research, used to assess Autofill and competitive products consistently. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-methodology.png" data-lightbox-alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support.">View full framework ↗</button></figcaption>
-    </figure>
-
-    <div class="cs-flow" style="margin-top:1.8rem" role="img" aria-label="Evidence flowed into patterns and gaps, then five strategic themes, then 15 recommendations, then roadmap priorities.">
-      <span>Evidence</span><b aria-hidden="true">→</b><span>Patterns / gaps</span><b aria-hidden="true">→</b><span>5 themes</span><b aria-hidden="true">→</b><span>15 recommendations</span><b aria-hidden="true">→</b><span>Roadmap priorities</span>
-    </div>
-    <p class="cs-caption">The audit converted distributed evidence into a traceable path from finding to investment decision.</p>
+    <h2 class="aud-heading" id="audit-approach-heading">What I did</h2>
+    <ol class="aud-steps">
+      <li class="aud-step">
+        <span class="aud-step-num">01</span>
+        <div class="aud-step-body">
+          <h3>Mapped the current state</h3>
+          <p>Mapped core Autofill flows across five conversion-critical areas—entry points, login, lead generation, checkout, and settings and credential management—spanning Facebook and Instagram, new and returning users, and contact and payment credentials.</p>
+        </div>
+      </li>
+      <li class="aud-step">
+        <span class="aud-step-num">02</span>
+        <div class="aud-step-body">
+          <h3>Built a shared evaluation framework</h3>
+          <p>Organized UXR’s jobs-to-be-done research into five design principles the team could use to assess internal experiences and competing products consistently.</p>
+        </div>
+      </li>
+      <li class="aud-step">
+        <span class="aud-step-num">03</span>
+        <div class="aud-step-body">
+          <h3>Evaluated content and competitive patterns</h3>
+          <p>Deconstructed consent and onboarding flows across Meta and six competing and adjacent products, examining not only what they said but how they sequenced information and decisions.</p>
+        </div>
+      </li>
+      <li class="aud-step">
+        <span class="aud-step-num">04</span>
+        <div class="aud-step-body">
+          <h3>Synthesized the evidence into strategy</h3>
+          <p>Combined flow mapping and content analysis with research, performance data, prior experiments, competitive patterns, and technical, legal, privacy, and compliance requirements. Consolidated recurring patterns into five strategic opportunities and 15 recommendations.</p>
+        </div>
+      </li>
+      <li class="aud-step">
+        <span class="aud-step-num">05</span>
+        <div class="aud-step-body">
+          <h3>Drove cross-functional prioritization</h3>
+          <p>Partnered across disciplines to organize the recommendations into near-term, long-term, and blue-sky roadmap opportunities while preserving the evidence and rationale behind each decision.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
-<section class="cs-section" aria-labelledby="audit-resolution">
+
+<section class="aud-section" id="audit-solution" aria-labelledby="audit-solution-heading">
   <div class="cs-shell">
-    <p class="cs-section-label">Resolution</p>
-    <h2 id="audit-resolution">The audit gave the team a shared view of Autofill and a clearer basis for prioritization.</h2>
-    <div class="cs-prose">
-      <p>Instead of evaluating individual screens in isolation, teams could see where the same problems appeared across the ecosystem and make decisions against common evidence and principles.</p>
+    <h2 class="aud-heading" id="audit-solution-heading">The solution</h2>
+    <p class="aud-solution-text">A shared visual decision framework that connected Autofill’s current-state flows, five evaluation principles, supporting evidence, five strategic opportunities, and 15 recommendations in one source of truth for product prioritization.</p>
+
+    <div class="aud-artifact-stack">
+      <figure>
+        <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-ecosystem-map.jpg" data-lightbox-alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point.">
+          <span class="cs-preview-crop cs-preview-crop--contain"><img src="assets/case-studies/autofill-audit-ecosystem-map.jpg" alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point."></span>
+        </button>
+        <figcaption>Current-state map: New- and returning-user experiences across payment, contact, and lead-generation credentials, plus the static entry point. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-ecosystem-map.jpg" data-lightbox-alt="A map of the Autofill ecosystem evaluated across new-user and returning-user experiences, spanning payment credentials, contact credentials, lead-gen credentials, and a static entry point.">View full ecosystem map ↗</button></figcaption>
+      </figure>
+      <figure>
+        <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-methodology.png" data-lightbox-alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support.">
+          <span class="cs-preview-crop cs-preview-crop--contain"><img src="assets/case-studies/autofill-audit-methodology.png" alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support."></span>
+        </button>
+        <figcaption>Evaluation framework: Five shared design principles used to assess internal flows and competing products consistently. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/autofill-audit-methodology.png" data-lightbox-alt="A diagram showing five UXR-identified jobs to be done, interpreted and organized into five evaluation dimensions: Usability, Security and Trust, User Control, User Value, and User Support.">View full framework ↗</button></figcaption>
+      </figure>
     </div>
   </div>
 </section>
-<section class="cs-section cs-impact" aria-labelledby="audit-impact">
+
+<section class="aud-section" id="audit-reflection" aria-labelledby="audit-reflection-heading">
   <div class="cs-shell">
-    <p class="cs-section-label">Impact</p>
-    <h2 id="audit-impact" class="visually-hidden">Autofill audit impact</h2>
-    <div class="cs-metrics"><article><strong>15</strong><span>recommendations across core product opportunities</span></article><article><strong>5</strong><span>strategic themes turning individual findings into larger product problems</span></article><article><strong>≈85%</strong><span>of planned H1 priorities influenced</span></article><article><strong>Trust</strong><span>emerged as a central adoption problem</span></article></div>
-    <p class="cs-caption">That finding directly informed later Autofill optimization work.</p>
-  </div>
-</section>
-<section class="cs-section cs-reflection" aria-labelledby="audit-reflection">
-  <div class="cs-shell">
-    <p class="cs-section-label">Reflection</p>
-    <h2 id="audit-reflection" style="max-width:none">Strategy often starts by making the problem legible.</h2>
-    <p>The most valuable output wasn’t the audit itself. It was giving Product, Design, Research, Engineering, and Content a shared way to understand the system and decide what deserved attention.</p>
+    <h2 class="aud-heading" id="audit-reflection-heading">Reflection</h2>
+    <ul class="aud-lessons">
+      <li>Use ownership transitions as opportunities to understand a complex system before changing individual screens.</li>
+      <li>Evaluate language, information structure, system behavior, and end-to-end journeys together—not as separate problems.</li>
+      <li>Preserve the evidence and rationale behind decisions so teams can distinguish what to repair, improve, preserve, or create next.</li>
+    </ul>
   </div>
 </section>
     <nav class="cs-case-nav" aria-label="Case study navigation"><a href="ai-workflows.html"><span aria-hidden="true">←</span> Previous: AI string authoring</a><a href="work.html">All case studies</a><a href="tabs.html">Next: Tabs continuity strategy <span aria-hidden="true">→</span></a></nav>
@@ -127,8 +183,17 @@
   </footer>
   <div class="cs-lightbox-overlay" data-lightbox-overlay hidden>
     <div class="cs-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Enlarged image">
-      <button type="button" class="cs-lightbox-close" data-lightbox-close aria-label="Close enlarged image">&times;</button>
-      <img data-lightbox-image alt="">
+      <div class="cs-lightbox-toolbar">
+        <button type="button" class="cs-lightbox-zoom-out" data-lightbox-zoom-out aria-label="Zoom out">−</button>
+        <button type="button" class="cs-lightbox-zoom-reset" data-lightbox-zoom-reset aria-label="Reset zoom">Reset</button>
+        <button type="button" class="cs-lightbox-zoom-in" data-lightbox-zoom-in aria-label="Zoom in">+</button>
+        <a class="cs-lightbox-fullres" data-lightbox-fullres href="#" target="_blank" rel="noopener noreferrer">Open full resolution ↗</a>
+        <button type="button" class="cs-lightbox-close" data-lightbox-close aria-label="Close enlarged image">&times;</button>
+      </div>
+      <div class="cs-lightbox-viewport" data-lightbox-viewport>
+        <img data-lightbox-image alt="">
+      </div>
+      <p class="visually-hidden" role="status" aria-live="polite" data-lightbox-zoom-status></p>
     </div>
   </div>
   <script defer src="script.js"></script>

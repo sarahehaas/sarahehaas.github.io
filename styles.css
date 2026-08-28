@@ -21,14 +21,16 @@
   --hairline:rgba(0,0,0,.08);
   --hairline-strong:rgba(0,0,0,.1);
   --card-border:rgba(0,0,0,.12);
-  --dark-fill:#1a2a2a;
+  --dark-fill:#0d2b26;
+  --mint:#e1e7e3;
+  --mint-ink:#123c34;
   --max:1080px;
   --max-narrow:680px;
   --max-case:860px;
   --radius:8px;
   --radius-sm:6px;
-  --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --sans:'Public Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 
 /* ============ Base / reset ============ */
@@ -235,7 +237,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-opener span{color:var(--body)}
 .cs-opener .cs-arrow{color:var(--teal);font-weight:700}
 
-.cs-section{padding:8px 0 32px}
+.cs-section{padding:8px 0 22px}
 .cs-section.cs-soft{background:none}
 .cs-section.cs-impact{background:var(--tint-bg);border-top:1px solid var(--tint-border);border-bottom:1px solid var(--tint-border);margin-top:16px;padding:32px 0}
 .cs-section.cs-impact .cs-shell{padding:0}
@@ -283,6 +285,7 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
    right rather than centered or full width. */
 .cs-step-visual-right{max-width:62%;margin:1.8rem 0 0 auto}
 
+
 /* Inline text-link variant of a lightbox trigger, for use inside a caption. */
 .cs-lightbox-link{background:none;border:0;padding:0;margin:0;color:var(--teal);font:inherit;font-size:inherit;cursor:pointer;text-decoration:none}
 .cs-lightbox-link:hover{color:var(--teal-hover);text-decoration:underline}
@@ -290,17 +293,16 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
 
 /* Clipped preview of a tall artifact — shows only the top portion, with a
    fade hinting there is more to see in the lightbox. */
-.cs-preview-crop{position:relative;display:block;max-height:280px;overflow:hidden;border-radius:var(--radius-sm)}
-.cs-preview-crop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
-.cs-preview-crop img{width:100%;height:auto;display:block}
+/* .cs-preview-crop rules consolidated below, near .cs-media-row. */
 
 /* Problem/Outcome — restrained two-column summary, no heavy card boxes.
    Shared across all six case studies. */
-.cs-opener-cards{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;padding-top:18px;border-top:1px solid var(--hairline-strong)}
+.cs-opener-cards{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:32px;margin-top:20px;padding-top:18px;border-top:1px solid var(--hairline-strong)}
 .cs-opener-card{padding:0}
 .cs-opener-card+.cs-opener-card{border-left:1px solid var(--hairline-strong);padding-left:32px}
 .cs-opener-card .cs-mini-label{margin-bottom:6px}
-.cs-opener-card p:last-child{margin:0;color:var(--ink);font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.35;letter-spacing:-.005em}
+.cs-opener-card p:not(.cs-mini-label){margin:0 0 8px;color:var(--ink);font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.35;letter-spacing:-.005em}
+.cs-opener-card p:not(.cs-mini-label):last-child{margin-bottom:0}
 
 /* Steps 01-02 beside a clipped preview (desktop), stacked steps-then-preview
    (mobile) — narrowly scoped to this page's Approach section. */
@@ -478,8 +480,8 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
    above this point was modified.
    ============================================================ */
 body.redesign-preview{
-  --bg:#fefefc;
-  --tint-bg:#fefefc;
+  --bg:#f7f7f4;
+  --tint-bg:#fbfbf9;
   --ink:#171c19;
   --body:#2a2f2c;
   --muted:#4a504c;
@@ -489,7 +491,7 @@ body.redesign-preview{
   --hairline-strong:rgba(0,0,0,.14);
   --card-border:rgba(0,0,0,.12);
   --max:1200px;
-  --max-case:960px;
+  --max-case:1040px;
 }
 /* Second refinement pass: push the canvas materially closer to true
    white and darken every text tier for higher contrast (round 1 still
@@ -520,8 +522,8 @@ body.redesign-preview .cs-prose p,
 body.redesign-preview .cs-beat-copy p,
 body.redesign-preview .contact-block>p,
 body.redesign-preview .lede{font-size:17px;line-height:1.6}
-body.redesign-preview .cs-prose{max-width:720px}
-body.redesign-preview .cs-beat-copy{max-width:720px}
+body.redesign-preview .cs-prose{max-width:68ch}
+body.redesign-preview .cs-beat-copy{max-width:68ch}
 
 /* .about-copy is reused on both Home (about-preview) and the About page
    itself, and both already carry an existing, unscoped
@@ -580,20 +582,9 @@ body.redesign-preview .selected-inner{max-width:1200px;padding:40px 40px 8px}
 body.redesign-preview .selected-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
 body.redesign-preview .selected-header .selected-lede{margin-bottom:0}
 body.redesign-preview .selected-header .selected-button.large{flex:0 0 auto;white-space:nowrap}
-body.redesign-preview .selected-grid.editorial{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px}
-body.redesign-preview .selected-grid.editorial .selected-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:20px 0 28px;border:0;border-top:1px solid var(--hairline)}
-body.redesign-preview .selected-grid.editorial .selected-card:last-child{border-bottom:0}
-body.redesign-preview .selected-card .card-media{order:-1;display:block;flex:none;width:100%;margin:0 0 14px;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--card-border);border-radius:var(--radius-sm);background:#f6f6f4}
-body.redesign-preview .selected-card .card-thumb{width:100%;max-width:none;height:100%;aspect-ratio:auto;object-fit:contain;display:block;border:0;border-radius:0}
-body.redesign-preview .selected-card-body{flex:none;width:100%}
-body.redesign-preview .selected-grid.editorial .card-headline{font-size:17px;margin-bottom:6px}
-body.redesign-preview .selected-grid.editorial .card-summary{margin:0}
-body.redesign-preview .selected-grid.editorial .selected-button{flex:none;margin-top:8px;font-size:14px}
-@media (max-width:960px){body.redesign-preview .selected-grid.editorial{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){
   body.redesign-preview .selected-inner{padding:40px 20px 8px}
   body.redesign-preview .selected-header{flex-direction:column;align-items:flex-start;gap:12px}
-  body.redesign-preview .selected-grid.editorial{grid-template-columns:1fr}
 }
 
 /* -- Home: what I bring — quiet columns, hairlines not cards -- */
@@ -623,14 +614,6 @@ body.redesign-preview .about-copy-body p{max-width:640px}
 
 /* -- Portfolio: two-column editorial rows, no card boxes -- */
 body.redesign-preview .portfolio-featured{max-width:1200px;padding:20px 40px 8px}
-body.redesign-preview .capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px}
-body.redesign-preview .capability-card{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:24px 0 28px;border:0;border-top:1px solid var(--hairline);background:none}
-body.redesign-preview .capability-card:last-child{border-bottom:0}
-body.redesign-preview .capability-card .card-media{display:block;width:100%;margin:14px 0;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--card-border);border-radius:var(--radius-sm);background:#f6f6f4}
-body.redesign-preview .capability-card .card-thumb{width:100%;max-width:none;height:100%;aspect-ratio:auto;object-fit:contain;display:block;border:0;border-radius:0}
-body.redesign-preview .capability-body{flex:none;width:100%}
-body.redesign-preview .capability-card h3{font-size:18px;margin:0 0 6px}
-body.redesign-preview .capability-card p:not(.capability-label){max-width:none}
 @media (max-width:760px){
   body.redesign-preview .portfolio-featured{padding:20px 20px 8px}
   body.redesign-preview .capability-grid{grid-template-columns:1fr}
@@ -704,11 +687,21 @@ body.redesign-preview .about-closing{max-width:1200px;padding:0 40px;margin-top:
 }
 
 /* -- AI String Authoring case-study template -- */
-body.redesign-preview .cs-hero{padding:44px 0 28px}
+body.redesign-preview .cs-hero{padding:44px 0 16px}
 body.redesign-preview .cs-hero .cs-shell{width:min(var(--max-case),calc(100% - 80px))}
 body.redesign-preview .cs-shell{width:min(var(--max-case),calc(100% - 80px))}
-body.redesign-preview .cs-overview{margin-top:2px}
+body.redesign-preview .cs-overview{margin-top:2px;max-width:68ch}
 body.redesign-preview .cs-opener-cards{margin-top:16px;padding-top:14px}
+
+/* Compact "My role / Key decision" row directly beneath Problem/Outcome.
+   Reuses .cs-opener-cards' grid/divider mechanics (including its
+   mobile stack-to-one-column behavior) so it's the same visual
+   language, but with a lighter divider, tighter spacing, and plain
+   body-text styling instead of the bold serif treatment — it's a
+   secondary, scannable add-on, not a second hero statement. */
+body.redesign-preview .cs-opener-cards.cs-opener-cards--compact{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline)}
+body.redesign-preview .cs-opener-cards--compact .cs-mini-label{margin-bottom:4px}
+body.redesign-preview .cs-opener-cards--compact .cs-opener-card p:not(.cs-mini-label){margin:0;color:var(--body);font-family:var(--sans);font-size:14px;font-weight:400;line-height:1.5;letter-spacing:0}
 
 /* Challenge | What-I-did intro, side by side. .cs-pair-row/.cs-pair-col
    are new wrappers around the existing two sections' existing content;
@@ -747,7 +740,7 @@ body.redesign-preview .cs-mini-label{
   letter-spacing:.09em;
   margin-bottom:12px;
 }
-body.redesign-preview .cs-opener-card p:last-child{
+body.redesign-preview .cs-opener-card p:not(.cs-mini-label){
   font-size:18px;
   line-height:1.3;
 }
@@ -755,6 +748,7 @@ body.redesign-preview .cs-section h2{
   margin-top:14px;
   font-size:26px;
   line-height:1.3;
+  max-width:none;
 }
 body.redesign-preview .cs-prose p,
 body.redesign-preview .cs-beat-copy p{
@@ -809,6 +803,88 @@ body.redesign-preview .cs-artifact-row .cs-preview-crop{max-height:340px}
   body.redesign-preview .cs-artifact-row:last-child{grid-template-columns:1fr;gap:16px}
 }
 
+/* Balanced editorial row: substantive narrative paired with an image,
+   image and copy each taking half the (now wider) case-study canvas.
+   Default DOM order is narrative-or-caption first, image second —
+   .cs-media-row--copy-left uses `order` to swap which side the copy
+   sits on without changing DOM/reading order for assistive tech.
+   Reused across AI Workflows, Autofill Audit, and Tabs. */
+body.redesign-preview .cs-media-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:start;
+  margin-top:24px;
+}
+/* Shared rhythm for the "What I did" artifact sequence (AI Workflows'
+   separate artifacts section, Autofill Audit, Tabs) — one spacing value
+   on the components themselves instead of hand-picked inline margins
+   per instance. */
+body.redesign-preview .cs-approach .cs-featured-visual,
+body.redesign-preview .cs-approach .cs-beat-copy,
+body.redesign-preview .cs-approach .cs-need-grid,
+body.redesign-preview .cs-approach-artifacts .cs-featured-visual,
+body.redesign-preview .cs-approach-artifacts .cs-beat-copy{margin-top:24px}
+/* AI Workflows' two media-row figures also matched the older
+   .cs-approach-artifacts figure rule (36px padding-top + hairline
+   border-top), left over from the pre-.cs-media-row layout — stacked
+   on top of .cs-media-row's own margin-top, that doubled the visual
+   gap and drew an extra divider line. .cs-media-row's margin now owns
+   this spacing on its own. */
+body.redesign-preview .cs-approach-artifacts .cs-media-row{padding-top:0;border-top:0}
+body.redesign-preview .cs-media-row .cs-figure-frame{padding:12px}
+body.redesign-preview .cs-media-row .cs-figure-frame,
+body.redesign-preview .cs-media-row .cs-beat-copy,
+body.redesign-preview .cs-media-row>figure{margin:0;max-width:none}
+body.redesign-preview .cs-media-row>.cs-figure-caption,
+body.redesign-preview .cs-media-row>figure>.cs-figure-caption{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+body.redesign-preview .cs-media-row.cs-media-row--copy-left figcaption,
+body.redesign-preview .cs-media-row.cs-media-row--copy-left .cs-media-row-copy{order:1}
+body.redesign-preview .cs-media-row.cs-media-row--copy-left .cs-figure-frame{order:2}
+@media (max-width:820px){
+  body.redesign-preview .cs-media-row{grid-template-columns:1fr;gap:16px}
+  body.redesign-preview .cs-media-row.cs-media-row--copy-left figcaption,
+  body.redesign-preview .cs-media-row.cs-media-row--copy-left .cs-media-row-copy,
+  body.redesign-preview .cs-media-row.cs-media-row--copy-left .cs-figure-frame{order:initial}
+  /* Narrative/explanatory copy always precedes its image on mobile,
+     regardless of which side it sat on at desktop width; the image's
+     own caption + "View full…" link stay with it, immediately after. */
+  body.redesign-preview .cs-media-row>.cs-beat-copy{order:1}
+  body.redesign-preview .cs-media-row>figure{order:2}
+}
+
+/* Standard 4:3 artifact preview frame — one consistent proportion for
+   every paired artifact (fills its column rather than a fixed pixel
+   size), so the set reads as one system regardless of column width.
+   Tall/detailed sources (the String Author conversation, the Autofill
+   ecosystem map) crop to this frame with object-fit:cover so the most
+   useful portion stays legible without showing their full native
+   height. Diagrams that need to stay whole (review-diff, evaluation
+   framework, strategy model) use the --contain variant: same outer
+   frame, object-fit:contain so nothing is cropped or distorted. The
+   source file itself is never modified; the lightbox always opens the
+   complete original. */
+.cs-preview-crop{position:relative;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-sm);background:#fff}
+.cs-preview-crop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
+.cs-preview-crop img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.cs-preview-crop.cs-preview-crop--contain{display:flex;align-items:center;justify-content:center}
+.cs-preview-crop.cs-preview-crop--contain::after{display:none}
+.cs-preview-crop.cs-preview-crop--contain img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+
+/* Standard editorial row: explanation always left (~40%), artifact
+   always right (~60%) — one shared component for all five paired
+   artifacts instead of page-specific grid rules. DOM order is already
+   explanation, then figure (image trigger + caption), so mobile just
+   collapses to that same order with no responsive override needed. */
+body.redesign-preview .cs-editorial-row{display:grid;grid-template-columns:40% 60%;gap:32px;align-items:start;margin-top:24px}
+body.redesign-preview .cs-editorial-row .cs-beat-copy{margin:0;max-width:none}
+body.redesign-preview .cs-editorial-row .cs-artifact-preview{margin:0;max-width:none;width:100%}
+body.redesign-preview .cs-editorial-row .cs-artifact-preview .cs-figure-frame{padding:12px}
+body.redesign-preview .cs-editorial-row .cs-artifact-preview .cs-figure-caption{margin-top:8px}
+@media (max-width:820px){
+  body.redesign-preview .cs-editorial-row{grid-template-columns:1fr;gap:16px}
+}
+
 /* Round 3: the bottom of the page felt crowded coming out of the
    artifact sequence straight into Resolution. Added class="cs-resolution"
    to that section in the HTML (structural only, no copy touched) so it
@@ -835,14 +911,16 @@ body.redesign-preview .cs-honesty-note{
 body.redesign-preview .cs-honesty-note strong{color:var(--ink)}
 
 /* Accessibility: interactive screen-reader demo (Figma Make embed).
-   Desktop/tablet gets the full artifact-column width at 16:9. Mobile
-   switches to 4:3 instead of forcing the desktop aspect ratio into a
-   too-short frame — the demo's controls need to stay tappable. */
+   Desktop/tablet keeps the full artifact-column width at 16:9. At
+   640px and below the fixed aspect ratio is dropped entirely for an
+   explicit tall height — this is a scrollable interactive experience,
+   not a video, so a shallow box cuts it off. */
 body.redesign-preview .cs-embed-frame{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-top:12px}
 body.redesign-preview .cs-embed-frame iframe{width:100%;height:100%;border:0;display:block}
 @media (max-width:640px){
-  body.redesign-preview .cs-embed-frame{aspect-ratio:4/3}
+  body.redesign-preview .cs-embed-frame{aspect-ratio:auto;height:clamp(400px,80vh,900px)}
 }
+body.redesign-preview .cs-embed-fallback{display:block;margin-top:10px}
 
 /* Quiet artifact-provenance labels (e.g. "Representative reconstruction —",
    "Public-safe reconstruction —") inside case-study figure captions.
@@ -879,17 +957,430 @@ body.redesign-preview .cs-metrics span{color:var(--faint)}
    these elements in place, rather than re-wrapping them, avoids
    changing that pre-existing behavior any further). */
 body.redesign-preview .cs-section.cs-reflection{margin-top:80px}
-body.redesign-preview .cs-reflection .cs-shell{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;row-gap:0;align-items:start}
-body.redesign-preview .cs-reflection .cs-shell>.cs-section-label{grid-column:1;grid-row:1}
-body.redesign-preview .cs-reflection .cs-shell>h2{grid-column:1;grid-row:2;max-width:none}
-body.redesign-preview .cs-reflection .cs-shell>p:not(.cs-section-label):not(.cs-mini-label){grid-column:1;grid-row:3;font-size:15px}
-body.redesign-preview .cs-reflection .cs-shell>.cs-mini-label{grid-column:2;grid-row:1}
-body.redesign-preview .cs-reflection blockquote{grid-column:2;grid-row:2/4;margin-top:0}
+
+/* Two-column grid (narrative left, quote right) applies ONLY where a
+   second-column element (the Engineering partner quote) actually
+   exists — AI Workflows today. Every other case study's Reflection
+   has no second-column content, so it stays single-column below at a
+   readable text width instead of reserving an empty right half. */
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;row-gap:0;align-items:start}
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>.cs-section-label{grid-column:1;grid-row:1}
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>h2{grid-column:1;grid-row:2;max-width:none}
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>p:not(.cs-section-label):not(.cs-mini-label){grid-column:1;grid-row:3;font-size:15px}
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>p:not(.cs-section-label):not(.cs-mini-label)+p:not(.cs-section-label):not(.cs-mini-label){grid-row:4;margin-top:12px}
+body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>.cs-mini-label{grid-column:2;grid-row:1}
+body.redesign-preview .cs-reflection.cs-reflection--quote blockquote{grid-column:2;grid-row:2/4;margin-top:0}
 @media (max-width:820px){
-  body.redesign-preview .cs-reflection .cs-shell{grid-template-columns:1fr;column-gap:0}
-  body.redesign-preview .cs-reflection .cs-shell>*{grid-column:1!important}
-  body.redesign-preview .cs-reflection .cs-shell>.cs-mini-label{grid-row:4;margin-top:24px}
-  body.redesign-preview .cs-reflection blockquote{grid-row:5}
+  body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell{grid-template-columns:1fr;column-gap:0}
+  body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>*{grid-column:1!important}
+  body.redesign-preview .cs-reflection.cs-reflection--quote .cs-shell>.cs-mini-label{grid-row:4;margin-top:24px}
+  body.redesign-preview .cs-reflection.cs-reflection--quote blockquote{grid-row:5}
 }
 
-body.redesign-preview .cs-case-nav{margin-top:90px;padding:28px 0}
+/* Single-column Reflection (all other case studies): normal block
+   flow, readable width via the existing h2/p max-width rules above. */
+body.redesign-preview .cs-reflection:not(.cs-reflection--quote) .cs-shell>p:not(.cs-section-label):not(.cs-mini-label)+p:not(.cs-section-label):not(.cs-mini-label){margin-top:12px}
+
+body.redesign-preview .cs-case-nav{margin-top:44px;padding:28px 0}
+
+/* ============================================================
+   APPROVED BATCH 2026-08-26 — global visual system, mint bands,
+   editorial thumbnail system, lightbox zoom/pan, layout rebuilds.
+   ============================================================ */
+
+/* -- Shared site chrome: deep teal header/footer -- */
+body.redesign-preview .site-header{background:var(--dark-fill);border-bottom:0}
+body.redesign-preview .brand{color:#fff}
+body.redesign-preview .nav a{color:rgba(255,255,255,.72)}
+body.redesign-preview .nav a:hover{color:#fff}
+body.redesign-preview .nav a[aria-current=page]{color:#fff;border-bottom-color:#fff}
+body.redesign-preview .site-header.is-scrolled{box-shadow:0 2px 10px rgba(0,0,0,.25)}
+/* .footer combines the colored band and the centered content row in
+   one element (no separate inner wrapper in the markup), so it's made
+   full-bleed teal directly; its own padding supplies the horizontal
+   inset instead of a max-width+auto-margin inner container. */
+body.redesign-preview .footer{
+  background:var(--dark-fill);color:rgba(255,255,255,.68);border-top:0;
+  max-width:none;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
+  padding:26px max(40px,calc((100% - 1200px) / 2 + 40px));
+}
+body.redesign-preview .footer strong{color:#fff}
+
+/* -- Structural section band (mint) -- shared component used for
+   Home/Portfolio section headings and case-study Challenge/What I
+   did/Impact/Reflection labels. Full-bleed regardless of the
+   containing element's own max-width. Sentence case, no pill/card
+   styling, no second eyebrow above it. */
+.section-band{
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+  background:var(--mint);
+}
+.section-band .band-heading{
+  max-width:var(--max-case,1080px);
+  margin:0 auto;
+  padding:16px 32px;
+  color:var(--mint-ink);
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0;
+  text-transform:none;
+}
+.selected-work .section-band .band-heading,
+.portfolio-featured .section-band .band-heading,
+.bring-strip .section-band .band-heading,
+.about-preview .section-band .band-heading{
+  max-width:1200px;
+}
+.cs-section .section-band{margin-top:0}
+.cs-section .section-band .band-heading{max-width:var(--max-case);padding:14px 32px}
+@media (max-width:640px){
+  .section-band .band-heading{padding:14px 20px;font-size:13px}
+}
+
+/* -- Restrained type scale -- less dramatic hero sizing, hierarchy
+   from spacing/rules/weight rather than a tiny-eyebrow + oversized
+   headline + small description pattern. */
+body.redesign-preview .final-hero h1{font-size:clamp(1.7rem,3.2vw,2.15rem);line-height:1.18}
+body.redesign-preview .hero-split h1{font-size:clamp(1.6rem,3vw,2rem);line-height:1.2}
+body.redesign-preview .cs-hero h1{font-size:clamp(1.5rem,3vw,1.9rem);line-height:1.2;max-width:none}
+body.redesign-preview .page-hero h1{font-size:clamp(1.6rem,3vw,2rem);line-height:1.2}
+
+/* ============================================================
+   Homepage — Featured Case Studies: 2-column x 3-row, thumbnail
+   left, title+description right, CTA directly under the thumbnail.
+   ============================================================ */
+body.redesign-preview .selected-grid.editorial{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:40px 48px;
+}
+body.redesign-preview .selected-grid.editorial .selected-card{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  align-items:start;
+  gap:0 24px;
+  padding:0 0 28px;
+  border:0;
+  border-top:1px solid var(--hairline);
+  padding-top:24px;
+}
+body.redesign-preview .selected-grid.editorial .selected-card:last-child,
+body.redesign-preview .selected-grid.editorial .selected-card:nth-last-child(2){border-bottom:0}
+body.redesign-preview .selected-card .card-media{
+  grid-column:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width:100%;
+  background:var(--tint-bg);
+  margin:0;
+}
+body.redesign-preview .selected-card .card-media .card-thumb-frame{
+  width:100%;aspect-ratio:3/2;overflow:hidden;display:block;
+}
+body.redesign-preview .selected-card .card-thumb{
+  width:100%;height:100%;max-width:none;object-fit:contain;aspect-ratio:auto;display:block;border:0;border-radius:0;
+}
+body.redesign-preview .selected-card-body{
+  grid-column:2;
+  width:auto;
+}
+body.redesign-preview .selected-grid.editorial .card-headline{
+  font-family:var(--serif);font-size:19px;font-weight:600;margin:0 0 8px;color:var(--ink);
+}
+body.redesign-preview .selected-grid.editorial .card-summary{margin:0;color:var(--faint);font-size:13px;line-height:1.6}
+@media (max-width:900px){
+  body.redesign-preview .selected-grid.editorial{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body.redesign-preview .selected-grid.editorial .selected-card{
+    grid-template-columns:1fr;
+  }
+  body.redesign-preview .selected-card .card-media{grid-column:1;grid-row:1}
+  body.redesign-preview .selected-card-body{grid-column:1;grid-row:2;margin-top:10px}
+}
+
+/* ============================================================
+   Portfolio — Featured Case Studies: single-column full-width
+   horizontal rows. Thumbnail+CTA in the left column, title and
+   detailed description in the right column.
+   ============================================================ */
+body.redesign-preview .capability-grid{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+body.redesign-preview .capability-card{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  align-items:start;
+  gap:0 40px;
+  padding:32px 0;
+  border:0;
+  border-top:1px solid var(--hairline);
+  background:none;
+}
+body.redesign-preview .capability-card:last-child{border-bottom:1px solid var(--hairline)}
+body.redesign-preview .capability-card .card-media{
+  grid-column:1;
+  display:flex;flex-direction:column;align-items:flex-start;width:100%;background:var(--tint-bg);margin:0;
+}
+body.redesign-preview .capability-card .card-media .card-thumb-frame{
+  width:100%;aspect-ratio:3/2;overflow:hidden;display:block;
+}
+body.redesign-preview .capability-card .card-thumb{
+  width:100%;height:100%;max-width:none;object-fit:contain;aspect-ratio:auto;display:block;border:0;border-radius:0;
+}
+body.redesign-preview .capability-body{grid-column:2;width:auto}
+body.redesign-preview .capability-card h3{font-family:var(--serif);font-size:20px;margin:0 0 10px}
+body.redesign-preview .capability-card p:not(.capability-label){max-width:60ch;font-size:14px;line-height:1.65}
+@media (max-width:760px){
+  body.redesign-preview .capability-card{grid-template-columns:1fr;padding:24px 0}
+  body.redesign-preview .capability-card .card-media{grid-column:1}
+  body.redesign-preview .capability-body{grid-column:1;margin-top:12px}
+}
+
+/* Shared editorial-thumbnail keyline: sits around the artwork itself,
+   not the whole project item (which also contains the CTA text below
+   the image, inside the same link). No rounded card framing anywhere. */
+body.redesign-preview .card-thumb-frame{border:1px solid var(--card-border);border-radius:0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+
+/* CTA text sits inside the combined image+CTA link, directly under
+   the thumbnail — same visible link, same visible text as before. */
+.card-media .card-media-cta{display:block;margin-top:10px;color:var(--teal);font-weight:700;font-size:13px}
+.card-media:hover .card-media-cta{color:var(--teal-hover)}
+
+/* ============================================================
+   Sitewide case-study image lightbox — zoom, pan, reset.
+   ============================================================ */
+.cs-lightbox-dialog{display:flex;flex-direction:column;gap:10px}
+.cs-lightbox-toolbar{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:rgba(13,43,38,.85);border-radius:var(--radius-sm);padding:6px 8px;
+  align-self:center;
+}
+.cs-lightbox-toolbar button{
+  border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;
+  border-radius:4px;width:30px;height:30px;font-size:16px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:var(--sans);
+}
+.cs-lightbox-toolbar button:hover{background:rgba(255,255,255,.15)}
+.cs-lightbox-toolbar button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.cs-lightbox-toolbar .cs-lightbox-zoom-reset{width:auto;padding:0 10px;font-size:12px;font-weight:600}
+.cs-lightbox-fullres{color:#fff;font-size:12.5px;font-weight:600;text-decoration:underline;padding:0 6px;white-space:nowrap}
+.cs-lightbox-fullres:hover{color:#fff;opacity:.85}
+.cs-lightbox-viewport{
+  position:relative;overflow:hidden;
+  width:min(92vw,1100px);height:min(80vh,780px);
+  display:flex;align-items:center;justify-content:center;
+  touch-action:none;
+}
+.cs-lightbox-viewport img{
+  max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;user-select:none;-webkit-user-drag:none;
+  will-change:transform;
+  cursor:zoom-in;
+}
+.cs-lightbox-viewport img.is-zoomed{cursor:grab}
+.cs-lightbox-viewport img.is-panning{cursor:grabbing}
+@media (max-width:640px){
+  .cs-lightbox-viewport{width:94vw;height:70vh}
+}
+
+/* ============================================================
+   Tabs access-path visual — reuses site tokens instead of the
+   fragment's original shadcn-style variable names.
+   ============================================================ */
+#tabs-access-path-viz-v2{display:grid;gap:1.5rem;width:100%;color:var(--body);font-family:var(--sans)}
+#tabs-access-path-viz-v2 .tapv-lane{display:grid;grid-template-columns:minmax(9rem,.7fr) minmax(0,3fr);align-items:center;gap:1rem;padding-block:.25rem}
+#tabs-access-path-viz-v2 .tapv-label{color:var(--faint);font-weight:600;font-size:13px}
+#tabs-access-path-viz-v2 .tapv-flow{display:flex;align-items:center;gap:.65rem;min-width:0}
+#tabs-access-path-viz-v2 .tapv-node{flex:1 1 0;min-width:0;padding:.8rem .9rem;text-align:center;font-weight:600;font-size:13px;border-radius:var(--radius-sm)}
+#tabs-access-path-viz-v2 .tapv-feed{background:#dbeafe;color:var(--ink)}
+#tabs-access-path-viz-v2 .tapv-browser{background:#93c5fd;color:var(--ink)}
+#tabs-access-path-viz-v2 .tapv-tabs{background:var(--dark-fill);color:#fff}
+#tabs-access-path-viz-v2 .tapv-arrow{flex:0 0 auto;color:#60a5fa;font-weight:600}
+#tabs-access-path-viz-v2 .tapv-down{display:none}
+#tabs-access-path-viz-v2 .tapv-missing-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(11rem,1.2fr) minmax(0,1fr);align-items:center;gap:.65rem}
+#tabs-access-path-viz-v2 .tapv-missing-flow .tapv-node{background:var(--tint-bg);color:var(--faint);border:1px solid var(--hairline)}
+#tabs-access-path-viz-v2 .tapv-gap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.55rem;text-align:center}
+#tabs-access-path-viz-v2 .tapv-gap span{border-top:1px dashed var(--card-border)}
+#tabs-access-path-viz-v2 .tapv-gap strong{color:var(--faint);font-weight:600;font-size:12px}
+@media (max-width:620px){
+  #tabs-access-path-viz-v2 .tapv-lane{grid-template-columns:1fr;gap:.65rem}
+  #tabs-access-path-viz-v2 .tapv-flow{flex-direction:column;align-items:stretch}
+  #tabs-access-path-viz-v2 .tapv-node{flex-basis:auto}
+  #tabs-access-path-viz-v2 .tapv-arrow{text-align:center}
+  #tabs-access-path-viz-v2 .tapv-right{display:none}
+  #tabs-access-path-viz-v2 .tapv-down{display:inline}
+  #tabs-access-path-viz-v2 .tapv-missing-flow{grid-template-columns:1fr}
+  #tabs-access-path-viz-v2 .tapv-gap{grid-template-columns:1fr;justify-items:center}
+  #tabs-access-path-viz-v2 .tapv-gap span{width:1px;height:1.25rem;border-top:0;border-left:1px dashed var(--card-border)}
+}
+
+/* ============================================================
+   AI WORKFLOWS PILOT (page-scoped via body.ai-workflows-page)
+   A quieter, single visual system for this one page: thin
+   dividers + a teal section heading per major section, instead
+   of mint bands, tiny uppercase labels, and card grids. Shared
+   components used elsewhere (.section-band, .cs-opener-cards,
+   .cs-editorial-row, .cs-reflection--quote, etc.) are simply not
+   invoked on this page — nothing shared was deleted or altered,
+   so the other five case studies are unaffected.
+   ============================================================ */
+.ai-workflows-page .cs-project-context{margin:0 0 8px;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:500}
+
+.ai-workflows-page .aiw-role{margin-top:28px;padding-top:20px;border-top:1px solid var(--hairline)}
+.ai-workflows-page .aiw-label{margin:0 0 6px;color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:600}
+.ai-workflows-page .aiw-role p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+
+.ai-workflows-page .aiw-goal-outcome{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;padding-top:20px;border-top:1px solid var(--hairline)}
+.ai-workflows-page .aiw-goal-outcome p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+@media (max-width:820px){
+  .ai-workflows-page .aiw-goal-outcome{grid-template-columns:1fr;gap:16px}
+}
+
+/* Shared major-section system: thin top divider + teal heading + body */
+.ai-workflows-page .aiw-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.ai-workflows-page .aiw-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
+
+/* Results */
+.ai-workflows-page .aiw-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ai-workflows-page .aiw-metrics article{padding:0}
+.ai-workflows-page .aiw-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
+.ai-workflows-page .aiw-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
+@media (max-width:820px){
+  .ai-workflows-page .aiw-metrics{grid-template-columns:1fr;gap:20px}
+}
+
+/* Challenge */
+.ai-workflows-page .aiw-setup{margin:0 0 16px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
+.ai-workflows-page .aiw-bullets{margin:0;padding-left:20px}
+.ai-workflows-page .aiw-bullets li{margin:0 0 10px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.ai-workflows-page .aiw-bullets li:last-child{margin-bottom:0}
+
+/* Design thinking */
+.ai-workflows-page .aiw-prose{max-width:none}
+.ai-workflows-page .aiw-prose p{margin:0 0 18px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.7}
+.ai-workflows-page .aiw-prose p:last-child{margin-bottom:0}
+
+/* What I did */
+.ai-workflows-page .aiw-steps{margin:0;padding:0;list-style:none}
+.ai-workflows-page .aiw-step{display:flex;gap:16px;padding:0 0 20px;margin:0 0 20px;border-bottom:1px solid var(--hairline)}
+.ai-workflows-page .aiw-step:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.ai-workflows-page .aiw-step-num{flex:0 0 auto;color:var(--muted);font-family:var(--sans);font-size:14px;font-weight:400;line-height:1.6}
+.ai-workflows-page .aiw-step-body{flex:1 1 auto;min-width:0}
+.ai-workflows-page .aiw-step-body h3{margin:0 0 4px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4}
+.ai-workflows-page .aiw-step-body p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+
+/* The solution + supporting artifacts */
+.ai-workflows-page .aiw-solution-text{margin:0 0 24px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
+.ai-workflows-page .aiw-primary-artifact{margin:0 0 28px}
+.ai-workflows-page .aiw-primary-artifact .cs-figure-frame{width:100%}
+.ai-workflows-page .aiw-primary-artifact figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+
+.ai-workflows-page .aiw-teaser-row{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ai-workflows-page .aiw-teaser-row figure{margin:0}
+.ai-workflows-page .aiw-teaser-row .cs-figure-frame{width:100%;padding:12px}
+.ai-workflows-page .aiw-teaser-row figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+@media (max-width:820px){
+  .ai-workflows-page .aiw-teaser-row{grid-template-columns:1fr;gap:20px}
+}
+
+/* Reflection — same section system as everywhere else on this page,
+   no two-column grid, no quote card/bar. */
+.ai-workflows-page .aiw-lessons{margin:0 0 20px;padding-left:20px}
+.ai-workflows-page .aiw-lessons li{margin:0 0 10px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.ai-workflows-page .aiw-lessons li:last-child{margin-bottom:0}
+.ai-workflows-page .aiw-quote{margin:0;padding-left:16px;border-left:2px solid var(--hairline-strong)}
+.ai-workflows-page .aiw-quote p{margin:0;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.5}
+.ai-workflows-page .aiw-quote cite{display:block;margin-top:8px;color:var(--muted);font-family:var(--sans);font-style:normal;font-size:13px}
+
+/* Width correction: the shared .cs-overview class (used on every case
+   study's hero) caps its reading measure at 68ch. That's the approved
+   behavior everywhere else, but for this page's wider-canvas pilot the
+   hero paragraphs should use the full shell width like the rest of the
+   page's narrative. Scoped to this page only — body.redesign-preview
+   .cs-overview (max-width:68ch) is untouched, so every other case study
+   keeps its narrow measure. Matched specificity (body + 2 classes) so
+   source order alone doesn't decide the cascade. */
+body.ai-workflows-page .cs-overview{max-width:none}
+
+/* ============================================================
+   AUTOFILL AUDIT PILOT (page-scoped via body.autofill-audit-page)
+   Same approved system as the AI Workflows pilot: thin dividers +
+   a teal section heading per major section, full-width narrative
+   wrappers (no ch-based reading-measure cap this time — that was
+   corrected on AI Workflows after the fact, so it's simply not
+   introduced here). Shared components used elsewhere (.section-band,
+   .cs-opener-cards, .cs-editorial-row, etc.) are not invoked on this
+   page — nothing shared was deleted or altered, so the other case
+   studies are unaffected.
+   ============================================================ */
+.autofill-audit-page .cs-project-context{margin:0 0 8px;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:500}
+body.autofill-audit-page .cs-overview{max-width:none}
+
+.autofill-audit-page .aud-role{margin-top:28px;padding-top:20px;border-top:1px solid var(--hairline)}
+.autofill-audit-page .aud-label{margin:0 0 6px;color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:600}
+.autofill-audit-page .aud-role p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+
+.autofill-audit-page .aud-goal-outcome{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;padding-top:20px;border-top:1px solid var(--hairline)}
+.autofill-audit-page .aud-goal-outcome p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+@media (max-width:820px){
+  .autofill-audit-page .aud-goal-outcome{grid-template-columns:1fr;gap:16px}
+}
+
+/* Shared major-section system: thin top divider + teal heading + body */
+.autofill-audit-page .aud-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.autofill-audit-page .aud-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
+
+/* Results */
+.autofill-audit-page .aud-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.autofill-audit-page .aud-metrics article{padding:0}
+.autofill-audit-page .aud-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
+.autofill-audit-page .aud-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
+.autofill-audit-page .aud-metrics-note{margin:20px 0 0;color:var(--body);font-family:var(--sans);font-size:14px;line-height:1.6;font-weight:400}
+@media (max-width:820px){
+  .autofill-audit-page .aud-metrics{grid-template-columns:1fr;gap:20px}
+}
+
+/* Challenge */
+.autofill-audit-page .aud-setup{margin:0 0 16px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
+.autofill-audit-page .aud-bullets{margin:0;padding-left:20px}
+.autofill-audit-page .aud-bullets li{margin:0 0 10px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.autofill-audit-page .aud-bullets li:last-child{margin-bottom:0}
+
+/* Design thinking */
+.autofill-audit-page .aud-prose p{margin:0 0 18px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.7}
+.autofill-audit-page .aud-prose p:last-child{margin-bottom:0}
+
+/* What I did */
+.autofill-audit-page .aud-steps{margin:0;padding:0;list-style:none}
+.autofill-audit-page .aud-step{display:flex;gap:16px;padding:0 0 20px;margin:0 0 20px;border-bottom:1px solid var(--hairline)}
+.autofill-audit-page .aud-step:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.autofill-audit-page .aud-step-num{flex:0 0 auto;color:var(--muted);font-family:var(--sans);font-size:14px;font-weight:400;line-height:1.6}
+.autofill-audit-page .aud-step-body{flex:1 1 auto;min-width:0}
+.autofill-audit-page .aud-step-body h3{margin:0 0 4px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4}
+.autofill-audit-page .aud-step-body p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+
+/* The solution + two-artifact stacked fallback */
+.autofill-audit-page .aud-solution-text{margin:0 0 24px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
+.autofill-audit-page .aud-artifact-stack{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.autofill-audit-page .aud-artifact-stack figure{margin:0}
+.autofill-audit-page .aud-artifact-stack .cs-figure-frame{width:100%;padding:12px}
+.autofill-audit-page .aud-artifact-stack figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+@media (max-width:820px){
+  .autofill-audit-page .aud-artifact-stack{grid-template-columns:1fr;gap:20px}
+}
+
+/* Reflection — same section system as everywhere else on this page,
+   no two-column grid, no quote (this case study has none). */
+.autofill-audit-page .aud-lessons{margin:0;padding-left:20px}
+.autofill-audit-page .aud-lessons li{margin:0 0 10px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.autofill-audit-page .aud-lessons li:last-child{margin-bottom:0}
