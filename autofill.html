@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prioritizing user needs in Autofill consent — Sarah Haas</title>
-  <meta name="description" content="A content design experiment on Meta's Autofill Save Payment consent moment that reduced the full disclosure by 46% while preserving required coverage and producing positive secondary signals.">
+  <title>Optimizing Autofill content for trust, clarity, and scale - Sarah Haas</title>
+  <meta name="description" content="A content strategy overhaul for Meta's Autofill Save and Use Payment consent experience, establishing a reusable content baseline and Legal and Privacy review process across Facebook and Instagram.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23334d50%27/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,132 +29,219 @@
     <nav class="cs-toc" aria-label="Case study sections" data-cs-toc>
       <p class="cs-toc-label">On this page</p>
       <div class="cs-toc-links">
-        <a href="#trust-impact">Impact</a>
-        <a href="#trust-challenge">Challenge</a>
-        <a href="#trust-approach">What I did</a>
-        <a href="#trust-reflection">Reflection</a>
+        <a href="#autofill-results">Results</a>
+        <a href="#autofill-challenge">Challenge</a>
+        <a href="#autofill-design-thinking">Design thinking</a>
+        <a href="#autofill-approach">What I did</a>
+        <a href="#autofill-solution">The solution</a>
+        <a href="#autofill-reflection">Reflection</a>
       </div>
     </nav>
     <header class="cs-hero">
       <div class="cs-shell">
         <div class="cs-project-context">
           <p>Meta in-app browser Autofill</p>
-          <p>Save Payment consent experiment</p>
+          <p>Save Payment consent experiment, with the framework extended to Use Payment</p>
           <p>Facebook and Instagram, iOS and Android</p>
-          <p>Lead content designer</p>
+          <p>Lead content designer and content strategist</p>
         </div>
-        <h1 style="max-width:none">Prioritizing user needs in Autofill consent</h1>
-        <p class="cs-overview">Saving payment information required people to evaluate Autofill’s value, security, data use, and controls at the end of checkout. Research showed that trust was a primary barrier to adoption, while the existing disclosure distributed those answers across a dense, regulated content system with numerous user states and regional requirements.</p>
-        <p class="cs-overview" style="margin-top:12px">I led content design for an experiment comparing two approaches: more explanation with stronger trust signals, and a cleaner, more visual experience with less text. I reconstructed the rationale behind the existing disclosures, mapped 16 content variants, and created an approved content and Legal review baseline. The redesigned content reduced the full disclosure by 46% while preserving required coverage.</p>
-        <p class="cs-overview" style="margin-top:12px">The combined experiment did not meet the threshold for launch, but individual treatments produced positive secondary signals, including up to a 2.2% increase in Save Accepts and a 1.8% increase in form completions. The results suggested that improving the prompt could support checkout and future Autofill use even when acceptance did not increase consistently. The content baseline and review process also supported subsequent Autofill experiments.</p>
-        <div class="cs-opener-cards">
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">Problem</p>
-            <p>Too much information competed at the moment people needed to decide.</p>
-          </div>
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">Outcome</p>
-            <p>A clearer, more efficient experience that preserved required coverage while producing positive secondary product signals.</p>
-          </div>
+        <h1 style="max-width:none">Optimizing Autofill content for trust, clarity, and scale</h1>
+        <p class="cs-overview">Meta's in-app browser Autofill helps people complete checkout on third-party sites by saving contact and payment information and offering it again during later browsing and shopping sessions. People who had not opted in could see a Save Payment prompt after checkout; people with saved information could receive Use Payment prompts while completing form fields.</p>
+        <p class="cs-overview" style="margin-top:12px">Research identified trust as a barrier to adoption, while an earlier UXR study found no meaningful difference among subtle messaging variants. I proposed a larger change and led content strategy for an experiment comparing a more visual, lower-text Save experience with a more explanatory treatment built around stronger trust signals. Because there was no single source of truth for the product history, Legal and Privacy guidance, content decisions, definitions, requirements, decision thresholds, or state-specific context behind the experience, I assembled the existing knowledge, resolved gaps with partners, and documented a shared baseline for future Save and Use Payment work.</p>
+
+        <div class="cs-role-block">
+          <p class="cs-field-label">Role, scope and partners</p>
+          <p>Lead content designer and content strategist. I owned content strategy for the Save Payment consent experiment across Facebook and Instagram on iOS and Android, with related research and the resulting framework extended to Use Payment, in partnership with Product, Product Design, UXR, Data Science, Engineering, Legal, and Privacy. I proposed the content variants for the initial study and partnered with UXR to integrate them into the research, then authored the Save Payment treatments, mapped how requirements changed across 16 Save variants, and extended the resulting baseline and review process across 11 Use Payment variants.</p>
         </div>
-        <div class="cs-opener-cards cs-opener-cards--compact">
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">My role</p>
-            <p>I led content design for the Save and Use experience across Facebook and Instagram, partnering with Research, Design, Product, Legal, Privacy, Engineering, and Data Science.</p>
+
+        <div class="cs-goal-outcome">
+          <div>
+            <p class="cs-field-label">Goal</p>
+            <p>The product goal was to increase Save Payment acceptance and ultimately increase successful payment credential saves by comparing two approaches: more explanation with stronger trust signals, and less text with a more visual experience. My content goals were to determine how far the disclosure could be simplified while preserving required coverage, establish a clearer value proposition grounded in user needs, and create a reusable baseline for future Save and Use Payment changes.</p>
           </div>
-          <div class="cs-opener-card">
-            <p class="cs-mini-label">Key decision</p>
-            <p>Reduce cognitive load through hierarchy and structure without removing the information people needed to assess value, security, control, and data use.</p>
+          <div>
+            <p class="cs-field-label">Outcome</p>
+            <p>The work established an approved content baseline and Legal and Privacy review process that supported subsequent Autofill experiments. Individual treatments also produced positive secondary signals. The broader experiment did not produce statistically significant results against its primary goals, so the UX changes were not launched. The team planned to continue investing in content optimization as a UX quality priority, independent of immediate metric lift.</p>
           </div>
         </div>
       </div>
     </header>
-<section class="cs-section cs-impact" aria-labelledby="trust-impact">
-  <div class="section-band"><p class="band-heading">Impact</p></div>
+
+<section class="cs-section cs-impact" id="autofill-results" aria-labelledby="autofill-results-heading">
+  <div class="section-band"><p class="band-heading">Results</p></div>
   <div class="cs-shell">
-    <h2 id="trust-impact" class="visually-hidden">Autofill content optimization impact</h2>
-    <div class="cs-metrics"><article><strong>+1.6%</strong><span>purchase completion, iOS — with no harm to Autofill adoption</span></article><article><strong>+1.1%</strong><span>Save Accepts, Instagram Android</span></article><article><strong>46%</strong><span>fewer words — approximately 140 → 75 across the full disclosure</span></article><article><strong>58%</strong><span>shorter primary disclosure — 63 → 26 words at the key consent moment</span></article></div>
-    <aside class="cs-honesty-note"><strong>Important context:</strong> This was a combined design-and-content experiment, and the overall experiment was neutral — the treatment was not launched as a result of it. The figures above are useful product signals within that broader neutral result, not evidence that the experiment itself succeeded.</aside>
+    <h2 id="autofill-results-heading" class="visually-hidden">Autofill content optimization results</h2>
+    <div class="cs-results-grid">
+      <div>
+        <p class="cs-field-label">Content outcome</p>
+        <p>I reduced content across the complete Save disclosure experience by 46%, from approximately 140 to 75 words, and shortened the primary disclosure by 58%, from 63 to 26 words. This reduced how much people had to process, brought the value and trust information forward, and made the decision easier to scan while preserving required Legal and Privacy coverage.</p>
+      </div>
+      <div>
+        <p class="cs-field-label">Experiment signals</p>
+        <p>The combined content and design experiment was neutral on its primary metrics. Individual treatments produced positive secondary signals, including a 2.2% lift in Save Accepts on Instagram iOS and a 1.8% lift in form completions on Facebook iOS. Because the content and visual changes were tested together, the results could not isolate the effect of either one. Neither showed evidence of hurting the primary metrics, but neither demonstrated an independent lift. A content-specific experiment was planned for later that year to evaluate optimized language on its own.</p>
+      </div>
+      <div>
+        <p class="cs-field-label">System outcome</p>
+        <p>The approved content baseline and review process gave Content, Product, Design, Legal, and Privacy a shared reference for subsequent Autofill experiments.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="cs-section" aria-labelledby="trust-challenge">
+<section class="cs-section" id="autofill-challenge" aria-labelledby="autofill-challenge-heading">
   <div class="section-band"><p class="band-heading">The challenge</p></div>
   <div class="cs-shell">
-    <h2 id="trust-challenge">The experience was asking people to process too much at the moment they needed to make a decision.</h2>
+    <h2 id="autofill-challenge-heading">Saving payment information is a high-trust decision distributed across a dense content system.</h2>
     <div class="cs-prose">
-      <p>During an audit of the Autofill experience, I identified this as a disclosure problem: the language was accurate, but dense. Value, security, data use, controls, and required disclosure were all competing for limited space.</p>
-      <p>The challenge was to make the experience clearer and more reassuring without losing information people needed to make an informed choice.</p>
-    </div>
-  </div>
-</section>
-<section class="cs-section cs-approach" aria-labelledby="trust-approach">
-  <div class="section-band"><p class="band-heading">What I did</p></div>
-  <div class="cs-shell">
-    <h2 id="trust-approach" style="max-width:none">I made every piece of content work harder.</h2>
-
-    <div class="cs-beat-copy cs-prose-narrow">
-      <p>I redesigned the language across multiple treatment experiences, adapting the content to different visual approaches while maintaining the same legal, privacy, and product requirements.</p>
-      <p>I focused on three things: clearer value, stronger trust signals, and better economy of space. That meant making the benefit more immediate, explaining security more directly, simplifying controls and settings language, and removing repetition across the existing disclosure layers.</p>
-    </div>
-
-    <div class="cs-need-grid">
-      <article><h4>Clearer value</h4><p>Made the benefit immediate and personal.</p></article>
-      <article><h4>Stronger trust</h4><p>Explained security more directly and confidently.</p></article>
-      <article><h4>Better economy</h4><p>Removed repetition and tightened every word.</p></article>
+      <p>Saving payment information is a high-trust decision. People needed to understand what would be saved, where it would be stored, how it would be used, why saving it was valuable, and how they could manage or decline it. The required information was distributed across the main prompt, expandable details, and footer, making the overall decision harder to understand quickly.</p>
+      <p>The disclosure was not one static experience. The content and required coverage changed based on region, platform, security model, consent history, and user state, producing 16 Save variants and 11 Use variants. A clearer experience therefore had to work as a coordinated content system, not as a rewrite of one prompt.</p>
+      <p>Earlier research showed no meaningful difference among subtle messaging variants. Testing a more substantial direction required close partnership with UXR, Product Design, and Product Management so the content, visual hierarchy, and product behavior worked together while still supporting the product goal.</p>
     </div>
 
     <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Problem framing</p>
       <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Five_Questions.png" data-lightbox-alt="Five questions people are implicitly asking at the save-card decision moment: what am I agreeing to now, what happens to my information later, what can I control, why should I want this, and can I trust this.">
         <img src="assets/case-studies/Autofill_Content_Optimization_Five_Questions.png" alt="Five questions people are implicitly asking at the save-card decision moment: what am I agreeing to now, what happens to my information later, what can I control, why should I want this, and can I trust this.">
       </button>
-      <figcaption class="cs-figure-caption">A content deconstruction of the save-card moment, presented after purchase, into the five distinct questions competing for attention. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Five_Questions.png" data-lightbox-alt="Five questions people are implicitly asking at the save-card decision moment: what am I agreeing to now, what happens to my information later, what can I control, why should I want this, and can I trust this.">View full breakdown ↗</button></figcaption>
+      <figcaption class="cs-figure-caption">The Save experience had to answer five connected questions clearly enough for someone to make an informed decision. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Five_Questions.png" data-lightbox-alt="Five questions people are implicitly asking at the save-card decision moment: what am I agreeing to now, what happens to my information later, what can I control, why should I want this, and can I trust this.">View full breakdown ↗</button></figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="cs-section" id="autofill-design-thinking" aria-labelledby="autofill-design-thinking-heading">
+  <div class="section-band"><p class="band-heading">Design thinking</p></div>
+  <div class="cs-shell">
+    <h2 id="autofill-design-thinking-heading">Designing a clear decision and reusable content guidance.</h2>
+    <div class="cs-prose">
+      <p>I proactively pitched and scoped a UXR study to understand whether different content emphasis changed how people understood and responded to Save Payment. I proposed the research experiences and content variants, then partnered with UXR to integrate them into the study. The results showed little meaningful difference among the subtler approaches, supporting a larger content and design exploration.</p>
+      <p>I also structured the guidance so Content Design, Legal, Privacy, and Product could see which language was required, where it applied, and how much flexibility each element allowed. Teams could combine state-specific requirements with updated core content, making future changes easier to develop, review, and scale.</p>
+      <p>I combined the research findings with the broader Autofill audit, source documentation, Data Science and Product input, Legal and Privacy requirements, and my content analysis to establish five principles:</p>
+    </div>
+
+    <div class="cs-need-grid">
+      <article><h4>Lead with the value</h4><p>Make the benefit of saving information for future checkout immediately clear.</p></article>
+      <article><h4>Make trust visible</h4><p>State how information is secured, stored, and managed in clear, prominent language.</p></article>
+      <article><h4>Make the language actionable</h4><p>Use headings, labels, and calls to action that clearly describe what will happen.</p></article>
+      <article><h4>Strengthen the decision language</h4><p>Help people understand what they are agreeing to and what control they retain.</p></article>
+      <article><h4>Structure disclosure by priority</h4><p>Keep the immediate decision concise while making required supporting details easy to access.</p></article>
+    </div>
+
+    <div class="cs-prose" style="margin-top:1.4rem">
+      <p>Using these principles, I defined the content strategy and authored content for two treatment directions with Product Design and Product Management. Product Design developed the final visual treatment for each direction alongside the content. One paired concise content with a more visual interface; the other used more explanation and stronger trust signals. Product Management connected the work to acceptance and credential-save goals, and UXR helped ensure the treatments answered a meaningful research question.</p>
+      <p>Together, the research, principles, and content guidance created a coordinated content strategy that could be tested and reused across the Autofill system.</p>
+    </div>
 
     <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Content strategy</p>
-      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" data-lightbox-alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language more actionable, strengthen the decision language, and reduce disclosure weight without removing it.">
-        <img src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language more actionable, strengthen the decision language, and reduce disclosure weight without removing it.">
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" data-lightbox-alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language actionable, strengthen the decision language, and structure disclosure by priority.">
+        <img src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language actionable, strengthen the decision language, and structure disclosure by priority.">
       </button>
-      <figcaption class="cs-figure-caption">The design principles used to restructure the screen around what people needed to understand before deciding. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" data-lightbox-alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language more actionable, strengthen the decision language, and reduce disclosure weight without removing it.">View full principles ↗</button></figcaption>
+      <figcaption class="cs-figure-caption">The five content design principles used to restructure the screen around what people needed to understand before deciding. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Making_Decision_Easier.png" data-lightbox-alt="Five content design principles applied to the save-card screen: lead with the value, make trust visible, make the language actionable, strengthen the decision language, and structure disclosure by priority.">View full principles ↗</button></figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="cs-section cs-approach" id="autofill-approach" aria-labelledby="autofill-approach-heading">
+  <div class="section-band"><p class="band-heading">What I did</p></div>
+  <div class="cs-shell">
+    <h2 id="autofill-approach-heading" style="max-width:none">Building a reusable Autofill content system.</h2>
+    <ol class="cs-steps">
+      <li class="cs-step">
+        <span class="cs-step-num">01</span>
+        <div class="cs-step-body">
+          <h3>Reconstructed the baseline</h3>
+          <p>I gathered product documentation, source language, prior decisions, and Legal and Privacy guidance, then worked with partners to clarify why each content element existed, which requirements applied, and where the experience had room to change.</p>
+        </div>
+      </li>
+      <li class="cs-step">
+        <span class="cs-step-num">02</span>
+        <div class="cs-step-body">
+          <h3>Mapped the product states</h3>
+          <p>I mapped the logic behind 16 Save Payment variants, including regional, security, consent, and user-state differences. I later applied the same model across 11 Use Payment variants, identifying the shared content foundation and the requirements triggered by each state.</p>
+        </div>
+      </li>
+      <li class="cs-step">
+        <span class="cs-step-num">03</span>
+        <div class="cs-step-body">
+          <h3>Authored the experiment treatments</h3>
+          <p>I deconstructed the main prompt, expandable details, calls to action, and footer, then authored the content for the more visual and more explanatory directions. I adapted both directions across the required Save states while preserving a coherent value proposition, trust model, and interaction language.</p>
+        </div>
+      </li>
+      <li class="cs-step">
+        <span class="cs-step-num">04</span>
+        <div class="cs-step-body">
+          <h3>Created a repeatable review process</h3>
+          <p>I built a cross-variant review matrix that showed the control and proposed treatments across applicable product states. This gave Content Design, Product, Design, Legal, and Privacy one place to review changes, document decisions, and reuse approved language in subsequent Autofill experiments.</p>
+        </div>
+      </li>
+    </ol>
 
     <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Execution proof</p>
       <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Control_Variants.jpg" data-lightbox-alt="A comparison of the Control, Variant A, and Variant B save-card treatments in collapsed and expanded states, with a row-by-row breakdown of headline, subhead, info section, expanded view details, save CTA, and disclosure copy for each.">
         <img src="assets/case-studies/Autofill_Content_Optimization_Control_Variants.jpg" alt="A comparison of the Control, Variant A, and Variant B save-card treatments in collapsed and expanded states, with a row-by-row breakdown of headline, subhead, info section, expanded view details, save CTA, and disclosure copy for each.">
       </button>
-      <figcaption class="cs-figure-caption">The Control, Variant A, and Variant B treatments that carried the content strategy into a testable comparison. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Control_Variants.jpg" data-lightbox-alt="A comparison of the Control, Variant A, and Variant B save-card treatments in collapsed and expanded states, with a row-by-row breakdown of headline, subhead, info section, expanded view details, save CTA, and disclosure copy for each.">View full comparison ↗</button></figcaption>
-    </figure>
-
-    <figure class="cs-featured-visual" style="margin-top:1.8rem">
-      <p class="cs-mini-label" style="margin-bottom:8px">Word count impact</p>
-      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Word_Count_and_Design_Thinking_DETAIL_CORRECTED.png" data-lightbox-alt="A detailed word-count comparison for the info section label, three expanded view detail rows, and the footer disclosure, with before and after word counts, percentage reductions, and design-thinking rationale for each change.">
-        <img src="assets/case-studies/Word_Count_and_Design_Thinking_SHORT_CORRECTED.png" alt="A word-count comparison showing a 46% reduction across the full disclosure and a 58% reduction in the footer disclosure, with before-and-after examples for the info section label, expanded view details, and footer copy.">
-      </button>
-      <figcaption class="cs-figure-caption">The word-count impact across the disclosure, expanded details, and footer. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Word_Count_and_Design_Thinking_DETAIL_CORRECTED.png" data-lightbox-alt="A detailed word-count comparison for the info section label, three expanded view detail rows, and the footer disclosure, with before and after word counts, percentage reductions, and design-thinking rationale for each change.">View full detail ↗</button></figcaption>
+      <figcaption class="cs-figure-caption">The cross-variant review matrix carried the content strategy into a testable comparison across the Control, Variant A, and Variant B treatments. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Autofill_Content_Optimization_Control_Variants.jpg" data-lightbox-alt="A comparison of the Control, Variant A, and Variant B save-card treatments in collapsed and expanded states, with a row-by-row breakdown of headline, subhead, info section, expanded view details, save CTA, and disclosure copy for each.">View full comparison ↗</button></figcaption>
     </figure>
   </div>
 </section>
-<section class="cs-section" aria-labelledby="trust-resolution">
+
+<section class="cs-section" id="autofill-solution" aria-labelledby="autofill-solution-heading">
+  <div class="section-band"><p class="band-heading">The solution</p></div>
   <div class="cs-shell">
-    <p class="cs-section-label">Resolution</p>
-    <h2 id="trust-resolution">The experience became substantially clearer without sacrificing required coverage.</h2>
-    <div class="cs-prose">
-      <p>The redesigned treatments reduced the full disclosure by 46% and the primary consent disclosure by 58%, while preserving the information the experience was required to communicate.</p>
-      <p>The work also established an approved content baseline the team could reuse rather than starting over with each new Autofill iteration.</p>
+    <h2 id="autofill-solution-heading" style="max-width:none">A clearer consent experience and a stronger foundation for future work.</h2>
+    <ol class="cs-steps">
+      <li class="cs-step">
+        <span class="cs-step-num">01</span>
+        <div class="cs-step-body">
+          <h3>Optimize the content for a clearer decision</h3>
+          <p>I rewrote the headlines, supporting copy, calls to action, and disclosures in direct, active language. The content led with the benefit, made security and data use more explicit, clarified the controls people retained, and described each product state more precisely. I also removed repetition and replaced broad language with more specific guidance where requirements allowed.</p>
+        </div>
+      </li>
+      <li class="cs-step">
+        <span class="cs-step-num">02</span>
+        <div class="cs-step-body">
+          <h3>Reduce cognitive load through hierarchy and structure</h3>
+          <p>I shortened the primary and complete disclosure experiences and prioritized what people needed to understand at the consent moment. Supporting requirements were organized within the existing disclosure layers, preserving the information people needed to assess value, security, control, and data use.</p>
+        </div>
+      </li>
+      <li class="cs-step">
+        <span class="cs-step-num">03</span>
+        <div class="cs-step-body">
+          <h3>Document a new decision and approval baseline</h3>
+          <p>I documented the approved language, requirements, rationale, and conditions that applied across Save Payment states. Legal and Privacy could reference previous decisions and focus future reviews on what was new or changing. When appropriate, teams could inform them of an update using the approved baseline rather than restarting the full approval process.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="cs-prose" style="margin-top:1.4rem">
+      <p>Together, the optimized language, clearer hierarchy, and documented baseline made the consent decision easier to understand and created a more efficient foundation for future Autofill work.</p>
+    </div>
+
+    <figure class="cs-featured-visual" style="margin-top:1.8rem">
+      <button type="button" class="cs-figure-frame" data-lightbox data-lightbox-src="assets/case-studies/Word_Count_and_Design_Thinking_DETAIL_CORRECTED.png" data-lightbox-alt="A detailed word-count comparison for the info section label, three expanded view detail rows, and the footer disclosure, with before and after word counts and percentage reductions for each.">
+        <img src="assets/case-studies/Word_Count_and_Design_Thinking_SHORT_CORRECTED.png" alt="A word-count comparison showing a 46% reduction across the full disclosure and a 58% reduction in the primary disclosure, with before-and-after examples for the info section label, expanded view details, and footer copy.">
+      </button>
+      <figcaption class="cs-figure-caption">The word-count impact across the disclosure, expanded details, and footer. <button type="button" class="cs-lightbox-link" data-lightbox data-lightbox-src="assets/case-studies/Word_Count_and_Design_Thinking_DETAIL_CORRECTED.png" data-lightbox-alt="A detailed word-count comparison for the info section label, three expanded view detail rows, and the footer disclosure, with before and after word counts and percentage reductions for each.">View full detail ↗</button></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="cs-section cs-reflection" id="autofill-reflection" aria-labelledby="autofill-reflection-heading">
+  <div class="section-band"><p class="band-heading">Reflection</p></div>
+  <div class="cs-shell">
+    <h2 id="autofill-reflection-heading" class="visually-hidden">Reflection</h2>
+    <div class="cs-reflection-row">
+      <h3>Document the full decision</h3>
+      <p>A durable content record includes the decisions, requirements, approvals, rationale, and final language. Memory fades, product ownership changes, and future partners should have the context ready when they need it. That record also makes Legal and Privacy approval easier by showing what has already been decided, what requirements apply, and exactly what is changing.</p>
+    </div>
+    <div class="cs-reflection-row">
+      <h3>Make it easy to say yes</h3>
+      <p>Content quality depends on advocacy. I brought Legal and Privacy into the work early to understand their existing guidance, identify what context they needed, and establish a shared starting point. I then prepared complete review packages that made the requirements, rationale, options, and proposed changes easy to evaluate. The process gave each partner a voice in the decisions while keeping the work organized and moving toward a shared, defensible outcome. For a global, revenue-driving product with significant compliance requirements, that made it easier for everyone to understand the changes, weigh the tradeoffs, and say yes.</p>
+    </div>
+    <div class="cs-reflection-row">
+      <h3>Advocate for quality beyond the metrics</h3>
+      <p>Content optimization will not always produce enough metric movement to unlock further investment. Clear, reusable consent content aligned with Product, Legal, and Privacy guidance is still good UX. Content Design connects user needs, product goals, system behavior, and regulatory requirements. Part of the role is protecting and advocating for the user experience when immediate results do not tell the whole story.</p>
     </div>
   </div>
 </section>
-<section class="cs-section cs-reflection" aria-labelledby="trust-reflection">
-  <div class="section-band"><p class="band-heading">Reflection</p></div>
-  <div class="cs-shell">
-    <h2 id="trust-reflection" style="max-width:none">Better disclosure isn’t about saying less. It’s about making the available space more valuable.</h2>
-    <p>The work separated two questions that are easy to conflate: does this change the metric, and is this a better experience? Even without an overall experiment win, we created a clearer, more efficient model for communicating a sensitive decision.</p>
-  </div>
-</section>
-    <nav class="cs-case-nav" aria-label="Case study navigation"><a href="accessibility.html"><span aria-hidden="true">←</span> Previous: Accessibility operating model</a><a href="work.html">All case studies</a><span></span></nav>
+    <nav class="cs-case-nav" aria-label="Case study navigation"><a href="accessibility.html"><span aria-hidden="true">←</span> Previous: Accessibility operating model</a><a href="work.html">All case studies</a><a href="hxp.html">Next: Browser evolution <span aria-hidden="true">→</span></a></nav>
   </main>
   <footer class="footer">
     <span>© 2026 Sarah Haas</span>

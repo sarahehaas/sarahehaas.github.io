@@ -93,7 +93,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .confusion-band{background:var(--tint-bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .confusion-inner{max-width:var(--max);margin:0 auto;padding:26px 32px;display:grid;grid-template-columns:1fr 1px 1fr;align-items:center}
 .confusion-left{padding-right:32px}
-.confusion-lead{margin:0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:24px;letter-spacing:-.01em;color:var(--ink)}
+.confusion-lead{margin:0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink)}
 .confusion-aside{margin-top:4px}
 .confusion-aside span{font-size:13px;color:#5a6f6f}
 .confusion-divider{width:1px;height:100%;background:var(--hairline);margin:0 32px}
@@ -125,7 +125,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
 /* ============ Home: what I bring strip ============ */
 .bring-strip{padding:8px 0 44px;border-top:0}
-.bring-strip h2{font-size:22px;font-weight:600;text-align:center;margin:0 0 24px}
+.bring-strip h2{font-size:22px;font-weight:600;margin:0 0 24px}
 .bring-strip-grid.six{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 28px}
 .bring-strip-grid.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 28px}
 .bring-strip-grid article{border:0;padding:0}
@@ -245,6 +245,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .cs-section.cs-impact h2,.cs-section.cs-impact p{color:var(--tint-ink)}
 .cs-section h2{max-width:700px;margin:8px 0 14px;font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.2;letter-spacing:-.005em}
 .cs-prose{max-width:75ch}
+.cs-lead-in{font-weight:700;color:var(--ink)}
 .cs-prose p,.cs-prose-narrow p{font-size:14px;line-height:1.6}
 .cs-prose p{color:var(--body)}
 .cs-prose p+p{margin-top:12px}
@@ -362,6 +363,33 @@ button.cs-figure-frame:focus-visible{outline:2px solid var(--teal);outline-offse
 .cs-list li{margin-bottom:.5rem}
 .cs-list li:last-child{margin-bottom:0}
 .cs-prose-narrow .cs-list,.cs-beat-copy .cs-list{font-size:13.5px}
+
+/* Generic (non-page-scoped) equivalents of the role-block, goal/outcome grid,
+   and numbered-steps patterns already used on the per-page-prefixed case
+   studies (aiw-/acc-/aud-/tab-), for pages that don't use a page prefix.
+   Values match those patterns exactly - no new sizes, colors, or spacing. */
+.cs-field-label{margin:0 0 6px;color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:600}
+.cs-role-block{margin-top:28px;padding-top:20px;border-top:1px solid var(--hairline)}
+.cs-role-block p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.cs-goal-outcome{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px;padding-top:20px;border-top:1px solid var(--hairline)}
+.cs-goal-outcome p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.cs-results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.cs-results-grid p{margin:8px 0 0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+@media (max-width:760px){
+  .cs-goal-outcome{grid-template-columns:1fr;gap:16px}
+  .cs-results-grid{grid-template-columns:1fr;gap:20px}
+}
+.cs-steps{margin:0;padding:0;list-style:none}
+.cs-step{display:flex;gap:16px;padding:0 0 20px;margin:0 0 20px;border-bottom:1px solid var(--hairline)}
+.cs-step:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.cs-step-num{flex:0 0 auto;color:var(--muted);font-family:var(--sans);font-size:14px;font-weight:400;line-height:1.6}
+.cs-step-body{flex:1 1 auto;min-width:0}
+.cs-step-body h3{margin:0 0 4px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4}
+.cs-step-body p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
+.cs-reflection-row{padding:0 0 20px;margin:0 0 20px;border-bottom:1px solid var(--hairline)}
+.cs-reflection-row:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.cs-reflection-row h3{margin:0 0 4px;color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4}
+.cs-reflection-row p{margin:0;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6}
 
 /* Needs / jobs-to-be-done mini-grid (3+ items, label + short description) */
 .cs-need-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
@@ -610,7 +638,10 @@ body.redesign-preview .bring-strip-grid h3{margin-bottom:4px}
 body.redesign-preview .about-preview.text-only{max-width:1200px;padding:36px 40px 40px}
 body.redesign-preview .about-preview.text-only .about-copy{display:grid;grid-template-columns:280px 1fr;gap:48px;max-width:none}
 body.redesign-preview .about-copy-heading,body.redesign-preview .about-copy-body{max-width:none}
+body.redesign-preview .about-copy-heading h2{font-size:17px;line-height:1.3;margin:0}
 body.redesign-preview .about-copy-body p{max-width:640px}
+body.redesign-preview .about-copy-body p:first-child{font-size:13.5px;color:var(--ink)}
+body.redesign-preview .about-copy-body p:first-child strong{font-weight:700}
 @media (max-width:760px){
   body.redesign-preview .about-preview.text-only{padding:36px 20px 40px}
   body.redesign-preview .about-preview.text-only .about-copy{grid-template-columns:1fr;gap:14px}
@@ -954,10 +985,10 @@ body.redesign-preview .cs-figure-caption em{font-style:italic;font-weight:400;co
   .cs-interactive-demo{display:none!important}
 }
 
-/* Impact — horizontal numbers, thin separators, no enclosing box */
+/* Impact — horizontal numbers with thin separators, framed in a light tint box */
 body.redesign-preview .cs-section.cs-impact{background:none;border:0;margin-top:90px;padding:0}
 body.redesign-preview .cs-section.cs-impact h2,body.redesign-preview .cs-section.cs-impact p{color:var(--ink)}
-body.redesign-preview .cs-metrics{background:none;border:0;padding:0;gap:0}
+body.redesign-preview .cs-metrics{background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:24px 28px;gap:0}
 body.redesign-preview .cs-metrics article{border-right:1px solid var(--hairline-strong);padding:0 32px}
 body.redesign-preview .cs-metrics article:first-child{padding-left:0}
 body.redesign-preview .cs-metrics article:last-child{border-right:0;padding-right:0}
@@ -1066,7 +1097,8 @@ body.redesign-preview .footer strong{color:#fff}
    from spacing/rules/weight rather than a tiny-eyebrow + oversized
    headline + small description pattern. */
 body.redesign-preview .final-hero h1{font-size:clamp(1.7rem,3.2vw,2.15rem);line-height:1.18}
-body.redesign-preview .hero-split h1{font-size:clamp(1.6rem,3vw,2rem);line-height:1.2}
+body.redesign-preview .hero-split h1{font-size:clamp(1.5rem,2.6vw,1.85rem);line-height:1.22}
+body.redesign-preview .hero-split .lede{font-size:15.5px;line-height:1.55}
 body.redesign-preview .cs-hero h1{font-size:clamp(1.5rem,3vw,1.9rem);line-height:1.2;max-width:none}
 body.redesign-preview .page-hero h1{font-size:clamp(1.6rem,3vw,2rem);line-height:1.2}
 
@@ -1266,11 +1298,12 @@ body.redesign-preview .card-thumb-frame{border:1px solid var(--card-border);bord
 }
 
 /* Shared major-section system: thin top divider + teal heading + body */
-.ai-workflows-page .aiw-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.ai-workflows-page .aiw-section{padding:0 0 36px;border-top:1px solid var(--hairline)}
+.ai-workflows-page .aiw-section .section-band{margin-bottom:28px}
 .ai-workflows-page .aiw-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
 
 /* Results */
-.ai-workflows-page .aiw-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ai-workflows-page .aiw-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:24px 28px}
 .ai-workflows-page .aiw-metrics article{padding:0}
 .ai-workflows-page .aiw-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
 .ai-workflows-page .aiw-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
@@ -1302,12 +1335,12 @@ body.redesign-preview .card-thumb-frame{border:1px solid var(--card-border);bord
 .ai-workflows-page .aiw-solution-text{margin:0 0 24px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
 .ai-workflows-page .aiw-primary-artifact{margin:0 0 28px}
 .ai-workflows-page .aiw-primary-artifact .cs-figure-frame{width:100%}
-.ai-workflows-page .aiw-primary-artifact figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.ai-workflows-page .aiw-primary-artifact figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 
 .ai-workflows-page .aiw-teaser-row{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .ai-workflows-page .aiw-teaser-row figure{margin:0}
 .ai-workflows-page .aiw-teaser-row .cs-figure-frame{width:100%;padding:12px}
-.ai-workflows-page .aiw-teaser-row figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.ai-workflows-page .aiw-teaser-row figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 @media (max-width:820px){
   .ai-workflows-page .aiw-teaser-row{grid-template-columns:1fr;gap:20px}
 }
@@ -1356,11 +1389,12 @@ body.autofill-audit-page .cs-overview{max-width:none}
 }
 
 /* Shared major-section system: thin top divider + teal heading + body */
-.autofill-audit-page .aud-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.autofill-audit-page .aud-section{padding:0 0 36px;border-top:1px solid var(--hairline)}
+.autofill-audit-page .aud-section .section-band{margin-bottom:28px}
 .autofill-audit-page .aud-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
 
 /* Results */
-.autofill-audit-page .aud-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.autofill-audit-page .aud-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:24px 28px}
 .autofill-audit-page .aud-metrics article{padding:0}
 .autofill-audit-page .aud-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
 .autofill-audit-page .aud-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
@@ -1393,7 +1427,7 @@ body.autofill-audit-page .cs-overview{max-width:none}
 .autofill-audit-page .aud-artifact-stack{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .autofill-audit-page .aud-artifact-stack figure{margin:0}
 .autofill-audit-page .aud-artifact-stack .cs-figure-frame{width:100%;padding:12px}
-.autofill-audit-page .aud-artifact-stack figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.autofill-audit-page .aud-artifact-stack figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 @media (max-width:820px){
   .autofill-audit-page .aud-artifact-stack{grid-template-columns:1fr;gap:20px}
 }
@@ -1434,10 +1468,11 @@ body.autofill-audit-page .cs-overview{max-width:none}
   .accessibility-page .acc-goal-outcome{grid-template-columns:1fr;gap:16px}
 }
 
-.accessibility-page .acc-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.accessibility-page .acc-section{padding:0 0 36px;border-top:1px solid var(--hairline)}
+.accessibility-page .acc-section .section-band{margin-bottom:28px}
 .accessibility-page .acc-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
 
-.accessibility-page .acc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.accessibility-page .acc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:24px 28px}
 .accessibility-page .acc-metrics article{padding:0}
 .accessibility-page .acc-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
 .accessibility-page .acc-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
@@ -1478,7 +1513,7 @@ body.autofill-audit-page .cs-overview{max-width:none}
 
 .accessibility-page .acc-artifact{margin:0 0 28px}
 .accessibility-page .acc-artifact:last-child{margin-bottom:0}
-.accessibility-page .acc-artifact figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.accessibility-page .acc-artifact figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 
 .accessibility-page .acc-demo{margin-top:28px}
 .accessibility-page .acc-demo-caption{margin:0 0 8px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
@@ -1512,10 +1547,11 @@ body.accessibility-page .cs-overview{max-width:none}
   .tabs-page .tab-goal-outcome{grid-template-columns:1fr;gap:16px}
 }
 
-.tabs-page .tab-section{padding:36px 0;border-top:1px solid var(--hairline)}
+.tabs-page .tab-section{padding:0 0 36px;border-top:1px solid var(--hairline)}
+.tabs-page .tab-section .section-band{margin-bottom:28px}
 .tabs-page .tab-heading{margin:0 0 16px;color:var(--teal);font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.005em}
 
-.tabs-page .tab-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tabs-page .tab-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:var(--tint-bg);border:1px solid var(--tint-border);border-radius:var(--radius);padding:24px 28px}
 .tabs-page .tab-metrics article{padding:0}
 .tabs-page .tab-metrics strong{display:block;color:var(--ink);font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.25}
 .tabs-page .tab-metrics span{display:block;margin-top:4px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.4;font-weight:400}
@@ -1547,12 +1583,12 @@ body.accessibility-page .cs-overview{max-width:none}
 .tabs-page .tab-solution-text{margin:0 0 18px;color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400}
 .tabs-page .tab-solution-text:last-of-type{margin-bottom:28px}
 .tabs-page .tab-primary-artifact{margin:0 0 28px}
-.tabs-page .tab-primary-artifact figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.tabs-page .tab-primary-artifact figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 
 .tabs-page .tab-artifact-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .tabs-page .tab-artifact-pair figure{margin:0}
 .tabs-page .tab-artifact-pair .cs-figure-frame{width:100%;padding:12px}
-.tabs-page .tab-artifact-pair figcaption{margin-top:10px;color:var(--muted);font-family:var(--sans);font-size:13.5px;line-height:1.5}
+.tabs-page .tab-artifact-pair figcaption{margin-top:10px;color:var(--faint-2);font-family:var(--sans);font-size:12px;line-height:1.5}
 @media (max-width:820px){
   .tabs-page .tab-artifact-pair{grid-template-columns:1fr;gap:20px}
 }
